@@ -1,22 +1,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(DoubleAudioSource))]
+[RequireComponent(typeof(SyncAudioSources))]
 public class MusicManager : MonoBehaviour
 {
+    public enum MusicState
+    {
+        MainMenu,
+        Victory,
+        GameOver,
+        Gameplay,
+    }
+
     private static MusicManager _Instance;
 
     [System.Serializable]
-    public class Track
+    public class StateSong
     {
-        public string label;
-        public AudioClip audioClip;
+        public MusicState state;
+        public AudioClip track;
     }
 
-    public float volume = 0.5f;
-    [SerializeField] public List<Track> trackList = new();
+    [System.Serializable]
+    public class GameSong
+    {
+        public string songName;
 
-    private DoubleAudioSource _doubleAudioSource;
+        // Always 4 clips -- bass, drums, vocals, inst
+        [SerializeField] public AudioClip[] tracks = new AudioClip[4];
+    }
+
+    public MusicState startState = MusicState.MainMenu;
+
+    [SerializeField] private List<StateSong> states;
+    [SerializeField] private List<GameSong> levels;
+
+    // We need four synced audio sources
+    [SerializeField] private List<AudioSource> audioSources;
+
+    private MusicState _state;
+
+    private SyncAudioSources _syncedAudio;
+
+    public MusicState state
+    {
+        get { return _state; }
+        set { SetState(value); }
+    }
 
     void Awake()
     {
@@ -26,23 +56,35 @@ public class MusicManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _doubleAudioSource = GetComponent<DoubleAudioSource>();
+        _syncedAudio = GetComponent<SyncAudioSources>();
 
-        // Play the initial track
-        if (trackList.Count > 0) _PlayTrack(trackList[0].label);
+        SetState(startState);
     }
 
-    void _PlayTrack(string label, float fadingTime = 0f)
+    private void SetState(MusicState s, string songName = "")
     {
-        Track track = trackList.Find(t => t.label == label);
+        _state = s;
 
-        if (track == null) return;
+        if (_state == MusicState.Gameplay)
+        {
+            // Find level
+            GameSong level = levels.Find(l => l.songName == songName);
+            if (level == null) return;
 
-        _doubleAudioSource.CrossFade(track.audioClip, volume, fadingTime);
-    }
+            // TODO: Delayable, add 8 beat metronome count-in
 
-    public static void PlayTrack(string label, float fadingTime = 0f)
-    {
-        _Instance._PlayTrack(label, fadingTime);
+            // Start game music
+            List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
+            _syncedAudio.Play(new List<AudioClip>(level.tracks), volumes);
+        }
+        else
+        {
+            // Find state
+            StateSong stateSong = states.Find(st => st.state == s);
+            if (stateSong == null) return;
+
+            // Play track
+            _syncedAudio.PlayOne(stateSong.track);
+        }
     }
 }
