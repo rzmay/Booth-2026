@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StreakTracker : MonoBehaviour
 {
-    private static StreakTracker _Instance;
+    public static StreakTracker Instance;
 
     [System.Serializable]
     public class Preset
@@ -51,14 +52,14 @@ public class StreakTracker : MonoBehaviour
         set { _streak = Mathf.Clamp(value, 0, _song?.maxStreak ?? 0); }
     }
 
-    // Returns a float 0 - 4 representing progress through threshholds. Use for graphics
-    public float streakProgress
+    // Returns a float array of each progress
+    public float[] streakProgresses
     {
         get
         {
-            if (_song == null) return 0f;
+            if (_song == null) return new float[4];
 
-            float sum = 0f;
+            float[] arr = new float[4];
 
             for (int i = 0; i < _song.trackThresholds.Length; i++)
             {
@@ -67,17 +68,20 @@ public class StreakTracker : MonoBehaviour
 
                 float t = Mathf.InverseLerp(lowerBound, upperBound, _streak);
 
-                sum += Mathf.Clamp(t, 0, 1);
+                arr[i] = t;
             }
 
-            return sum;
+            return arr;
         }
     }
+
+    // Returns a float 0 - 4 representing progress through threshholds. Use for graphics
+    public float streakProgress { get { return streakProgresses.Sum(); } }
 
 
     void Awake()
     {
-        _Instance = this;
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -85,11 +89,16 @@ public class StreakTracker : MonoBehaviour
     {
     }
 
-    public void TrackCue(MovementCue.Result result, int level = 0)
+    void _TrackCue(MovementCue.Result result, int level = 0)
     {
         if (_song == null) return;
 
         int i = Mathf.Clamp(level, 0, _song.cueScores.Count - 1);
         _streak += _song.cueScores[i][result];
+    }
+
+    public static void TrackCue(MovementCue.Result result, int level = 0)
+    {
+        Instance._TrackCue(result, level);
     }
 }

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class SyncAudioSources : MonoBehaviour
 {
+    private static SyncAudioSources _Instance;
+
     [SerializeField] private List<AudioSource> sources;
+
+    void Awake()
+    {
+        _Instance = this;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +35,7 @@ public class SyncAudioSources : MonoBehaviour
         }
     }
 
-    public void Play(List<AudioClip> clips, List<float> volumes = null)
+    void _Play(List<AudioClip> clips, List<float> volumes = null)
     {
         for (int i = 0; i < Mathf.Min(sources.Count, clips.Count); i++)
         {
@@ -40,7 +47,7 @@ public class SyncAudioSources : MonoBehaviour
         }
     }
 
-    public void PlayOne(AudioClip clip)
+    void _PlayOne(AudioClip clip)
     {
         if (sources.Count < 1) return;
 
@@ -54,5 +61,29 @@ public class SyncAudioSources : MonoBehaviour
             sources[i].Stop();
             sources[i].volume = 0f;
         }
+    }
+
+    void _SetVolumes(List<float> volumes)
+    {
+        for (int i = 0; i < Mathf.Min(sources.Count, volumes.Count); i++)
+        {
+            float volume = volumes[i];
+            sources[i].volume = volume;
+        }
+    }
+
+    public static void Play(List<AudioClip> clips, List<float> volumes = null)
+    {
+        _Instance._Play(clips, volumes);
+    }
+
+    public static void PlayOne(AudioClip clip)
+    {
+        _Instance._PlayOne(clip);
+    }
+
+    public static void SetVolumes(List<float> volumes)
+    {
+        _Instance._SetVolumes(volumes);
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(SyncAudioSources))]
@@ -7,6 +8,7 @@ public class MusicManager : MonoBehaviour
     public enum MusicState
     {
         MainMenu,
+        Calibrate,
         Victory,
         GameOver,
         Gameplay,
@@ -35,8 +37,8 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private List<StateSong> states;
     [SerializeField] private List<GameSong> levels;
 
-    // We need four synced audio sources
-    [SerializeField] private List<AudioSource> audioSources;
+    // How quickly does each track come in?
+    public float volumePower = 0.25f;
 
     private MusicState _state;
 
@@ -61,6 +63,18 @@ public class MusicManager : MonoBehaviour
         SetState(startState);
     }
 
+    void Update()
+    {
+        SyncStreak();
+    }
+
+    void SyncStreak()
+    {
+        List<float> progresses = new List<float>(StreakTracker.Instance.streakProgresses);
+        List<float> volumes = progresses.Select(p => Mathf.Pow(p, volumePower)).ToList();
+        SyncAudioSources.SetVolumes(volumes);
+    }
+
     private void SetState(MusicState s, string songName = "")
     {
         _state = s;
@@ -75,7 +89,7 @@ public class MusicManager : MonoBehaviour
 
             // Start game music
             List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
-            _syncedAudio.Play(new List<AudioClip>(level.tracks), volumes);
+            SyncAudioSources.Play(new List<AudioClip>(level.tracks), volumes);
         }
         else
         {
@@ -84,7 +98,7 @@ public class MusicManager : MonoBehaviour
             if (stateSong == null) return;
 
             // Play track
-            _syncedAudio.PlayOne(stateSong.track);
+            SyncAudioSources.PlayOne(stateSong.track);
         }
     }
 }
