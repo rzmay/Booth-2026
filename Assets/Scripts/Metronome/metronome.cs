@@ -11,16 +11,19 @@ public sealed class Metronome : MonoBehaviour
     [SerializeField] private float bpm = 120.0f;
     [SerializeField] private float offset = 0.0f;
     [SerializeField] private float delay = 0.1f;
-    [SerializeField] AudioSource musicSource;
+    [SerializeField] private AudioSource musicSource;
+
+    // runtime state
     private bool isPlaying = false;
     private double startDspTime = 0.0;
+    private int lastBeatIndex = -1;
+    private int curBeatIndex = -1;
 
+    // events
     public event Action<int, double> OnBeat; // beatIndex, beatDspTime
 
-    int lastBeatIndex = -1;
 
-
-    //####### METRONOME CORE METHODS #######//
+    //####### METRONOME CORE CONTROLS #######//
 
     // Gets the initial DSP time and starts the music. Changes isPlaying to true.
     public void Play()
@@ -53,7 +56,7 @@ public sealed class Metronome : MonoBehaviour
         if (beatTime < 0.0)
             return; // not yet reached offset
 
-        int curBeatIndex = (int)Math.Floor(beatTime / secsPerBeat);
+        curBeatIndex = (int)Math.Floor(beatTime / secsPerBeat);
 
 
         // Catch-up loop: if we skipped beats from low FPS, fire all events
@@ -78,6 +81,8 @@ public sealed class Metronome : MonoBehaviour
         lastBeatIndex = -1;
     }
 
+    //####### HELPER FUNCTIONS / UTILITY FUNCTIONS #######//
+
     // returns the current beat phase (0.0 to 1.0) of the metronome
     // 0.0 = start of beat, 0.5 = middle of beat, 1.0 = end of beat, etc
     // can be used for triplets, quartets, etc
@@ -99,9 +104,6 @@ public sealed class Metronome : MonoBehaviour
         double beatPos = beatTime / secsPerBeat;
         return (float)(beatPos - Math.Floor(beatPos));
     }
-
-
-    //####### HELPER FUNCTIONS / UTILITY FUNCTIONS #######//
 
     // private helper that returns current dsp time
     private double getDSPTime()
@@ -125,4 +127,7 @@ public sealed class Metronome : MonoBehaviour
         double songTime = dspTime - startDspTime;
         return songTime;
     }
+
+    // gets beatIndex based on current song time
+
 }
