@@ -11,11 +11,9 @@ public sealed class Metronome : MonoBehaviour
     [SerializeField] private float bpm = 120.0f;
     [SerializeField] private float offset = 0.0f;
     [SerializeField] private float delay = 0.1f;
+    [SerializeField] AudioSource musicSource;
     private bool isPlaying = false;
     private double startDspTime = 0.0;
-
-    // DEFINE AUDIO SOURCE UNDER //
-    [SerializeField] AudioSource musicSource;
 
     public event Action<int, double> OnBeat; // beatIndex, beatDspTime
 
@@ -79,6 +77,29 @@ public sealed class Metronome : MonoBehaviour
         startDspTime = 0.0;
         lastBeatIndex = -1;
     }
+
+    // returns the current beat phase (0.0 to 1.0) of the metronome
+    // 0.0 = start of beat, 0.5 = middle of beat, 1.0 = end of beat, etc
+    // can be used for triplets, quartets, etc
+    public float getBeatPhase()
+    {
+        if (!isPlaying)
+            return 0.0f;
+
+        if (bpm <= 0.0f)
+            return 0.0f;
+
+        double secsPerBeat = 60.0 / bpm;
+        double songTime = getSongTimeSeconds();
+        double beatTime = songTime - offset;
+
+        if (beatTime < 0.0)
+            return 0.0f;
+
+        double beatPos = beatTime / secsPerBeat;
+        return (float)(beatPos - Math.Floor(beatPos));
+    }
+
 
     //####### HELPER FUNCTIONS / UTILITY FUNCTIONS #######//
 
