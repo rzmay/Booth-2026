@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementCue : MonoBehaviour
+public class MovementCue : Schedulable
 {
     public enum Result
     {
@@ -28,8 +28,6 @@ public class MovementCue : MonoBehaviour
     // TODO: Calibrate this to a reasonable value
     public float hitRadius = 0.05f;
 
-    // Start time needs to be set precisely so that the perfect timing is on beat
-    [HideInInspector] public float startTime;
     private float _time;
     private bool _hit = false;
 
@@ -47,6 +45,9 @@ public class MovementCue : MonoBehaviour
             return Mathf.Clamp(earlyProgress, 0, 1) + Mathf.Clamp(lateProgress, 0, 1);
         }
     }
+
+    // Override scheduleAhead
+    [HideInInspector] public float scheduleAhead { get { return earlyWindow; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
