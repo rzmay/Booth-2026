@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 542657347456063229}
   - component: {fileID: 7498836681650818095}
   - component: {fileID: 7856775468480978420}
+  - component: {fileID: 2445512496077410121}
   m_Layer: 0
   m_Name: EQRing
   m_TagString: Untagged
@@ -243,3 +244,16 @@ MonoBehaviour:
   useSmoothing: 1
   attackSpeed: 50
   releaseSpeed: 10
+--- !u!114 &2445512496077410121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922646691302161381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234278f5b141d4e3b9a893b5cf3d825c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetEQSource
+  sources: 00000000

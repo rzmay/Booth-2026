@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class SyncAudioSources : MonoBehaviour
 {
-    private static SyncAudioSources _Instance;
+    public static SyncAudioSources Instance;
 
-    [SerializeField] private List<AudioSource> sources;
+    [SerializeField] public List<AudioSource> sources;
 
     [SerializeField] private float volumeSmoothingSpeed = 5f;
 
@@ -13,7 +13,7 @@ public class SyncAudioSources : MonoBehaviour
 
     void Awake()
     {
-        _Instance = this;
+        Instance = this;
 
         // Initialize target volumes to current source volumes
         targetVolumes.Clear();
@@ -107,16 +107,16 @@ public class SyncAudioSources : MonoBehaviour
 
     public static void Play(List<AudioClip> clips, List<float> volumes = null)
     {
-        _Instance._Play(clips, volumes);
+        Instance._Play(clips, volumes);
     }
 
     public static void PlayOne(AudioClip clip)
     {
-        _Instance._PlayOne(clip);
+        Instance._PlayOne(clip);
     }
 
     public static void SetVolumes(List<float> volumes)
     {
-        _Instance._SetVolumes(volumes);
+        Instance._SetVolumes(volumes);
     }
 }
