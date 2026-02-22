@@ -11,7 +11,7 @@ public sealed class Metronome : MonoBehaviour
     [SerializeField] private float bpm = 120.0f;
     [SerializeField] private float offset = 0.0f;
     [SerializeField] private float delay = 0.1f;
-    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private SyncAudioSources musicSource;
 
     // runtime state
     private bool isPlaying = false;
@@ -129,5 +129,13 @@ public sealed class Metronome : MonoBehaviour
     }
 
     // gets beatIndex based on current song time
+    public int getCurrentBeatIndex()
+    {
+        return curBeatIndex;
+    }
 
+    public bool IsPlaying()
+    {
+        return isPlaying;
+    }
 }
