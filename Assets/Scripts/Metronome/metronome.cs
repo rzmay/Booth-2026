@@ -20,7 +20,13 @@ public sealed class Metronome : MonoBehaviour
     private int curBeatIndex = -1;
 
     // events
-    public event Action<int, double> OnBeat; // beatIndex, beatDspTime
+    // used for synthesizer, visualizer, or any other visual effects that need to be in sync with the beat of the song. This event is fired every single beat, and it provides the beat index and the exact DSP time of that beat.
+    // good for metronome tick sound, visual pulse, haptic feedback, etc
+    public event Action<int, double> VisualizerOnBeat; // beatIndex, beatDspTime
+
+    // used for the actual gameplay loop as the point scoring events (the punch circles / swipes and whatnot), fired every frame and does nothing if null, but if a function is subscribed to it with the proper float/double combo that corresponds to the current song time / beat index, then we can trigger scoring events
+    // good for scoring player actions, triggering gameplay scoring events, all other events
+    public event Action<float, double> OnMetronomeTime; // beatIndexFloat (in between beats), timeDspTime
 
 
     //####### METRONOME CORE CONTROLS #######//
@@ -56,6 +62,9 @@ public sealed class Metronome : MonoBehaviour
         if (beatTime < 0.0)
             return; // not yet reached offset
 
+        float beatFloat = (float)(beatTime / secsPerBeat);
+        OnMetronomeTime?.Invoke(beatFloat, songTime);
+
         curBeatIndex = (int)Math.Floor(beatTime / secsPerBeat);
 
 
@@ -67,7 +76,8 @@ public sealed class Metronome : MonoBehaviour
             double beatDspTime = startDspTime + offset + beat * secsPerBeat;
 
             // invoke on-beat event
-            OnBeat?.Invoke(beat, beatDspTime);
+            // this is an event that happens every single beat. We don't need to have an event here (we could just have it be null and its fine) but this on-beat event can be used for a synthesizer, visualizer, or any other visual effects that need to be in sync with the beat of the song.
+            VisualizerOnBeat?.Invoke(beat, beatDspTime);
             lastBeatIndex = beat;
         }
     }
@@ -103,6 +113,19 @@ public sealed class Metronome : MonoBehaviour
 
         double beatPos = beatTime / secsPerBeat;
         return (float)(beatPos - Math.Floor(beatPos));
+    }
+
+    public float getBeatFloat()
+    {
+        if (!IsPlaying || bpm == 0.0f)
+            return 0.0f;
+
+        double secsPerBeat = 60.0 / bpm;
+        double songTime = getSongTimeSeconds();
+        double beatTime = songTime - offset;
+        if (beatTime < 0.0)
+            return 0.0f;
+        return (float)(beatTime / secsPerBeat);
     }
 
     // private helper that returns current dsp time
