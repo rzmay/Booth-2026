@@ -12,10 +12,8 @@ public sealed class Scheduler : MonoBehaviour
     // 4. runs update loop. If an event is due to run on timestep curTime + scheduleAheadTime, then we instantiate the prefab and trigger the event, and move the pointer to the next event in the list. This allows us to schedule events slightly ahead of time to ensure they are triggered precisely on beat, even if there are frame rate drops or other performance issues.
 
     // VARIABLE INITIALIZATION //
-    [SerializeField] private Metronome metronome;
-    [SerializeField] private float scheduleAheadTime = 1.0f;
-
-    [SerializeField] private Schedule schedule;
+    [SerializeField] public Metronome metronome;
+    [SerializeField] public Schedule schedule;
 
     private int _nextIndex = 0;
 
@@ -38,7 +36,7 @@ public sealed class Scheduler : MonoBehaviour
             return;
         }
 
-        if (Schedule == null)
+        if (schedule == null)
         {
             Debug.LogError("Schedule reference is not set in the Scheduler.");
             return;
@@ -47,21 +45,18 @@ public sealed class Scheduler : MonoBehaviour
         _nextIndex = 0;
 
         // subscribe to metronome events
-        metronome.VisualizerOnBeat += OnBeat;
-        metronome.ScoringEvent += OnScoringEvent;
+        metronome.OnMetronomeTime += OnMetronomeTime;
     }
 
     // subscribe to metronome events
     void OnEnable()
     {
-        metronome.VisualizerOnBeat += OnBeat;
         metronome.OnMetronomeTime += OnMetronomeTime;
     }
 
     // unsubscribe to metronome events
     void OnDisable()
     {
-        metronome.VisualizerOnBeat -= OnBeat;
         metronome.OnMetronomeTime -= OnMetronomeTime;
     }
 
@@ -72,7 +67,7 @@ public sealed class Scheduler : MonoBehaviour
         if (schedule == null) return;
 
         // check if we have more events to schedule
-        if (nextIndex >= schedule.Events.Length) return;
+        if (_nextIndex >= schedule.events.Count) return;
 
         _songTime = songTime - songTimeOffset;
         _beat = beatFloat - beatOffset;
@@ -85,13 +80,13 @@ public sealed class Scheduler : MonoBehaviour
         // catch-up loops are so tuff
         while (HasMoreEvents() && IsNextEventDue())
         {
-            Schedule.Event evt = schedule.Events[nextScheduleIndex];
+            Schedule.Event evt = schedule.events[_nextIndex];
 
             // Spawn the item associated with the event
             SpawnEvent(evt);
 
             // increment
-            nextIndex++;
+            _nextIndex++;
         }
     }
 
@@ -101,7 +96,7 @@ public sealed class Scheduler : MonoBehaviour
     // resets the schedule
     public void ResetSchedule()
     {
-        nextIndex = 0;
+        _nextIndex = 0;
 
         // Set beat offset so that old events may fire again
         beatOffset += _beat;
@@ -113,14 +108,14 @@ public sealed class Scheduler : MonoBehaviour
     // does this have more events to initialize?
     public bool HasMoreEvents()
     {
-        return nextIndex < schedule.Events.Length;
+        return _nextIndex < schedule.events.Count;
     }
 
     // checks if event is due to be scheduled in reference to current song time and schedule ahead time
-    private float IsNextEventDue()
+    private bool IsNextEventDue()
     {
         // check if event is due to be scheduled within the schedule ahead time
-        Schedule.Event evt = schedule.events[nextIndex];
+        Schedule.Event evt = schedule.events[_nextIndex];
 
         // Use beats if time is negative, othterwise use time
         if (evt.time < 0) return evt.beat + metronome.TimeToBeats(evt.item.scheduleAhead) <= _beat;
@@ -128,15 +123,14 @@ public sealed class Scheduler : MonoBehaviour
     }
 
     // spawns a gameObject based off of scheduled event information
-    private gameObject SpawnEvent(Schedule.Event evt)
+    private void SpawnEvent(Schedule.Event evt)
     {
-        GameObject obj = Instantiate(evt.item, evt.transform, Quaternion.identity);
-        Schedulable schedulable = obj.GetComponent<Schedulable>();
+        Schedulable obj = Instantiate(evt.item, evt.transform);
 
         // Calculate start time
         double late = _songTime - (double)evt.time;
 
         // Start time is in the past
-        schedulable.startTime = Time.time - (float)late;
+        obj.startTime = Time.time - (float)late;
     }
 }

@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Metronome))]
 [RequireComponent(typeof(SyncAudioSources))]
 public class MusicManager : MonoBehaviour
 {
     public enum MusicState
     {
-        MainMenu,
-        Calibrate,
+        TutorialMenu,
+        Gameplay,
         Victory,
         GameOver,
-        Gameplay,
     }
 
     private static MusicManager _Instance;
@@ -32,7 +32,7 @@ public class MusicManager : MonoBehaviour
         [SerializeField] public AudioClip[] tracks = new AudioClip[4];
     }
 
-    public MusicState startState = MusicState.MainMenu;
+    public MusicState startState = MusicState.TutorialMenu;
 
     [SerializeField] private List<StateSong> states;
     [SerializeField] private List<GameSong> levels;
@@ -43,6 +43,7 @@ public class MusicManager : MonoBehaviour
     private MusicState _state;
 
     private SyncAudioSources _syncedAudio;
+    private Metronome _metronome;
 
     public MusicState state
     {
@@ -59,6 +60,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         _syncedAudio = GetComponent<SyncAudioSources>();
+        _metronome = GetComponent<Metronome>();
 
         SetState(startState);
     }
@@ -79,26 +81,16 @@ public class MusicManager : MonoBehaviour
     {
         _state = s;
 
-        if (_state == MusicState.Gameplay)
-        {
-            // Find level
-            GameSong level = levels.Find(l => l.songName == songName);
-            if (level == null) return;
+        // Find level
+        GameSong level = levels.Find(l => l.songName == songName);
+        if (level == null) return;
 
-            // TODO: Delayable, add 8 beat metronome count-in
+        // Set the game music -- don't start yet
+        List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
+        SyncAudioSources.SetVolumes(volumes);
+        SyncAudioSources.SetTracks(new List<AudioClip>(level.tracks));
 
-            // Start game music
-            List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
-            SyncAudioSources.Play(new List<AudioClip>(level.tracks), volumes);
-        }
-        else
-        {
-            // Find state
-            StateSong stateSong = states.Find(st => st.state == s);
-            if (stateSong == null) return;
-
-            // Play track
-            SyncAudioSources.PlayOne(stateSong.track);
-        }
+        // Delegate starting the music to the metronome
+        _metronome.Play();
     }
 }

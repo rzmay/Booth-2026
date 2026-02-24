@@ -9,18 +9,14 @@ public class SyncAudioSources : MonoBehaviour
 
     [SerializeField] private float volumeSmoothingSpeed = 5f;
 
-    private List<float> targetVolumes = new List<float>();
+    private float[] targetVolumes;
 
     void Awake()
     {
         _Instance = this;
 
         // Initialize target volumes to current source volumes
-        targetVolumes.Clear();
-        for (int i = 0; i < sources.Count; i++)
-        {
-            targetVolumes.Add(sources[i] != null ? sources[i].volume : 0f);
-        }
+        targetVolumes = new float[sources.Count];
     }
 
     void Update()
@@ -30,13 +26,12 @@ public class SyncAudioSources : MonoBehaviour
 
     void SmoothVolumes()
     {
+        // Maintain size parity
+        if (sources.Count != targetVolumes.Length) System.Array.Resize<float>(ref targetVolumes, sources.Count);
+
         for (int i = 0; i < sources.Count; i++)
         {
             if (sources[i] == null) continue;
-
-            // Ensure target list stays in sync
-            if (i >= targetVolumes.Count)
-                targetVolumes.Add(sources[i].volume);
 
             float current = sources[i].volume;
             float target = targetVolumes[i];
@@ -57,16 +52,14 @@ public class SyncAudioSources : MonoBehaviour
         }
     }
 
-    void _Play(List<AudioClip> clips, List<float> volumes = null, double dspTime = 0d)
+    void _Play(List<AudioClip> clips = null, List<float> volumes = null, double dspTime = 0d)
     {
+        if (clips != null) _SetTracks(clips);
+        if (volumes != null) _SetVolumes(volumes, true);
+
         for (int i = 0; i < Mathf.Min(sources.Count, clips.Count); i++)
         {
-            float volume = (volumes != null && i < volumes.Count) ? volumes[i] : 1.0f;
-
-            sources[i].clip = clips[i];
-            sources[i].volume = volume;
-
-            if (dspTime == 0d)
+            if (dspTime <= 0d)
             {
                 sources[i].Play();
             }
@@ -74,57 +67,66 @@ public class SyncAudioSources : MonoBehaviour
             {
                 sources[i].PlayScheduled(dspTime);
             }
-
-            // Set both current and target
-            if (i < targetVolumes.Count)
-                targetVolumes[i] = volume;
         }
     }
 
-    void _PlayOne(AudioClip clip)
+    void _PlayOne(AudioClip clip, double dspTime = 0)
     {
         if (sources.Count < 1) return;
 
         sources[0].clip = clip;
         sources[0].volume = 1.0f;
+        targetVolumes[0] = 1.0f;
         sources[0].Play();
-
-        if (targetVolumes.Count > 0)
-            targetVolumes[0] = 1.0f;
-
-        for (int i = 1; i < sources.Count; i++)
-        {
-            sources[i].Stop();
-            sources[i].volume = 0f;
-
-            if (i < targetVolumes.Count)
-                targetVolumes[i] = 0f;
-        }
     }
 
-    void _SetVolumes(List<float> volumes)
+    void _SetVolumes(List<float> volumes, bool setSourceVolume = false)
     {
-        for (int i = 0; i < Mathf.Min(sources.Count, volumes.Count); i++)
+        for (int i = 0; i < Mathf.Min(targetVolumes.Length, volumes.Count); i++)
         {
-            if (i < targetVolumes.Count)
-                targetVolumes[i] = volumes[i];
-            else
-                targetVolumes.Add(volumes[i]);
+            targetVolumes[i] = volumes[i];
+            if (setSourceVolume) sources[i].volume = volumes[i];
         }
     }
 
-    public static void Play(List<AudioClip> clips, List<float> volumes = null, double dspTime = 0d)
+    void _SetTracks(List<AudioClip> tracks)
+    {
+        for (int i = 0; i < Mathf.Min(sources.Count, tracks.Count); i++)
+        {
+            sources[i].clip = tracks[i];
+        }
+    }
+
+    void _Stop()
+    {
+        foreach (AudioSource source in sources)
+        {
+            source.Stop();
+        }
+    }
+
+    public static void Play(List<AudioClip> clips = null, List<float> volumes = null, double dspTime = 0d)
     {
         _Instance._Play(clips, volumes, dspTime);
     }
 
-    public static void PlayOne(AudioClip clip)
+    public static void PlayOne(AudioClip clip, double dspTime = 0d)
     {
-        _Instance._PlayOne(clip);
+        _Instance._PlayOne(clip, dspTime);
     }
 
-    public static void SetVolumes(List<float> volumes)
+    public static void SetVolumes(List<float> volumes, bool setSourceVolume = false)
     {
-        _Instance._SetVolumes(volumes);
+        _Instance._SetVolumes(volumes, setSourceVolume);
+    }
+
+    public static void SetTracks(List<AudioClip> clips)
+    {
+        _Instance._SetTracks(clips);
+    }
+
+    public static void Stop()
+    {
+        _Instance._Stop();
     }
 }
