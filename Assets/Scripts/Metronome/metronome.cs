@@ -1,5 +1,5 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
 
 // METRONOME CLASS
@@ -160,5 +160,15 @@ public sealed class Metronome : MonoBehaviour
     public bool IsPlaying()
     {
         return isPlaying;
+    }
+
+    public float TimeToBeats(double time)
+    {
+        return (float)time * bpm / 60f;
+    }
+
+    public double BeatsToTime(float beats)
+    {
+        return (double)(beats * 60f / bpm);
     }
 }

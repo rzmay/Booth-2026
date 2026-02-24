@@ -57,7 +57,7 @@ public class SyncAudioSources : MonoBehaviour
         }
     }
 
-    void _Play(List<AudioClip> clips, List<float> volumes = null)
+    void _Play(List<AudioClip> clips, List<float> volumes = null, double dspTime = 0d)
     {
         for (int i = 0; i < Mathf.Min(sources.Count, clips.Count); i++)
         {
@@ -65,7 +65,15 @@ public class SyncAudioSources : MonoBehaviour
 
             sources[i].clip = clips[i];
             sources[i].volume = volume;
-            sources[i].Play();
+
+            if (dspTime == 0d)
+            {
+                sources[i].Play();
+            }
+            else
+            {
+                sources[i].PlayScheduled(dspTime);
+            }
 
             // Set both current and target
             if (i < targetVolumes.Count)
@@ -105,9 +113,9 @@ public class SyncAudioSources : MonoBehaviour
         }
     }
 
-    public static void Play(List<AudioClip> clips, List<float> volumes = null)
+    public static void Play(List<AudioClip> clips, List<float> volumes = null, double dspTime = 0d)
     {
-        _Instance._Play(clips, volumes);
+        _Instance._Play(clips, volumes, dspTime);
     }
 
     public static void PlayOne(AudioClip clip)

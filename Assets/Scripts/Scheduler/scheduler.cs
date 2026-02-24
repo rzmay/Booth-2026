@@ -1,5 +1,5 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
 // SCHEDULER CLASS
 // handles the scheduling of events based on the metronome's beat timing, allowing for precise timing of gameplay events and visual effects in sync with the music
@@ -15,14 +15,20 @@ public sealed class Scheduler : MonoBehaviour
     [SerializeField] private Metronome metronome;
     [SerializeField] private float scheduleAheadTime = 1.0f;
 
-    // RENAME THIS TO WHATEVER TEH SCRIPTABLE OBJECT SCHEDULES ARE CALLE
-    [SerializeField] private Schedulable Schedule;
+    [SerializeField] private Schedule schedule;
 
-    // list of schedule events
-    // RENAME or CHANGE THIS TOO
-    //private Schedule.Event[] events;
+    private int _nextIndex = 0;
 
-    private int nextIndex = 0;
+    private double _songTime;
+    private float _beat;
+
+    /* Used for resetting.
+        * Although songTimeOffset should be synced to beats in this code,
+        * the variables remain public and will be allowed to be separate
+        * so they can be influenced more flexibly by other scripts.
+    */
+    public float beatOffset = 0;
+    public double songTimeOffset = 0;
 
     public void Start()
     {
@@ -38,15 +44,11 @@ public sealed class Scheduler : MonoBehaviour
             return;
         }
 
-        nextIndex = 0;
+        _nextIndex = 0;
 
         // subscribe to metronome events
         metronome.VisualizerOnBeat += OnBeat;
         metronome.ScoringEvent += OnScoringEvent;
-
-        // load schedule events from the ScriptableObject
-        // REPLACE THIS
-        //events = Schedule.GetEvents();
     }
 
     // subscribe to metronome events
@@ -67,34 +69,30 @@ public sealed class Scheduler : MonoBehaviour
     private void OnMetronomeTime(float beatFloat, double songTime)
     {
         // check if schedule is valid
-        if (Schedule == null)
-            return;
+        if (schedule == null) return;
 
         // check if we have more events to schedule
-        if (nextIndex >= Schedule.Events.Length)
-            return;
+        if (nextIndex >= schedule.Events.Length) return;
 
-        ProcessDueEvents(beatFloat, songTime);
+        _songTime = songTime - songTimeOffset;
+        _beat = beatFloat - beatOffset;
+        ProcessDueEvents();
     }
 
     // main logic loop, runs on every update to OnMetronomeTime
-    private void ProcessDueEvents(float beatFloat, double songTime)
+    private void ProcessDueEvents()
     {
         // catch-up loops are so tuff
-        nextScheduleIndex = nextIndex;
-        while ((nextScheduleIndex < Schedule.Events.Length) && (isEventDue(Schedule.Events[nextScheduleIndex], beatFloat, songTime)))
+        while (HasMoreEvents() && IsNextEventDue())
         {
-            Schedule.Event evt = Schedule.Events[nextScheduleIndex];
-            // spawn event as object, then initialize object
-            obj = SpawnEvent(evt);
-            InitializeSpawnedObj(obj, evt, beatFloat);
+            Schedule.Event evt = schedule.Events[nextScheduleIndex];
+
+            // Spawn the item associated with the event
+            SpawnEvent(evt);
 
             // increment
-            nextScheduleIndex++;
-
-            // continue loop
+            nextIndex++;
         }
-        return;
     }
 
 
@@ -104,77 +102,41 @@ public sealed class Scheduler : MonoBehaviour
     public void ResetSchedule()
     {
         nextIndex = 0;
+
+        // Set beat offset so that old events may fire again
+        beatOffset += _beat;
+
+        // Time should be aligned to beats
+        songTimeOffset += metronome.BeatsToTime(_beat);
     }
 
     // does this have more events to initialize?
     public bool HasMoreEvents()
     {
-        return nextIndex < Schedule.Events.Length;
+        return nextIndex < schedule.Events.Length;
     }
 
     // checks if event is due to be scheduled in reference to current song time and schedule ahead time
-    private float isEventDue(Schedule.Event evt, float beatFloat, double songTime)
+    private float IsNextEventDue()
     {
         // check if event is due to be scheduled within the schedule ahead time
-        return evt.time <= songTime + scheduleAheadTime;
+        Schedule.Event evt = schedule.events[nextIndex];
+
+        // Use beats if time is negative, othterwise use time
+        if (evt.time < 0) return evt.beat + metronome.TimeToBeats(evt.item.scheduleAhead) <= _beat;
+        else return (double)(evt.time + evt.item.scheduleAhead) <= _songTime;
     }
 
     // spawns a gameObject based off of scheduled event information
     private gameObject SpawnEvent(Schedule.Event evt)
     {
-        // instantiate event's prefab, set its position, etc
-        if (evt == null || evt.prefab == null)
-        {
-            Debug.LogError("Invalid event or prefab in Schedule.");
-            return null;
-        }
-
-        // in case event has a parent, could be completely useless, ignore for now
-        Transform parent = evt.parent != null ? evt.parent : this.transform;
-
-        GameObject obj = Instantiate(evt.prefab, evt.position, Quaternion.identity);
-        return obj;
-    }
-
-    // initializes the gameObject spawned by SpawnEvent based off of scheduled event information and current beat timing
-    private void InitializeSpawnedObj(gameObject obj, Schedule.Event evt, float beatFloat)
-    {
-        if (obj == null)
-        {
-            Debug.LogError("Failed to spawn event object.");
-            return;
-        }
-        if (evt == null)
-        {
-            Debug.LogError("Invalid event in Schedule.");
-            return;
-        }
-
-        // initialize the spawned object based on the event's parameters and current beat timing
+        GameObject obj = Instantiate(evt.item, evt.transform, Quaternion.identity);
         Schedulable schedulable = obj.GetComponent<Schedulable>();
-        if (schedulable == null)
-        {
-            Debug.LogError("Spawned object does not have a Schedulable component.");
-            return;
-        }
 
-        // set start time
-        float eventTime = evt.time;
-        float curbeat = beatFloat;
+        // Calculate start time
+        double late = _songTime - (double)evt.time;
 
-        // CHANGE THIS FUNCTION TO FIT WHATEVER THE SCHEDULABLE CLASS BECOMES
-        schedulable.Initialize(eventTime, curbeat);
+        // Start time is in the past
+        schedulable.startTime = Time.time - (float)late;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
