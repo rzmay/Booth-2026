@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038b6d79fc7e44d0ab13839042a7902a, type: 3}
+  m_Name: Level 1 (The Less I Know The Better)
+  m_EditorClassIdentifier: Assembly-CSharp::SongData
+  songName: level1
+  tracks:
+  - {fileID: 8300000, guid: 1d75854581e6a405682f16287d609027, type: 3}
+  - {fileID: 8300000, guid: f9226c83398d14563a6ec238a5604fba, type: 3}
+  - {fileID: 8300000, guid: 06fb342cbda74482784bdf0037b05351, type: 3}
+  - {fileID: 8300000, guid: c7c6a762d1b38433f9bebba56a8a52ad, type: 3}
+  bpm: 117
+  countInBeats: 4
+  beatsPerMeasure: 4
+  loopToBeats: 20
+  streakScoring:
+  - miss: -1
+    offTime: 0
+    onTime: 1
+    perfect: 2
+  trackThresholds:
+  - 0
+  - 8
+  - 16
+  - 25

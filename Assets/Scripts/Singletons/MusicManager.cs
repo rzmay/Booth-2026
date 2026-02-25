@@ -3,46 +3,35 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Metronome))]
-[RequireComponent(typeof(SyncAudioSources))]
+[RequireComponent(typeof(StemMixer))]
 public class MusicManager : MonoBehaviour
 {
     public enum MusicState
     {
         TutorialMenu,
         Gameplay,
-        Victory,
         GameOver,
     }
 
     private static MusicManager _Instance;
 
     [System.Serializable]
-    public class StateSong
+    public class StateConfig
     {
         public MusicState state;
-        public AudioClip track;
-    }
-
-    [System.Serializable]
-    public class GameSong
-    {
-        public string songName;
-
-        // Always 4 clips -- bass, drums, vocals, inst
-        [SerializeField] public AudioClip[] tracks = new AudioClip[4];
+        public SongData songData;
     }
 
     public MusicState startState = MusicState.TutorialMenu;
 
-    [SerializeField] private List<StateSong> states;
-    [SerializeField] private List<GameSong> levels;
+    [SerializeField] private List<StateConfig> states;
 
     // How quickly does each track come in?
     public float volumePower = 0.25f;
 
     private MusicState _state;
 
-    private SyncAudioSources _syncedAudio;
+    private StemMixer _stems;
     private Metronome _metronome;
 
     public MusicState state
@@ -54,14 +43,14 @@ public class MusicManager : MonoBehaviour
     void Awake()
     {
         _Instance = this;
+
+        _stems = GetComponent<StemMixer>();
+        _metronome = GetComponent<Metronome>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _syncedAudio = GetComponent<SyncAudioSources>();
-        _metronome = GetComponent<Metronome>();
-
         SetState(startState);
     }
 
@@ -74,21 +63,33 @@ public class MusicManager : MonoBehaviour
     {
         List<float> progresses = new List<float>(StreakTracker.Instance.streakProgresses);
         List<float> volumes = progresses.Select(p => Mathf.Pow(p, volumePower)).ToList();
-        SyncAudioSources.SetVolumes(volumes);
+
+        // Base track should always be full volume
+        volumes[0] = 1.0f;
+
+        _stems.SetVolumes(volumes);
     }
 
-    private void SetState(MusicState s, string songName = "")
+    private void SetState(MusicState s, string songName = null)
     {
         _state = s;
 
-        // Find level
-        GameSong level = levels.Find(l => l.songName == songName);
-        if (level == null) return;
+        // Find matching state and song name if applicable
+        StateConfig config = states.Find(s => s.state == _state && (songName == null ? true : s.songData.songName == songName));
+        if (config == null) return;
+
+        // Load song data into metronome
+        _metronome.LoadSongData(config.songData);
+        StreakTracker.LoadSongData(config.songData);
 
         // Set the game music -- don't start yet
         List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
-        SyncAudioSources.SetVolumes(volumes);
-        SyncAudioSources.SetTracks(new List<AudioClip>(level.tracks));
+        _stems.SetVolumes(volumes, true);
+        _stems.SetTracks(new List<AudioClip>(config.songData.tracks));
+
+        // Set loop time
+        double loopTime = _metronome.BeatsToTime(config.songData.loopToBeats);
+        _stems.SetLoopTime(loopTime);
 
         // Delegate starting the music to the metronome
         _metronome.Play();

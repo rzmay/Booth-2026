@@ -7,43 +7,7 @@ public class StreakTracker : MonoBehaviour
 {
     public static StreakTracker Instance;
 
-    [System.Serializable]
-    public class Preset
-    {
-        public float miss = -1f;
-        public float offTime = 0f;
-        public float onTime = 1f;
-        public float perfect = 2f;
-    }
-
-    [System.Serializable]
-    public class SongPreset
-    {
-        public string song;
-
-        // Each index represents a difficulty level for the motion cue, e.g. the 0th index is the easiest motion cue
-        [SerializeField]
-        public List<Dictionary<MovementCue.Result, float>> cueScores = new()
-        {
-            new Dictionary<MovementCue.Result, float>()
-            {
-                { MovementCue.Result.Miss, -1.0f },
-                { MovementCue.Result.OffTime, 0f },
-                { MovementCue.Result.OnTime, 1.0f },
-                { MovementCue.Result.Perfect, 2.0f },
-            }
-        };
-
-        // Streak thresholds for tracks to come in, final value = max streak
-        [SerializeField] public float[] trackThresholds = new float[4];
-
-        public float maxStreak { get { return trackThresholds[3]; } }
-    }
-
-    [SerializeField] private List<SongPreset> songs = new();
-
-
-    private SongPreset _song = null;
+    private SongData _song = null;
     private float _streak = 0f;
 
     public float streak
@@ -93,12 +57,17 @@ public class StreakTracker : MonoBehaviour
     {
         if (_song == null) return;
 
-        int i = Mathf.Clamp(level, 0, _song.cueScores.Count - 1);
-        _streak += _song.cueScores[i][result];
+        int i = Mathf.Clamp(level, 0, _song.streakScoring.Count - 1);
+        _streak += _song.streakScoring[i][result];
     }
 
     public static void TrackCue(MovementCue.Result result, int level = 0)
     {
         Instance._TrackCue(result, level);
+    }
+
+    public static void LoadSongData(SongData songData)
+    {
+        Instance._song = songData;
     }
 }

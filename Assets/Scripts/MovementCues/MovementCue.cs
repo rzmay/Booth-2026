@@ -47,7 +47,7 @@ public class MovementCue : Schedulable
     }
 
     // Override scheduleAhead
-    [HideInInspector] public float scheduleAhead { get { return earlyWindow; } }
+    [HideInInspector] new public float scheduleAhead { get { return earlyWindow; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
