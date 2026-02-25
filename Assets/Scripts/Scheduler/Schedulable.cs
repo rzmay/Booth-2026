@@ -6,5 +6,5 @@ public abstract class Schedulable : MonoBehaviour
     [HideInInspector] public float startTime;
 
     // How long to spawn before specified time
-    [HideInInspector] public float scheduleAhead = 0f;
+    virtual public float scheduleAhead { get; }
 }

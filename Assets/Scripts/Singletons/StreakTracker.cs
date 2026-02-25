@@ -61,13 +61,13 @@ public class StreakTracker : MonoBehaviour
         _streak += _song.streakScoring[i][result];
     }
 
+    public void LoadSongData(SongData songData)
+    {
+        _song = songData;
+    }
+
     public static void TrackCue(MovementCue.Result result, int level = 0)
     {
         Instance._TrackCue(result, level);
-    }
-
-    public static void LoadSongData(SongData songData)
-    {
-        Instance._song = songData;
     }
 }

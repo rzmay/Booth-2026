@@ -11,13 +11,15 @@ public class Schedule : ScriptableObject
     public float beat;
 
     // By default, use beats
-    public float time = -1;
+    public float time = -1f;
 
     // Item to instantiate
     [SerializeField] public Schedulable item;
 
-    // Transform to spawn relative to origin
-    public Transform transform;
+    // Position, rotation, and scale at which to spawn
+    public Vector3 position = Vector3.zero;
+    public Vector3 scale = Vector3.one;
+    public Quaternion rotation = Quaternion.identity;
   }
 
   public List<Event> events = new();

@@ -26,7 +26,7 @@ public class MovementCue : Schedulable
     public float perfectWindow = 0.1f;
 
     // TODO: Calibrate this to a reasonable value
-    public float hitRadius = 0.05f;
+    public float hitRadius = 0.2f;
 
     private float _time;
     private bool _hit = false;
@@ -39,15 +39,14 @@ public class MovementCue : Schedulable
     {
         get
         {
-            float earlyProgress = Mathf.InverseLerp(_time - startTime, 0, earlyWindow);
-            float lateProgress = Mathf.InverseLerp(_time - startTime, earlyWindow, earlyWindow + lateWindow);
+            float earlyProgress = Mathf.InverseLerp(0, earlyWindow, _time);
+            float lateProgress = Mathf.InverseLerp(earlyWindow, earlyWindow + lateWindow, _time);
 
             return Mathf.Clamp(earlyProgress, 0, 1) + Mathf.Clamp(lateProgress, 0, 1);
         }
     }
 
-    // Override scheduleAhead
-    [HideInInspector] new public float scheduleAhead { get { return earlyWindow; } }
+    [HideInInspector] override public float scheduleAhead { get { return earlyWindow; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

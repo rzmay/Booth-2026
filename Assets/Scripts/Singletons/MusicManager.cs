@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Scheduler))]
 [RequireComponent(typeof(Metronome))]
 [RequireComponent(typeof(StemMixer))]
 public class MusicManager : MonoBehaviour
@@ -33,6 +34,8 @@ public class MusicManager : MonoBehaviour
 
     private StemMixer _stems;
     private Metronome _metronome;
+    private StreakTracker _streakTracker;
+    private Scheduler _scheduler;
 
     public MusicState state
     {
@@ -46,6 +49,8 @@ public class MusicManager : MonoBehaviour
 
         _stems = GetComponent<StemMixer>();
         _metronome = GetComponent<Metronome>();
+        _streakTracker = GetComponent<StreakTracker>();
+        _scheduler = GetComponent<Scheduler>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,7 +66,7 @@ public class MusicManager : MonoBehaviour
 
     void SyncStreak()
     {
-        List<float> progresses = new List<float>(StreakTracker.Instance.streakProgresses);
+        List<float> progresses = new List<float>(_streakTracker.streakProgresses);
         List<float> volumes = progresses.Select(p => Mathf.Pow(p, volumePower)).ToList();
 
         // Base track should always be full volume
@@ -79,8 +84,9 @@ public class MusicManager : MonoBehaviour
         if (config == null) return;
 
         // Load song data into metronome
+        _scheduler.schedule = config.songData.schedule;
         _metronome.LoadSongData(config.songData);
-        StreakTracker.LoadSongData(config.songData);
+        _streakTracker.LoadSongData(config.songData);
 
         // Set the game music -- don't start yet
         List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
@@ -90,6 +96,9 @@ public class MusicManager : MonoBehaviour
         // Set loop time
         double loopTime = _metronome.BeatsToTime(config.songData.loopToBeats);
         _stems.SetLoopTime(loopTime);
+
+        // Reset schedule
+        _scheduler.Reset();
 
         // Delegate starting the music to the metronome
         _metronome.Play();

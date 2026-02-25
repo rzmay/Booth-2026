@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3102656808963515007}
   - component: {fileID: 8168223611347620439}
   m_Layer: 0
-  m_Name: MovementCue
+  m_Name: MovementCueLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 285412310671866433}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10747, y: -0.25359, z: -0.16868}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,14 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4bf2619507646d69a97744bec3103d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementCue
+  startTime: 0
   hand: 0
   level: 0
   earlyWindow: 1.5
   lateWindow: 1
   onTimeWindow: 0.2
   perfectWindow: 0.1
-  hitRadius: 0.05
-  startTime: 0
+  hitRadius: 0.2
 --- !u!114 &8168223611347620439
 MonoBehaviour:
   m_ObjectHideFlags: 0

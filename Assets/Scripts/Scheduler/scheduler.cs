@@ -3,6 +3,7 @@ using UnityEngine;
 
 // SCHEDULER CLASS
 // handles the scheduling of events based on the metronome's beat timing, allowing for precise timing of gameplay events and visual effects in sync with the music
+[RequireComponent(typeof(Metronome))]
 public sealed class Scheduler : MonoBehaviour
 {
     // SCHEDULER WORKFLOW:
@@ -12,8 +13,9 @@ public sealed class Scheduler : MonoBehaviour
     // 4. runs update loop. If an event is due to run on timestep curTime + scheduleAheadTime, then we instantiate the prefab and trigger the event, and move the pointer to the next event in the list. This allows us to schedule events slightly ahead of time to ensure they are triggered precisely on beat, even if there are frame rate drops or other performance issues.
 
     // VARIABLE INITIALIZATION //
-    [SerializeField] public Metronome metronome;
     [SerializeField] public Schedule schedule;
+
+    private Metronome _metronome;
 
     private int _nextIndex = 0;
 
@@ -28,46 +30,36 @@ public sealed class Scheduler : MonoBehaviour
     public float beatOffset = 0;
     public double songTimeOffset = 0;
 
+    void Awake()
+    {
+        _metronome = GetComponent<Metronome>();
+    }
+
     public void Start()
     {
-        if (metronome == null)
-        {
-            Debug.LogError("Metronome reference is not set in the Scheduler.");
-            return;
-        }
-
-        if (schedule == null)
-        {
-            Debug.LogError("Schedule reference is not set in the Scheduler.");
-            return;
-        }
-
         _nextIndex = 0;
 
         // subscribe to metronome events
-        metronome.OnMetronomeTime += OnMetronomeTime;
+        _metronome.OnMetronomeTime += OnMetronomeTime;
     }
 
     // subscribe to metronome events
     void OnEnable()
     {
-        metronome.OnMetronomeTime += OnMetronomeTime;
+        _metronome.OnMetronomeTime += OnMetronomeTime;
     }
 
     // unsubscribe to metronome events
     void OnDisable()
     {
-        metronome.OnMetronomeTime -= OnMetronomeTime;
+        _metronome.OnMetronomeTime -= OnMetronomeTime;
     }
 
     // subscribed to OnMetronomeTime event in metronome.cs
     private void OnMetronomeTime(float beatFloat, double songTime)
     {
-        // check if schedule is valid
-        if (schedule == null) return;
-
         // check if we have more events to schedule
-        if (_nextIndex >= schedule.events.Count) return;
+        if (!HasMoreEvents()) return;
 
         _songTime = songTime - songTimeOffset;
         _beat = beatFloat - beatOffset;
@@ -94,7 +86,7 @@ public sealed class Scheduler : MonoBehaviour
     //####### HELPER FUNCTIONS / UTILITY FUNCTIONS #######//
 
     // resets the schedule
-    public void ResetSchedule()
+    public void Reset()
     {
         _nextIndex = 0;
 
@@ -102,35 +94,45 @@ public sealed class Scheduler : MonoBehaviour
         beatOffset += _beat;
 
         // Time should be aligned to beats
-        songTimeOffset += metronome.BeatsToTime(_beat);
+        songTimeOffset += _metronome.BeatsToTime(_beat);
     }
 
     // does this have more events to initialize?
     public bool HasMoreEvents()
     {
+        if (schedule == null) return false;
+
         return _nextIndex < schedule.events.Count;
     }
 
     // checks if event is due to be scheduled in reference to current song time and schedule ahead time
     private bool IsNextEventDue()
     {
+        if (schedule == null) return false;
+
         // check if event is due to be scheduled within the schedule ahead time
         Schedule.Event evt = schedule.events[_nextIndex];
 
         // Use beats if time is negative, othterwise use time
-        if (evt.time < 0) return evt.beat + metronome.TimeToBeats(evt.item.scheduleAhead) <= _beat;
-        else return (double)(evt.time + evt.item.scheduleAhead) <= _songTime;
+        return GetScheduledTime(evt) - evt.item.scheduleAhead <= _songTime;
     }
 
     // spawns a gameObject based off of scheduled event information
     private void SpawnEvent(Schedule.Event evt)
     {
-        Schedulable obj = Instantiate(evt.item, evt.transform);
+        Schedulable obj = Instantiate(evt.item, evt.position, evt.rotation);
+        obj.transform.localScale = evt.scale;
 
         // Calculate start time
-        double late = _songTime - (double)evt.time;
+        double late = _songTime - (GetScheduledTime(evt) - evt.item.scheduleAhead);
 
         // Start time is in the past
         obj.startTime = Time.time - (float)late;
+    }
+
+    private double GetScheduledTime(Schedule.Event evt)
+    {
+        if (evt.time < 0) return _metronome.BeatsToTime(evt.beat - 1); // Beats start at 1
+        else return evt.time;
     }
 }

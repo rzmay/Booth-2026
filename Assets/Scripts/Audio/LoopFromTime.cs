@@ -64,8 +64,6 @@ public sealed class LoopFromTime : MonoBehaviour
 
     void ScheduleLoop()
     {
-        Debug.Log("Scheduling Loop");
-
         // Active is either currently detected as playing, or next from the previously active source
         AudioSource active = _lastActive == null ? GetActive() : GetNextFromActive(_lastActive);
 
@@ -76,7 +74,6 @@ public sealed class LoopFromTime : MonoBehaviour
         AudioSource next = GetNextFromActive(active);
 
         // Compute exact DSP time when active ends (end of clip).
-        Debug.Log($"Active time: {active.time}");
         double activeEndsAt = _nextDspEnd > 0 ? _nextDspEnd : AudioSettings.dspTime + (active.clip.length - active.time);
         active.SetScheduledEndTime(activeEndsAt);
 
