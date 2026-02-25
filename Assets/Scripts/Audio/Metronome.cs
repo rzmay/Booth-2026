@@ -49,14 +49,11 @@ public sealed class Metronome : MonoBehaviour
         _metronomeAudioSource = GetComponent<AudioSource>();
         _stems = GetComponent<StemMixer>();
     }
+
     // updates the metronome state each frame
     void Update()
     {
-        if (!isPlaying)
-            return;
-
-        //SAFETY: 0 bpm is invalid
-        if (bpm <= 0.0f)
+        if (!isPlaying || bpm <= 0.0f)
             return;
 
         // time since metronome started
@@ -94,7 +91,7 @@ public sealed class Metronome : MonoBehaviour
 
         float pitch = 1.0f + (beatOfMeasure == 1 ? firstBeatPitch : 0);
 
-        // Not bothering doing DSP for this unless it sounds wrong without
+        // TODO: DSP scheduling. I tried but it was a massive hassle. I'm fuckin tired and I sank 2 hours into this and chat is pissing me off
         _metronomeAudioSource.pitch = pitch;
         _metronomeAudioSource.volume = volume;
         _metronomeAudioSource.Play();
@@ -132,7 +129,7 @@ public sealed class Metronome : MonoBehaviour
         isPlaying = false;
         _stems.Stop();
         startDspTime = 0.0;
-        lastBeatIndex = -1;
+        lastBeatIndex = 0;
     }
 
     //####### HELPER FUNCTIONS / UTILITY FUNCTIONS #######//

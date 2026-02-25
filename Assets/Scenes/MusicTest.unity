@@ -386,6 +386,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4715900545788813502, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: metronomeVolume
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8389558958949024849, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: m_Enabled
       value: 0

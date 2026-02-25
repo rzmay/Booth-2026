@@ -965,6 +965,7 @@ GameObject:
   - component: {fileID: 5735078543829925908}
   - component: {fileID: 1379324844747476905}
   - component: {fileID: 2186249624622387085}
+  - component: {fileID: 8389558958949024849}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -1101,10 +1102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Metronome
   bpm: 120
-  delay: 2
+  delay: 5
   countInBeats: 8
   countInVolume: 0.75
-  metronomeVolume: 0.25
+  metronomeVolume: 0
   firstBeatPitch: 0.5
   beatsPerMeasure: 4
   isPlaying: 0
@@ -1161,6 +1162,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f12d5e863de247db8db61ecccd6c2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StreakTracker
+--- !u!114 &8389558958949024849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581888343044318486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15cdccbfcf5ea4eb089c808852ac2c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scheduler
+  schedule: {fileID: 0}
+  beatOffset: 0
+  songTimeOffset: 0
 --- !u!1 &8692623827494439402
 GameObject:
   m_ObjectHideFlags: 0
