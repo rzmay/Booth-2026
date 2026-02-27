@@ -74,20 +74,27 @@ public sealed class LoopFromTime : MonoBehaviour
         AudioSource next = GetNextFromActive(active);
 
         // Compute exact DSP time when active ends (end of clip).
+        double dspTime = AudioSettings.dspTime;
         double activeEndsAt = _nextDspEnd > 0 ? _nextDspEnd : AudioSettings.dspTime + (active.clip.length - active.time);
         active.SetScheduledEndTime(activeEndsAt);
 
-        // Schedule the first loop segment on _next: [loopStartTime -> clip end]
+        // Stop the next source before scheduling to reset
+        next.Stop();
+
+        // Set the clip and disable looping
         next.clip = active.clip;
         next.loop = false;
-        next.timeSamples = _loopStartSamples;
 
+        // Schedule the first loop segment on _next: [loopStartTime -> clip end]
         next.PlayScheduled(activeEndsAt);
-        next.SetScheduledEndTime(activeEndsAt + _loopDur);
+        next.timeSamples = _loopStartSamples; // Must be set after scheduling
 
         // Now set up state for chaining: after _next ends, the following segment will be on active.
         _nextDspStart = activeEndsAt;
         _nextDspEnd = activeEndsAt + _loopDur;
+
+        Debug.Log($"Scheduling loop to time {loopStartTime} [{active.gameObject.name}->{next.gameObject.name}]");
+        Debug.Log($"{active.gameObject.name}:{dspTime}-{activeEndsAt}->{next.gameObject.name}:{_loopStartSamples}@{activeEndsAt}-{_nextDspEnd}");
 
         // Set last active as well for stability in next loop
         _lastActive = active;
