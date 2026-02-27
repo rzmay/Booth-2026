@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038b6d79fc7e44d0ab13839042a7902a, type: 3}
+  m_Name: Tutorial (Let It Happen)
+  m_EditorClassIdentifier: Assembly-CSharp::SongData
+  songName: tutorial
+  tracks:
+  - {fileID: 8300000, guid: 943d547b0c7fc490db6ec8ef441ff719, type: 3}
+  - {fileID: 8300000, guid: ed3f479f3bcb64866b8f12ebe0b6f535, type: 3}
+  - {fileID: 8300000, guid: c147415f35cbf4ef886c2e94ca6fee2d, type: 3}
+  - {fileID: 8300000, guid: 4eddab2e7508f407f9b18795086a07f1, type: 3}
+  bpm: 125
+  countInBeats: 12
+  beatsPerMeasure: 4
+  loopToBeats: 12
+  streakScoring:
+  - miss: 0
+    offTime: 0
+    onTime: 0
+    perfect: 0
+  trackThresholds:
+  - 99
+  - 199
+  - 299
+  - 400
+  schedule: {fileID: 0}

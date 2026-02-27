@@ -2,47 +2,40 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(SyncAudioSources))]
+[RequireComponent(typeof(Scheduler))]
+[RequireComponent(typeof(Metronome))]
+[RequireComponent(typeof(StemMixer))]
 public class MusicManager : MonoBehaviour
 {
     public enum MusicState
     {
-        MainMenu,
-        Calibrate,
-        Victory,
-        GameOver,
+        TutorialMenu,
         Gameplay,
+        GameOver,
     }
 
     private static MusicManager _Instance;
 
     [System.Serializable]
-    public class StateSong
+    public class StateConfig
     {
         public MusicState state;
-        public AudioClip track;
+        public SongData songData;
     }
 
-    [System.Serializable]
-    public class GameSong
-    {
-        public string songName;
+    public MusicState startState = MusicState.TutorialMenu;
 
-        // Always 4 clips -- bass, drums, vocals, inst
-        [SerializeField] public AudioClip[] tracks = new AudioClip[4];
-    }
-
-    public MusicState startState = MusicState.MainMenu;
-
-    [SerializeField] private List<StateSong> states;
-    [SerializeField] private List<GameSong> levels;
+    [SerializeField] private List<StateConfig> states;
 
     // How quickly does each track come in?
     public float volumePower = 0.25f;
 
     private MusicState _state;
 
-    private SyncAudioSources _syncedAudio;
+    private StemMixer _stems;
+    private Metronome _metronome;
+    private StreakTracker _streakTracker;
+    private Scheduler _scheduler;
 
     public MusicState state
     {
@@ -53,13 +46,16 @@ public class MusicManager : MonoBehaviour
     void Awake()
     {
         _Instance = this;
+
+        _stems = GetComponent<StemMixer>();
+        _metronome = GetComponent<Metronome>();
+        _streakTracker = GetComponent<StreakTracker>();
+        _scheduler = GetComponent<Scheduler>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _syncedAudio = GetComponent<SyncAudioSources>();
-
         SetState(startState);
     }
 
@@ -70,35 +66,41 @@ public class MusicManager : MonoBehaviour
 
     void SyncStreak()
     {
-        List<float> progresses = new List<float>(StreakTracker.Instance.streakProgresses);
+        List<float> progresses = new List<float>(_streakTracker.streakProgresses);
         List<float> volumes = progresses.Select(p => Mathf.Pow(p, volumePower)).ToList();
-        SyncAudioSources.SetVolumes(volumes);
+
+        // Base track should always be full volume
+        volumes[0] = 1.0f;
+
+        _stems.SetVolumes(volumes);
     }
 
-    private void SetState(MusicState s, string songName = "")
+    private void SetState(MusicState s, string songName = null)
     {
         _state = s;
 
-        if (_state == MusicState.Gameplay)
-        {
-            // Find level
-            GameSong level = levels.Find(l => l.songName == songName);
-            if (level == null) return;
+        // Find matching state and song name if applicable
+        StateConfig config = states.Find(s => s.state == _state && (songName == null ? true : s.songData.songName == songName));
+        if (config == null) return;
 
-            // TODO: Delayable, add 8 beat metronome count-in
+        // Load song data into metronome
+        _scheduler.schedule = config.songData.schedule;
+        _metronome.LoadSongData(config.songData);
+        _streakTracker.LoadSongData(config.songData);
 
-            // Start game music
-            List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
-            SyncAudioSources.Play(new List<AudioClip>(level.tracks), volumes);
-        }
-        else
-        {
-            // Find state
-            StateSong stateSong = states.Find(st => st.state == s);
-            if (stateSong == null) return;
+        // Set the game music -- don't start yet
+        List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });
+        _stems.SetVolumes(volumes, true);
+        _stems.SetTracks(new List<AudioClip>(config.songData.tracks));
 
-            // Play track
-            SyncAudioSources.PlayOne(stateSong.track);
-        }
+        // Set loop time
+        double loopTime = _metronome.BeatsToTime(config.songData.loopToBeats);
+        _stems.SetLoopTime(loopTime);
+
+        // Reset schedule
+        _scheduler.Reset();
+
+        // Delegate starting the music to the metronome
+        _metronome.Play();
     }
 }
