@@ -8,6 +8,8 @@ public class Hand : MonoBehaviour
         Right,
     }
 
+    public Side side;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

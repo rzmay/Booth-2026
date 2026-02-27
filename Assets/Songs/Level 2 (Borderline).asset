@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038b6d79fc7e44d0ab13839042a7902a, type: 3}
+  m_Name: Level 2 (Borderline)
+  m_EditorClassIdentifier: Assembly-CSharp::SongData
+  songName: level2
+  tracks:
+  - {fileID: 8300000, guid: 9817782cd0e12481c85f012f6f205695, type: 3}
+  - {fileID: 8300000, guid: b5517db95f1b4471598d965fa0572dfc, type: 3}
+  - {fileID: 8300000, guid: 727670f09e5cd4150b56366c85f939d4, type: 3}
+  - {fileID: 8300000, guid: 638b252060b21491abdcf36360dce630, type: 3}
+  bpm: 98
+  countInBeats: 12
+  beatsPerMeasure: 4
+  loopToBeats: 12
