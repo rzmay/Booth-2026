@@ -14,9 +14,9 @@ public class SetEQSource : MonoBehaviour
 
         foreach (int i in sources)
         {
-            if (SyncAudioSources.Instance.sources.Count < i)
+            if (MusicManager.Stems.sources.Count < i)
             {
-                _ringEQ.sources.Add(SyncAudioSources.Instance.sources[i]);
+                _ringEQ.sources.Add(MusicManager.Stems.sources[i]);
             }
         }
     }

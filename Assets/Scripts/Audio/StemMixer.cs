@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StemMixer : MonoBehaviour
 {
-    [SerializeField] private List<AudioSource> sources;
+    [SerializeField] public List<AudioSource> sources;
 
     [SerializeField] private float volumeSmoothingSpeed = 5f;
 
