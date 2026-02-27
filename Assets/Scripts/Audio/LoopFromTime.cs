@@ -93,9 +93,6 @@ public sealed class LoopFromTime : MonoBehaviour
         _nextDspStart = activeEndsAt;
         _nextDspEnd = activeEndsAt + _loopDur;
 
-        Debug.Log($"Scheduling loop to time {loopStartTime} [{active.gameObject.name}->{next.gameObject.name}]");
-        Debug.Log($"{active.gameObject.name}:{dspTime}-{activeEndsAt}->{next.gameObject.name}:{_loopStartSamples}@{activeEndsAt}-{_nextDspEnd}");
-
         // Set last active as well for stability in next loop
         _lastActive = active;
     }
