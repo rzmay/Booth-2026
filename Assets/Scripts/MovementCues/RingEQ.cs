@@ -5,34 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(CircleLineRenderer))]
 public class RingEQ : MonoBehaviour
 {
-    [Header("Audio Inputs")]
-    public List<AudioSource> sources = new List<AudioSource>();
-    public bool useListener = false;
-
-    [Header("Spectrum Settings")]
-    public int fftSize = 1024;
-    public FFTWindow fftWindow = FFTWindow.BlackmanHarris;
-    public bool useLogScaling = true;
-
-    public float startFrequencyRange = 0.0f;
-    public float endFrequencyRange = 1.0f;
-
     [Header("Visualization")]
     public float amplitude = 0.75f;
     public float power = 1.25f;
     public bool mirror = false;
-
-    [Header("Smoothing")]
-    [Tooltip("Whether or not to use smoothing")]
-    public bool useSmoothing = true;
-
-    [Tooltip("How fast the visual responds when increasing")]
-    public float attackSpeed = 50f;
-
-    [Tooltip("How fast the visual falls when decreasing")]
-    public float releaseSpeed = 10f;
-    private float[] spectrumBands;
-    private float[] smoothedBands;
 
     [Header("Wave")]
     [Tooltip("Whether or not to use a wave")]
@@ -47,13 +23,6 @@ public class RingEQ : MonoBehaviour
     public bool scaleFrequencyWithSpectrum = true;
     [Tooltip("Change phase on transients?")]
     public bool useTransients = true;
-    [Tooltip("Transient detection threshhold")]
-    public float transientThreshhold = 0.5f; // TODO: tune this value
-
-    [Header("Level Mapping")]
-    public bool useDbMapping = true;
-    public float dbMin = -80f;
-    public float dbMax = -20f;
 
     private CircleLineRenderer circle;
 
