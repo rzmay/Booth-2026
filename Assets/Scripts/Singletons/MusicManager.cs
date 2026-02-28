@@ -8,6 +8,7 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     public static StemMixer Stems { get { return _Instance._stems; } }
+    public static Metronome Metronome { get { return _Instance._metronome; } }
     private static MusicManager _Instance;
     public enum MusicState
     {

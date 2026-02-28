@@ -14,10 +14,11 @@ public class SetEQSource : MonoBehaviour
 
         foreach (int i in sources)
         {
-            if (MusicManager.Stems.sources.Count < i)
-            {
-                _ringEQ.sources.Add(MusicManager.Stems.sources[i]);
-            }
+            AudioSource source = MusicManager.Stems.sources[i];
+            _ringEQ.sources.Add(source);
+
+            LoopFromTime looper = source.GetComponent<LoopFromTime>();
+            if (looper != null) _ringEQ.sources.Add(looper.sourceB);
         }
     }
 }
