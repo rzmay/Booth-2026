@@ -142,7 +142,7 @@ public class RingEQ : MonoBehaviour
         int[] centers = new int[bandCount];
         int stepLinear = Mathf.Max(1, n / bandCount);
 
-        for (int i = 0; i < Mathf.CeilToInt(bandCount * endFrequencyRange); i++)
+        for (int i = 0; i < bandCount; i++)
         {
             if (!useLogScaling)
             {
