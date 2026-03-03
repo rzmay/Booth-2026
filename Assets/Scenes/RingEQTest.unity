@@ -909,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151379984130390407, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: transientThreshhold
-      value: 20
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1672839351881488363, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1609,6 +1609,10 @@ PrefabInstance:
     - target: {fileID: 7435954043887081821, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: fluxWindowSamples
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435954043887081821, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: useFluxThreshhold
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8389558958949024849, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: m_Enabled

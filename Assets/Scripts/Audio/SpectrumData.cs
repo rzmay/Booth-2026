@@ -43,6 +43,8 @@ public class SpectrumData : MonoBehaviour
     [Header("Transient Detection")]
     public bool detectTransients = true;
     public TransientHeuristic detectionHeuristic = TransientHeuristic.Flux;
+    [Tooltip("Activate when the detection heuristic is above a threshhold rather than comparing to buffer")]
+    public bool useFluxThreshhold = false;
     public int fluxWindowSamples = 30;
     [Tooltip("How many samples to skip recording. Higher values record more time at lower resolution.")]
     public int skipSamples = 0;
@@ -155,7 +157,7 @@ public class SpectrumData : MonoBehaviour
     private void BuildBands(float[] spectrumRaw)
     {
         // Save old bands
-        Array.Copy(bands, _prevBands, _smoothedBands.Length);
+        Array.Copy(bands, _prevBands, bands.Length);
 
         int n = spectrumRaw.Length;
 
@@ -244,12 +246,15 @@ public class SpectrumData : MonoBehaviour
 
         foreach (KeyValuePair<float, Action<float>> entry in OnTransient.Entries)
         {
-            if (entry.Key <= 1) continue;
+            if (entry.Key == 0 || (!useFluxThreshhold && entry.Key <= 1)) continue;
             if (Time.time - _lastTransientTime.GetValueOrDefault(entry.Key) < cooldownSeconds) continue;
 
             float threshhold = mu + entry.Key * std;
 
-            if (flux > threshhold && flux > lastFlux)
+            if (
+                (flux > threshhold && flux > lastFlux) ||
+                (useFluxThreshhold && flux > entry.Key)
+                )
             {
                 // Debug.Log($"[Transient Detected] {flux}>{threshhold}(mu={mu};std={std};k={entry.Key})");
 
@@ -291,7 +296,7 @@ public class SpectrumData : MonoBehaviour
         {
             if (entry.Key == 0) continue;
 
-            int beat = Mathf.FloorToInt(beatFloat / entry.Key);
+            int beat = Mathf.FloorToInt((beatFloat - 1) / entry.Key);
             if (beat > _lastBeat.GetValueOrDefault(entry.Key, beat - 1))
             {
                 _lastBeat[entry.Key] = beat;
