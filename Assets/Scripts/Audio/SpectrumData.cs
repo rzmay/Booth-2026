@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class SpectrumData : MonoBehaviour
 {
+    public enum TransientHeuristic
+    {
+        Flux,
+        Max,
+        Avg
+    }
+
     [Header("Audio Inputs")]
     public List<AudioSource> sources = new List<AudioSource>();
     public bool useListener = false;
@@ -35,6 +42,7 @@ public class SpectrumData : MonoBehaviour
 
     [Header("Transient Detection")]
     public bool detectTransients = true;
+    public TransientHeuristic detectionHeuristic = TransientHeuristic.Flux;
     public int fluxWindowSamples = 30;
     [Tooltip("How many samples to skip recording. Higher values record more time at lower resolution.")]
     public int skipSamples = 0;
@@ -147,7 +155,7 @@ public class SpectrumData : MonoBehaviour
     private void BuildBands(float[] spectrumRaw)
     {
         // Save old bands
-        Array.Copy(_smoothedBands, _prevBands, _smoothedBands.Length);
+        Array.Copy(bands, _prevBands, _smoothedBands.Length);
 
         int n = spectrumRaw.Length;
 
@@ -232,7 +240,7 @@ public class SpectrumData : MonoBehaviour
         float mu = _fluxBuffer.Average();
         float std = Mathf.Sqrt(_fluxBuffer.Average(d => Mathf.Pow(d - mu, 2)));
 
-        float flux = bands.Select((bands, i) => Mathf.Max(0f, bands - _prevBands[i])).Sum();
+        float flux = Flux();
 
         foreach (KeyValuePair<float, Action<float>> entry in OnTransient.Entries)
         {
@@ -252,7 +260,7 @@ public class SpectrumData : MonoBehaviour
         }
 
         // Update flux buffer if not skipping
-        if (skipSamples != 0 && _sample == 0)
+        if (skipSamples == 0 || _sample == 0)
         {
             System.Array.Copy(_fluxBuffer, 1, _fluxBuffer, 0, _fluxBuffer.Length - 1);
             _fluxBuffer[^1] = flux;
@@ -262,11 +270,26 @@ public class SpectrumData : MonoBehaviour
         else _sample += 1;
     }
 
+    float Flux()
+    {
+        switch (detectionHeuristic)
+        {
+            case TransientHeuristic.Flux:
+                return bands.Select((bands, i) => Mathf.Max(0f, bands - _prevBands[i])).Sum();
+            case TransientHeuristic.Max:
+                return bands.Max() - _prevBands.Max();
+            case TransientHeuristic.Avg:
+                return bands.Average() - _prevBands.Average();
+            default:
+                return 0f;
+        }
+    }
+
     void OnMetronomeTime(float beatFloat, double dspTime)
     {
         foreach (KeyValuePair<float, Action<float, double>> entry in OnBeat.Entries)
         {
-            if (entry.Key == 0) return;
+            if (entry.Key == 0) continue;
 
             int beat = Mathf.FloorToInt(beatFloat / entry.Key);
             if (beat > _lastBeat.GetValueOrDefault(entry.Key, beat - 1))

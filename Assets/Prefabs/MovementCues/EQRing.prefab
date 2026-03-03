@@ -241,6 +241,7 @@ MonoBehaviour:
   useWave: 1
   waveFrequency: 12
   phaseFrequency: 1
+  phaseSmoothSpeed: 50
   scaleFrequencyWithAmplitude: 0
   scaleFrequencyWithSpectrum: 1
   scaleFrequencyWithSpectrumAmount: 2

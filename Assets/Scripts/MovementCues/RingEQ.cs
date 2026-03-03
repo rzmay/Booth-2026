@@ -131,9 +131,9 @@ public class RingEQ : MonoBehaviour
             float phaseMultiplier = 1f;
 
             if (scaleFrequencyWithAmplitude) phaseMultiplier *= value;
-            if (scaleFrequencyWithSpectrum) phaseMultiplier *= 1 + index * scaleFrequencyWithSpectrumAmount / (spectrum.bands.Length - 1);
+            if (scaleFrequencyWithSpectrum) phaseMultiplier *= index * scaleFrequencyWithSpectrumAmount / (spectrum.bands.Length - 1);
 
-            waveVal = Mathf.Sin(m * 2 * Mathf.PI * waveFrequency) * _phaseSmooth;
+            waveVal = Mathf.Sin(m * 2 * Mathf.PI * waveFrequency * phaseMultiplier) * _phaseSmooth;
         }
 
         return value * amplitude * waveVal;
