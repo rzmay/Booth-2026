@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5921416693732509840}
   - component: {fileID: 2270567793700321680}
   - component: {fileID: 7434386127408500918}
+  - component: {fileID: 2947510090359346564}
   m_Layer: 0
   m_Name: 'SyncSource[2]'
   m_TagString: Untagged
@@ -145,6 +146,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoopFromTime
   sourceB: {fileID: 8025547230677893230}
   loopStartTime: 0
+--- !u!114 &2947510090359346564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159646929369826340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc384023cf594949b87297840054288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpectrumData
+  sources: []
+  useListener: 0
+  numBands: 64
+  fftSize: 1024
+  fftWindow: 5
+  useLogScaling: 1
+  startFrequencyRange: 0
+  endFrequencyRange: 1
+  useSmoothing: 1
+  attackSpeed: 50
+  releaseSpeed: 10
+  useDbMapping: 1
+  dbMin: -80
+  dbMax: -20
+  detectTransients: 1
+  fluxWindowSamples: 30
+  cooldownSeconds: 0.1
 --- !u!1 &919765955272962761
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +186,7 @@ GameObject:
   - component: {fileID: 919679317726827761}
   - component: {fileID: 1252465842009539411}
   - component: {fileID: 3514210747331522811}
+  - component: {fileID: 3537974195129048068}
   m_Layer: 0
   m_Name: 'SyncSource[3]'
   m_TagString: Untagged
@@ -290,6 +321,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoopFromTime
   sourceB: {fileID: 8205852729751514430}
   loopStartTime: 0
+--- !u!114 &3537974195129048068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919765955272962761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc384023cf594949b87297840054288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpectrumData
+  sources: []
+  useListener: 0
+  numBands: 64
+  fftSize: 1024
+  fftWindow: 5
+  useLogScaling: 1
+  startFrequencyRange: 0
+  endFrequencyRange: 1
+  useSmoothing: 1
+  attackSpeed: 50
+  releaseSpeed: 10
+  useDbMapping: 1
+  dbMin: -80
+  dbMax: -20
+  detectTransients: 1
+  fluxWindowSamples: 30
+  cooldownSeconds: 0.1
 --- !u!1 &2225503102517923193
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +877,7 @@ GameObject:
   - component: {fileID: 5810212444334903867}
   - component: {fileID: 146266006577357867}
   - component: {fileID: 3786364697154973953}
+  - component: {fileID: 4875270505940279368}
   m_Layer: 0
   m_Name: 'SyncSource[1]'
   m_TagString: Untagged
@@ -951,6 +1012,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoopFromTime
   sourceB: {fileID: 5582696360266860279}
   loopStartTime: 0
+--- !u!114 &4875270505940279368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5520307778346333040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc384023cf594949b87297840054288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpectrumData
+  sources: []
+  useListener: 0
+  numBands: 64
+  fftSize: 1024
+  fftWindow: 5
+  useLogScaling: 1
+  startFrequencyRange: 0
+  endFrequencyRange: 1
+  useSmoothing: 1
+  attackSpeed: 50
+  releaseSpeed: 10
+  useDbMapping: 1
+  dbMin: -80
+  dbMax: -20
+  detectTransients: 1
+  fluxWindowSamples: 30
+  cooldownSeconds: 0.1
 --- !u!1 &8581888343044318486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1198,7 @@ MonoBehaviour:
   metronomeVolume: 0
   firstBeatPitch: 0.5
   beatsPerMeasure: 4
+  scheduleAheadBeats: 0.5
   isPlaying: 0
 --- !u!114 &5735078543829925908
 MonoBehaviour:
@@ -1162,6 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f12d5e863de247db8db61ecccd6c2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StreakTracker
+  _streak: 0
 --- !u!114 &8389558958949024849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,6 +1280,7 @@ GameObject:
   - component: {fileID: 7918790923582183157}
   - component: {fileID: 6469279116479464863}
   - component: {fileID: 7975536865962847259}
+  - component: {fileID: 7435954043887081821}
   m_Layer: 0
   m_Name: 'SyncSource[0]'
   m_TagString: Untagged
@@ -1322,3 +1415,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoopFromTime
   sourceB: {fileID: 5000334396258069491}
   loopStartTime: 0
+--- !u!114 &7435954043887081821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692623827494439402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc384023cf594949b87297840054288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpectrumData
+  sources: []
+  useListener: 0
+  numBands: 64
+  fftSize: 1024
+  fftWindow: 5
+  useLogScaling: 1
+  startFrequencyRange: 0
+  endFrequencyRange: 1
+  useSmoothing: 1
+  attackSpeed: 50
+  releaseSpeed: 10
+  useDbMapping: 1
+  dbMin: -80
+  dbMax: -20
+  detectTransients: 1
+  fluxWindowSamples: 30
+  cooldownSeconds: 0.1

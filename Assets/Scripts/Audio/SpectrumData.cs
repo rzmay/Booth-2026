@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 public class SpectrumData : MonoBehaviour
 {
     [Header("Audio Inputs")]
@@ -26,18 +27,34 @@ public class SpectrumData : MonoBehaviour
 
     [Tooltip("How fast the visual falls when decreasing")]
     public float releaseSpeed = 10f;
-    private float[] spectrumBands;
-    private float[] smoothedBands;
 
     [Header("Level Mapping")]
     public bool useDbMapping = true;
     public float dbMin = -80f;
     public float dbMax = -20f;
 
-    public Dictionary<float, Action<float, double>> OnBeat;
-    public Dictionary<float, Action<float>> OnTransient; // transient
+    [Header("Transient Detection")]
+    public bool detectTransients = true;
+    public int fluxWindowSamples = 30;
+    [Tooltip("How many samples to skip recording. Higher values record more time at lower resolution.")]
+    public int skipSamples = 0;
+    public float cooldownSeconds = 0.1f;
+
+
+    public EventMap<float, Action<float, double>> OnBeat = new(); // Register by fraction of beat
+    public EventMap<float, Action<float>> OnTransient = new(); // Resgister by detection threshhold
 
     private Metronome _metronome;
+    private Dictionary<float, int> _lastBeat = new();
+    private Dictionary<float, float> _lastTransientTime = new();
+    private float[] _fluxBuffer;
+    private int _sample = 0;
+
+
+    private float[] _spectrumBands;
+    private float[] _prevBands;
+    private float[] _smoothedBands;
+    public float[] bands { get { return useSmoothing ? _smoothedBands : _spectrumBands; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,10 +62,19 @@ public class SpectrumData : MonoBehaviour
         _metronome = MusicManager.Metronome;
 
         fftSize = Mathf.NextPowerOfTwo(Mathf.Max(64, numBands, fftSize));
-        spectrumBands = new float[numBands];
-        smoothedBands = new float[numBands];
+        _spectrumBands = new float[numBands];
+        _prevBands = new float[numBands];
+        _smoothedBands = new float[numBands];
+        _fluxBuffer = new float[fluxWindowSamples];
 
         _metronome.OnMetronomeTime += OnMetronomeTime;
+
+        AudioSource source = GetComponent<AudioSource>();
+        if (source) sources.Add(source);
+
+        // Include sourceB if looper present
+        LoopFromTime looper = source.GetComponent<LoopFromTime>();
+        if (looper && looper.sourceB) sources.Add(looper.sourceB);
     }
 
     // Update is called once per frame
@@ -58,13 +84,20 @@ public class SpectrumData : MonoBehaviour
         fftSize = Mathf.NextPowerOfTwo(Mathf.Max(64, numBands, fftSize));
 
         // Update band count if changed
-        if (spectrumBands.Length != numBands || smoothedBands.Length != numBands)
+        if (_spectrumBands.Length != numBands || _prevBands.Length != numBands || _smoothedBands.Length != numBands)
         {
-            System.Array.Resize(ref spectrumBands, numBands);
-            System.Array.Resize(ref smoothedBands, numBands);
+            System.Array.Resize(ref _spectrumBands, numBands);
+            System.Array.Resize(ref _prevBands, numBands);
+            System.Array.Resize(ref _smoothedBands, numBands);
+        }
+
+        if (_fluxBuffer.Length != fluxWindowSamples)
+        {
+            System.Array.Resize(ref _fluxBuffer, fluxWindowSamples);
         }
 
         UpdateSpectrum();
+        DetectTransients();
     }
 
     public void UpdateSpectrum()
@@ -113,6 +146,9 @@ public class SpectrumData : MonoBehaviour
 
     private void BuildBands(float[] spectrumRaw)
     {
+        // Save old bands
+        Array.Copy(_smoothedBands, _prevBands, _smoothedBands.Length);
+
         int n = spectrumRaw.Length;
 
         // Precompute centers (bin indices)
@@ -137,7 +173,6 @@ public class SpectrumData : MonoBehaviour
         for (int i = 1; i < numBands; i++)
             centers[i] = Mathf.Max(centers[i], centers[i - 1]);
 
-        float oldAvg = spectrumBands.Sum() / numBands;
         for (int i = 0; i < numBands; i++)
         {
             int start, end;
@@ -171,35 +206,74 @@ public class SpectrumData : MonoBehaviour
                 value = Mathf.Clamp01(Mathf.InverseLerp(dbMin, dbMax, db));
             }
 
-            spectrumBands[i] = value;
+            _spectrumBands[i] = value;
             SetSmoothedBands(i);
-        }
-
-        float max = spectrumBands.Sum();
-        float transient = max - oldMax;
-        foreach (KeyValuePair<float, Action<float, float>> entry in OnTransient)
-        {
-            if (transient >= entry.Key) entry.Value?.Invoke(transient);
         }
     }
 
     // Do this element-wise rather than using a second loop for more speed
     void SetSmoothedBands(int i)
     {
-        float current = smoothedBands[i];
-        float target = spectrumBands[i];
+        float current = _smoothedBands[i];
+        float target = _spectrumBands[i];
 
         float speed = target > current ? attackSpeed : releaseSpeed;
 
-        smoothedBands[i] = Mathf.Lerp(
+        _smoothedBands[i] = Mathf.Lerp(
             current,
             target,
             speed * Time.deltaTime
         );
     }
 
-    void OnMetronomeTime(float beat, double dspTime)
+    void DetectTransients()
     {
-        // TODO: OnBeat
+        float lastFlux = _fluxBuffer[^1];
+        float mu = _fluxBuffer.Average();
+        float std = Mathf.Sqrt(_fluxBuffer.Average(d => Mathf.Pow(d - mu, 2)));
+
+        float flux = bands.Select((bands, i) => Mathf.Max(0f, bands - _prevBands[i])).Sum();
+
+        foreach (KeyValuePair<float, Action<float>> entry in OnTransient.Entries)
+        {
+            if (entry.Key <= 1) continue;
+            if (Time.time - _lastTransientTime.GetValueOrDefault(entry.Key) < cooldownSeconds) continue;
+
+            float threshhold = mu + entry.Key * std;
+
+            if (flux > threshhold && flux > lastFlux)
+            {
+                // Debug.Log($"[Transient Detected] {flux}>{threshhold}(mu={mu};std={std};k={entry.Key})");
+
+                entry.Value?.Invoke(flux);
+
+                _lastTransientTime[entry.Key] = Time.time;
+            }
+        }
+
+        // Update flux buffer if not skipping
+        if (skipSamples != 0 && _sample == 0)
+        {
+            System.Array.Copy(_fluxBuffer, 1, _fluxBuffer, 0, _fluxBuffer.Length - 1);
+            _fluxBuffer[^1] = flux;
+        }
+
+        if (skipSamples != 0) _sample = (_sample + 1) % skipSamples;
+        else _sample += 1;
+    }
+
+    void OnMetronomeTime(float beatFloat, double dspTime)
+    {
+        foreach (KeyValuePair<float, Action<float, double>> entry in OnBeat.Entries)
+        {
+            if (entry.Key == 0) return;
+
+            int beat = Mathf.FloorToInt(beatFloat / entry.Key);
+            if (beat > _lastBeat.GetValueOrDefault(entry.Key, beat - 1))
+            {
+                _lastBeat[entry.Key] = beat;
+                entry.Value?.Invoke(beat, dspTime);
+            }
+        }
     }
 }

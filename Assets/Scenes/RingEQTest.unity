@@ -184,6 +184,10 @@ PrefabInstance:
       value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 8312262796807563083, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+      propertyPath: useWave
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312262796807563083, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
       propertyPath: amplitude
       value: 1
       objectReference: {fileID: 0}
@@ -191,15 +195,20 @@ PrefabInstance:
       propertyPath: phaseFrequency
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8312262796807563083, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+      propertyPath: transientThreshhold
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9175081468863472781, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
       propertyPath: m_Name
       value: MovementCueRight (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9175081468863472781, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7796955168376851559, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -479,7 +488,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EQRing2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8243716221860099800, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -687,6 +697,10 @@ PrefabInstance:
       propertyPath: endFrequencyRange
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8312262796807563083, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+      propertyPath: transientThreshhold
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9175081468863472781, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
       propertyPath: m_Name
       value: MovementCueRight
@@ -695,7 +709,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7796955168376851559, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -840,7 +855,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EQRing1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8243716221860099800, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -869,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 285412310671866433, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1151379984130390407, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: power
@@ -882,6 +898,10 @@ PrefabInstance:
     - target: {fileID: 1151379984130390407, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: phaseFrequency
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151379984130390407, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: transientThreshhold
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1672839351881488363, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: m_LocalPosition.x
@@ -931,7 +951,8 @@ PrefabInstance:
       propertyPath: earlyWindow
       value: 300
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1195083848258507435, guid: 311646658abec457c8028349f779d338, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1005,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovementCueLeft (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 285412310671866433, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1151379984130390407, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: power
       value: 1.25
@@ -1016,6 +1041,10 @@ PrefabInstance:
     - target: {fileID: 1151379984130390407, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: phaseFrequency
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151379984130390407, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: transientThreshhold
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1672839351881488363, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1069,7 +1098,8 @@ PrefabInstance:
       propertyPath: 'sources.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1195083848258507435, guid: 311646658abec457c8028349f779d338, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1206,7 +1236,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EQRing3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8243716221860099800, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1349,7 +1380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9175081468863472781, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1445,15 +1476,20 @@ PrefabInstance:
       propertyPath: amplitude
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8312262796807563083, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+      propertyPath: transientThreshhold
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9175081468863472781, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
       propertyPath: m_Name
       value: MovementCueRight (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9175081468863472781, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7796955168376851559, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1469,6 +1505,14 @@ PrefabInstance:
     - target: {fileID: 2186249624622387085, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: _streak
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947510090359346564, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: endFrequencyRange
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947510090359346564, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: fluxWindowSamples
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4385304975134692865, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: m_LocalPosition.x
