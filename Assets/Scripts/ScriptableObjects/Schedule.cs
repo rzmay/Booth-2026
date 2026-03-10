@@ -34,7 +34,10 @@ public class Schedule : ScriptableObject
       copy.scale = Vector3.Scale(copy.scale, scale);
       copy.rotation *= rotation;
 
-      copy.beat += beat;
+      // Beats start at 1, but offset of beat 1 should be zero
+      copy.beat += beat - 1;
+
+      // Only add time if not negative
       if (time >= 0) copy.time += time;
 
       return copy;
