@@ -8,7 +8,7 @@ public class StreakTracker : MonoBehaviour
     public static StreakTracker Instance;
 
     private SongData _song = null;
-    private float _streak = 0f;
+    public float _streak = 0f;
 
     public float streak
     {
