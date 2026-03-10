@@ -234,29 +234,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d106cc0f3d7c144c4aff99060489ab35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RingEQ
-  sources: []
-  useListener: 0
-  fftSize: 512
-  fftWindow: 5
-  useLogScaling: 1
-  startFrequencyRange: 0
-  endFrequencyRange: 1
+  spectrum: {fileID: 0}
   amplitude: 1
   power: 1.5
   mirror: 0
-  useSmoothing: 1
-  attackSpeed: 50
-  releaseSpeed: 10
   useWave: 1
   waveFrequency: 12
   phaseFrequency: 1
+  phaseSmoothSpeed: 50
   scaleFrequencyWithAmplitude: 0
   scaleFrequencyWithSpectrum: 1
+  scaleFrequencyWithSpectrumAmount: 2
   useTransients: 1
-  transientThreshhold: 0.5
-  useDbMapping: 1
-  dbMin: -80
-  dbMax: -20
+  transientThreshhold: 1.5
 --- !u!114 &2445512496077410121
 MonoBehaviour:
   m_ObjectHideFlags: 0
