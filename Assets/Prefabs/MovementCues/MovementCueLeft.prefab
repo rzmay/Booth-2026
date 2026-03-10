@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4bf2619507646d69a97744bec3103d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementCue
-  startTime: 0
   hand: 0
   level: 0
   earlyWindow: 1.5

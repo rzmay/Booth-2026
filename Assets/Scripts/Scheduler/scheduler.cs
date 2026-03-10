@@ -63,6 +63,7 @@ public sealed class Scheduler : MonoBehaviour
 
         _songTime = songTime - songTimeOffset;
         _beat = beatFloat - beatOffset;
+
         ProcessDueEvents();
     }
 
