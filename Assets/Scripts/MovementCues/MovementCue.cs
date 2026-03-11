@@ -64,10 +64,12 @@ public class MovementCue : Schedulable
         {
             StreakTracker.TrackCue(Result.Miss, level);
             Destroy(gameObject);
+            return;
         }
 
         // Check if the hands are in the right place
         if (!_hit) CheckHands();
+
     }
 
 
@@ -90,5 +92,6 @@ public class MovementCue : Schedulable
         // Track
         Result result = onTime ? (perfect ? Result.Perfect : Result.OnTime) : Result.OffTime;
         StreakTracker.TrackCue(result, level);
+        Destroy(gameObject);
     }
 }
