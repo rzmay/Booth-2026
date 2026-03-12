@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: ts1_1
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
-  - beat: 0
+  - beat: 1
     time: -1
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 1, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 1
+    time: -1
+    item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -1, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
