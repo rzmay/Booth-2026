@@ -77,7 +77,8 @@ MonoBehaviour:
   _leftHandSprite: {fileID: 21300000, guid: 2a6d29880292d43ec9e3071f1d888564, type: 3}
   _rightHandSprite: {fileID: 21300000, guid: 4fcd8aa86add8430dab9e307cca0f3d7, type: 3}
   _nextUpRing: {fileID: 6427357031384567139}
-  nextUpGlowScale: 1.5
+  nextUpGlowScale: 2
+  nextUpGlowOpacity: 2
   nextUpSmoothing: 10
   _hitFeedback: {fileID: 6987271752480167141}
   _particleSystems:

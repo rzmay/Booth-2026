@@ -19,7 +19,8 @@ public class MovementCueVisualizer : MonoBehaviour
 
     [Header("Next Up Indication")]
     [SerializeField] private Renderer _nextUpRing;
-    public float nextUpGlowScale = 1.5f;
+    public float nextUpGlowScale = 2f;
+    public float nextUpGlowOpacity = 1.5f;
     public float nextUpSmoothing = 10f;
 
     [Header("Result Visualization")]
@@ -35,6 +36,7 @@ public class MovementCueVisualizer : MonoBehaviour
     private float _minParticleAlpha = 0f;
 
     private Vector3 _initGlowScale;
+    private float _glowAlphaScale = 1f;
 
 
     void Awake()
@@ -82,6 +84,7 @@ public class MovementCueVisualizer : MonoBehaviour
     void UpdateMesh(float progress)
     {
         Color color = meshGradient.Evaluate(progress / 2f);
+        color.a *= _glowAlphaScale;
 
         _meshRenderer.materials[0].color = color;
     }
@@ -90,7 +93,7 @@ public class MovementCueVisualizer : MonoBehaviour
     {
         Color color = glowGradient.Evaluate(progress / 2f);
 
-        _glowRenderer.materials[0].color = color;
+        _glowRenderer.color = color;
     }
 
     void UpdateNextUp()
@@ -99,6 +102,13 @@ public class MovementCueVisualizer : MonoBehaviour
         _glowRenderer.transform.localScale = Vector3.Lerp(
             _glowRenderer.transform.localScale,
             _initGlowScale * (_movementCue.isNext ? nextUpGlowScale : 1),
+            nextUpSmoothing * Time.deltaTime
+        );
+
+        // Set glow alpha boost
+        _glowAlphaScale = Mathf.Lerp(
+            _glowAlphaScale,
+            _movementCue.isNext ? nextUpGlowOpacity : 1.0f,
             nextUpSmoothing * Time.deltaTime
         );
 
@@ -113,24 +123,19 @@ public class MovementCueVisualizer : MonoBehaviour
     public void VisualizeResult(MovementCue.Result result)
     {
         ParticleSystem particleSystem = _particleSystems[result];
-        Debug.Log(particleSystem);
         ParticleSystem[] particles = particleSystem.GetComponentsInChildren<ParticleSystem>();
 
         // Match color on all particles to be played
         foreach (var ps in particles)
         {
             Color particleColor = glowGradient.Evaluate(_movementCue.hitWindowProgress / 2f);
-            Debug.Log(particleColor);
-            Debug.Log($"max({_minParticleAlpha}, {particleColor.a})");
             particleColor.a = Mathf.Max(_minParticleAlpha, particleColor.a);
-            Debug.Log(particleColor.a);
 
             var main = ps.main;
             main.startColor = particleColor;
         }
 
         // Play particle system
-        Debug.Log($"Playing particle system {particleSystem.name}");
         particleSystem.Play();
 
         // Show feedback

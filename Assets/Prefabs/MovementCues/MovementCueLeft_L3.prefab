@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 285412310671866433, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: m_Name
-      value: MovementCueLeft_L2
+      value: MovementCueLeft_L3
       objectReference: {fileID: 0}
     - target: {fileID: 1672839351881488363, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53,12 +53,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
-      propertyPath: hitRadius
-      value: 0.15
+      propertyPath: lateWindow
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: earlyWindow
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828543792311233338, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: 'sources.Array.data[0]'
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7322406352922560710, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: m_LocalScale.x
@@ -82,11 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.key0.b
-      value: 1
+      value: 0.6039216
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.key0.g
-      value: 0.39999998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.key0.r
@@ -94,15 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.key1.b
-      value: 0.9882353
+      value: 0.6039216
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.key1.g
-      value: 0.40000007
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.key1.r
-      value: 0.40000007
+      value: 0.39999998
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.key2.b
@@ -122,11 +126,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: meshGradient.key0.b
-      value: 1
+      value: 0.6000001
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: meshGradient.key0.g
-      value: 0.39999998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: meshGradient.key0.r
@@ -134,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: meshGradient.key1.b
-      value: 1
+      value: 0.6000001
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: meshGradient.key1.g
-      value: 0.39999998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: meshGradient.key1.r

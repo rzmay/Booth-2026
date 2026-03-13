@@ -22,7 +22,7 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0, w: 0}
   - beat: 2
     time: -1
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.5, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
@@ -36,7 +36,7 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0, w: 0}
   - beat: 4
     time: -1
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0, y: -0.5, z: 0}
     scale: {x: 1, y: 1, z: 1}

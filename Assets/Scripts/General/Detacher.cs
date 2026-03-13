@@ -34,8 +34,7 @@ public class Detacher : MonoBehaviour
                 particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
 
-            // DetachGameObject(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax);
-            DetachGameObject(particleSystem.gameObject, -1);
+            DetachGameObject(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax);
         }
 
         foreach (var trail in _trails)
