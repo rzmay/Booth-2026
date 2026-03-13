@@ -57,10 +57,15 @@ public class MovementCue : Schedulable
     * the "On time" and "Perfect" window will be determined by a set threshhold, equal between the early and late.
     * These settings should be pretty easy so kids can have fun
     */
-    public float earlyWindow = 1.5f;
-    public float lateWindow = 1f;
+    public float earlyWindowBeats = 1.5f;
+    public float lateWindowBeats = 1f;
     public float onTimeWindow = 0.2f;
     public float perfectWindow = 0.1f;
+
+    // earlyWindow and lateWindow should be beats rather than seconds
+    public float earlyWindow { get { return (float)MusicManager.Metronome?.BeatsToTime(earlyWindowBeats); } }
+    public float lateWindow { get { return (float)MusicManager.Metronome?.BeatsToTime(lateWindowBeats); } }
+
 
     // TODO: Calibrate this to a reasonable value
     public float hitRadius = 0.2f;

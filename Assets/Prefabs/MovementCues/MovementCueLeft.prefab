@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovementCue
   hand: 0
   level: 0
-  earlyWindow: 1.5
-  lateWindow: 1
+  earlyWindowBeats: 2
+  lateWindowBeats: 2
   onTimeWindow: 0.25
   perfectWindow: 0.1
   hitRadius: 0.2
