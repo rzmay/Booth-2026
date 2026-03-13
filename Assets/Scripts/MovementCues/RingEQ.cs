@@ -20,7 +20,7 @@ public class RingEQ : MonoBehaviour
     [Tooltip("How many beats to switch wave phase on (0 = off)")]
     public float phaseFrequency = 1.0f;
     [Tooltip("How fast to smooth phase changes")]
-    public float phaseSmoothSpeed = 50f;
+    public float phaseSmoothSpeed = 25f;
     [Tooltip("Scale wave frequency with amplitude?")]
     public bool scaleFrequencyWithAmplitude = false;
     [Tooltip("Scale wave frequency with spectrum frequency")]

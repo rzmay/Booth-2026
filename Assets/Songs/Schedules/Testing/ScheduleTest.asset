@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
   - beat: 1
-    time: 0
+    time: -1
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 7ec3b6532a2b3497a87abf7327f66b9f, type: 2}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
   - beat: 9
-    time: 0
+    time: -1
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 7ec3b6532a2b3497a87abf7327f66b9f, type: 2}
     position: {x: 0, y: 0, z: 0}
