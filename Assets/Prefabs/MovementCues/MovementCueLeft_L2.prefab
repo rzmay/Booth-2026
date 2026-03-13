@@ -53,6 +53,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: hitRadius
       value: 0.15
       objectReference: {fileID: 0}

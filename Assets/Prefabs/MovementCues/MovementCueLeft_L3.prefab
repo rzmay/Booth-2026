@@ -53,6 +53,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: lateWindow
       value: 0.5
       objectReference: {fileID: 0}
