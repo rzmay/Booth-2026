@@ -22,3 +22,15 @@ MonoBehaviour:
   countInBeats: 12
   beatsPerMeasure: 4
   loopToBeats: 12
+  streakScoring:
+  - miss: -1
+    early: 0
+    late: 0
+    onTime: 1
+    perfect: 2
+  trackThresholds:
+  - 0
+  - 0
+  - 0
+  - 0
+  schedule: {fileID: 0}

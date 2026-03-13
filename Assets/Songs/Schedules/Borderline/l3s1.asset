@@ -10,12 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
-  m_Name: ScheduleTest
+  m_Name: l3s1
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
-  events:
-  - beat: 1
-    time: -1
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
-    position: {x: 0, y: 0, z: 0}
-    scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
+  _events: []

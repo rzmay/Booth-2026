@@ -1,13 +1,50 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(MovementCueVisualizer))]
 public class MovementCue : Schedulable
 {
+    private static Queue<MovementCue> _Queue = new();
     public enum Result
     {
         Miss,
-        OffTime,
+        Early,
         OnTime,
+        Late,
         Perfect,
+    }
+
+    [System.Serializable]
+    public class ResultMap<T>
+    {
+        public T miss;
+        public T early;
+        public T late;
+        public T onTime;
+        public T perfect;
+
+        public T this[Result key]
+        {
+            get
+            {
+                switch (key)
+                {
+                    case Result.Miss:
+                        return miss;
+                    case Result.Early:
+                        return early;
+                    case Result.Late:
+                        return late;
+                    case Result.OnTime:
+                        return onTime;
+                    case Result.Perfect:
+                        return perfect;
+                    default:
+                        return miss;
+                }
+            }
+        }
     }
 
     // Which hand is this for
@@ -20,10 +57,15 @@ public class MovementCue : Schedulable
     * the "On time" and "Perfect" window will be determined by a set threshhold, equal between the early and late.
     * These settings should be pretty easy so kids can have fun
     */
-    public float earlyWindow = 1.5f;
-    public float lateWindow = 1f;
+    public float earlyWindowBeats = 1.5f;
+    public float lateWindowBeats = 1f;
     public float onTimeWindow = 0.2f;
     public float perfectWindow = 0.1f;
+
+    // earlyWindow and lateWindow should be beats rather than seconds
+    public float earlyWindow { get { return (float)MusicManager.Metronome?.BeatsToTime(earlyWindowBeats); } }
+    public float lateWindow { get { return (float)MusicManager.Metronome?.BeatsToTime(lateWindowBeats); } }
+
 
     // TODO: Calibrate this to a reasonable value
     public float hitRadius = 0.2f;
@@ -46,12 +88,33 @@ public class MovementCue : Schedulable
         }
     }
 
+    // Target time for this to be hit
+    public float targetTime { get { return startTime + earlyWindow; } }
+
+    // Is this next up? Multiple can be next if at the same time
+    public bool isNext
+    {
+        get
+        {
+            MovementCue next = _Queue.Peek();
+            return next == this || next.targetTime == targetTime;
+        }
+    }
+
     [HideInInspector] override public float scheduleAhead { get { return earlyWindow; } }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private MovementCueVisualizer _visualizer;
+    private Detacher _detacher;
+
+    void Awake()
+    {
+        _visualizer = GetComponent<MovementCueVisualizer>();
+        _detacher = GetComponent<Detacher>();
+    }
+
     void Start()
     {
-
+        _Queue.Enqueue(this);
     }
 
     // Update is called once per frame
@@ -62,8 +125,7 @@ public class MovementCue : Schedulable
         // Despawn if done
         if (_time > hitWindow)
         {
-            StreakTracker.TrackCue(Result.Miss, level);
-            Destroy(gameObject);
+            TrackResult(Result.Miss);
         }
 
         // Check if the hands are in the right place
@@ -84,11 +146,30 @@ public class MovementCue : Schedulable
         _hit = true;
 
         // Was it timed within the on time / perfect windows?
-        bool onTime = earlyWindow - onTimeWindow < _time && _time < earlyWindow + onTimeWindow;
+        bool early = _time < earlyWindow - onTimeWindow;
+        bool late = earlyWindow + onTimeWindow < _time;
+        bool onTime = !(early || late);
         bool perfect = earlyWindow - perfectWindow < _time && _time < earlyWindow + perfectWindow;
 
         // Track
-        Result result = onTime ? (perfect ? Result.Perfect : Result.OnTime) : Result.OffTime;
+        Result result = onTime ?
+            (perfect ? Result.Perfect : Result.OnTime) :
+            (early ? Result.Early : Result.Late);
+
+        TrackResult(result);
+    }
+
+    void TrackResult(Result result)
+    {
+        // Can't dequeue, as the cue being removed may not actually be the oldest.
+        // Instead remove specific element
+        _Queue = new Queue<MovementCue>(_Queue.Where(e => e != this));
+
         StreakTracker.TrackCue(result, level);
+        _visualizer.VisualizeResult(result);
+
+        // Detach and destroy
+        _detacher.Detach();
+        Destroy(gameObject);
     }
 }

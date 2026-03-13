@@ -23,10 +23,11 @@ MonoBehaviour:
   beatsPerMeasure: 4
   loopToBeats: 12
   streakScoring:
-  - miss: 0
-    offTime: 0
-    onTime: 0
-    perfect: 0
+  - miss: -1
+    early: 0
+    late: 0
+    onTime: 1
+    perfect: 2
   trackThresholds:
   - 99
   - 199
