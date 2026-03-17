@@ -85,9 +85,9 @@ public class MusicManager : MonoBehaviour
         if (config == null) return;
 
         // Load song data into metronome
-        _scheduler.LoadSchedule(config.songData.schedule);
-        _metronome.LoadSongData(config.songData);
+        _metronome.LoadSongData(config.songData); // Metronome needs to load first for schedule sorting
         _streakTracker.LoadSongData(config.songData);
+        _scheduler.LoadSchedule(config.songData.schedule);
 
         // Set the game music -- don't start yet
         List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });

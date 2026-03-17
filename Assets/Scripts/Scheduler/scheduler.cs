@@ -95,7 +95,9 @@ public sealed class Scheduler : MonoBehaviour
         // Cache and sort events
         _events = new(schedule.events);
 
-        // TODO: Sort
+        // Requires metronome initialization (e.g. bpm > 0)
+        float bpm = _metronome.bpm;
+        if (bpm > 0) _events.Sort((e1, e2) => e1.GetCanonTime(bpm).CompareTo(e2.GetCanonTime(bpm)));
     }
 
     // resets the schedule
