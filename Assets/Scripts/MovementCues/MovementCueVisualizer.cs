@@ -22,6 +22,7 @@ public class MovementCueVisualizer : MonoBehaviour
     public float nextUpGlowScale = 2f;
     public float nextUpGlowOpacity = 1.5f;
     public float nextUpSmoothing = 10f;
+    [SerializeField] NextIndicationLine nextLinePrefab;
 
     [Header("Result Visualization")]
     [SerializeField] private HitFeedback _hitFeedback;
@@ -140,5 +141,15 @@ public class MovementCueVisualizer : MonoBehaviour
 
         // Show feedback
         _hitFeedback.Show(result);
+    }
+
+    public void ShowNextLine(List<MovementCue> previous)
+    {
+        foreach (var p in previous)
+        {
+            NextIndicationLine line = Instantiate(nextLinePrefab);
+            line.startPoint = p.transform.position;
+            line.endPoint = transform.position;
+        }
     }
 }
