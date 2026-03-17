@@ -3277,7 +3277,7 @@
     "m_ObjectId": "0bd11d4dc5d240758a3f41a5bfc53dca",
     "m_Title": "Sand Color",
     "m_Position": {
-        "x": -2978.000244140625,
+        "x": -2978.0,
         "y": 1.5
     }
 }
@@ -10280,7 +10280,7 @@
     "m_Hidden": false,
     "m_PerRendererData": false,
     "m_customAttributes": [],
-    "m_Value": 0.75,
+    "m_Value": 2.0,
     "m_FloatType": 0,
     "m_LiteralFloatMode": false,
     "m_RangeValues": {
@@ -12032,8 +12032,8 @@
     "m_ObjectId": "a530d5ac9e484211a906878a0cb0279f",
     "m_Title": "Dunes",
     "m_Position": {
-        "x": -2976.500244140625,
-        "y": 470.00006103515627
+        "x": -2976.5,
+        "y": 470.0
     }
 }
 
