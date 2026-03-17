@@ -6,6 +6,7 @@ using UnityEngine;
 public class MovementCue : Schedulable
 {
     private static Queue<MovementCue> _Queue = new();
+
     public enum Result
     {
         Miss,
@@ -105,6 +106,7 @@ public class MovementCue : Schedulable
 
     private MovementCueVisualizer _visualizer;
     private Detacher _detacher;
+    private List<MovementCue> _previous;
 
     void Awake()
     {
@@ -114,6 +116,13 @@ public class MovementCue : Schedulable
 
     void Start()
     {
+        List<MovementCue> sideList = _Queue.Where(e => e.hand == hand).ToList();
+        if (sideList.Count > 0)
+        {
+            _previous = sideList.Where(e => e.targetTime == sideList[^1].targetTime).ToList();
+            _visualizer.ShowNextLine(_previous);
+        }
+
         _Queue.Enqueue(this);
     }
 

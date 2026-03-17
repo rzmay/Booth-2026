@@ -85,7 +85,7 @@ public class MusicManager : MonoBehaviour
         if (config == null) return;
 
         // Load song data into metronome
-        _scheduler.schedule = config.songData.schedule;
+        _scheduler.LoadSchedule(config.songData.schedule);
         _metronome.LoadSongData(config.songData);
         _streakTracker.LoadSongData(config.songData);
 
