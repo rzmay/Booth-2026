@@ -42,6 +42,11 @@ public class Schedule : ScriptableObject
 
       return copy;
     }
+
+    public float GetCanonTime(float bpm)
+    {
+      return time > 0 ? time : (float)MusicManager.Metronome.BeatsToTime(beat - 1);
+    }
   }
 
   // What we set in the editor for events

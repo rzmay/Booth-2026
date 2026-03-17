@@ -133,6 +133,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: lineGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: lineGradient.atime2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: lineGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: meshGradient.ctime1
       value: 65535
       objectReference: {fileID: 0}
@@ -162,6 +174,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: glowGradient.m_NumColorKeys
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168223611347620439, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: lineGradient.m_NumAlphaKeys
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []

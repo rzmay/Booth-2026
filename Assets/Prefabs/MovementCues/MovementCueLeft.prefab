@@ -80,6 +80,7 @@ MonoBehaviour:
   nextUpGlowScale: 2
   nextUpGlowOpacity: 2
   nextUpSmoothing: 10
+  nextLinePrefab: {fileID: -7063936379955990304, guid: aee99970aea264022887dba51ee6887e, type: 3}
   _hitFeedback: {fileID: 6987271752480167141}
   _particleSystems:
     miss: {fileID: 2455310848948676460}

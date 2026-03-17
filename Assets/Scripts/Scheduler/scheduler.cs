@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 // SCHEDULER CLASS
@@ -29,6 +30,8 @@ public sealed class Scheduler : MonoBehaviour
     */
     public float beatOffset = 0;
     public double songTimeOffset = 0;
+
+    private List<Schedule.Event> _events = new();
 
     void Awake()
     {
@@ -73,7 +76,7 @@ public sealed class Scheduler : MonoBehaviour
         // catch-up loops are so tuff
         while (HasMoreEvents() && IsNextEventDue())
         {
-            Schedule.Event evt = schedule.events[_nextIndex];
+            Schedule.Event evt = _events[_nextIndex];
 
             // Spawn the item associated with the event
             SpawnEvent(evt);
@@ -85,6 +88,17 @@ public sealed class Scheduler : MonoBehaviour
 
 
     //####### HELPER FUNCTIONS / UTILITY FUNCTIONS #######//
+    public void LoadSchedule(Schedule s)
+    {
+        schedule = s;
+
+        // Cache and sort events
+        _events = new(schedule.events);
+
+        // Requires metronome initialization (e.g. bpm > 0)
+        float bpm = _metronome.bpm;
+        if (bpm > 0) _events.Sort((e1, e2) => e1.GetCanonTime(bpm).CompareTo(e2.GetCanonTime(bpm)));
+    }
 
     // resets the schedule
     public void Reset()
@@ -103,7 +117,7 @@ public sealed class Scheduler : MonoBehaviour
     {
         if (schedule == null) return false;
 
-        return _nextIndex < schedule.events.Count;
+        return _nextIndex < _events.Count;
     }
 
     // checks if event is due to be scheduled in reference to current song time and schedule ahead time
@@ -112,7 +126,7 @@ public sealed class Scheduler : MonoBehaviour
         if (schedule == null) return false;
 
         // check if event is due to be scheduled within the schedule ahead time
-        Schedule.Event evt = schedule.events[_nextIndex];
+        Schedule.Event evt = _events[_nextIndex];
 
         // Use beats if time is negative, othterwise use time
         return GetScheduledTime(evt) - evt.item.scheduleAhead <= _songTime;

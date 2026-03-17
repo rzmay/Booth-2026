@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595678551276931162, guid: 30f7b24183bd647ca94f7c9b70f188d2, type: 3}
       propertyPath: m_Name
-      value: MovementCueLeft_L4
+      value: MovementCueRight_L4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
