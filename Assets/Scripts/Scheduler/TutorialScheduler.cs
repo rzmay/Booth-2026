@@ -19,7 +19,7 @@ public class TutorialScheduler : MonoBehaviour
 
     private void Start()
     {
-        schedules = new Schedule[] { singleHitSchedule, perfectHitSchedule, tripleHitSchedule, twoHandsHitSchedule };
+        schedules = [singleHitSchedule, perfectHitSchedule, tripleHitSchedule, twoHandsHitSchedule];
         scheduler = GetComponent<Scheduler>();
         enabled = true;
 
@@ -61,8 +61,4 @@ public class TutorialScheduler : MonoBehaviour
         // transition into main game scene
         return;
     }
-
-
-
-
 }
