@@ -16,12 +16,7 @@ public sealed class Scheduler : MonoBehaviour
     // VARIABLE INITIALIZATION //
     [SerializeField] public Schedule schedule;
 
-    [Header("Tutorial")]
-    [SerializeField] private bool tutorialMode = false;
-    [SerializeField] private float tutorialRequiredPoints = 5f;
-
     private Metronome _metronome;
-    private StreakTracker _streakTracker;
 
     private int _nextIndex = 0;
 
@@ -37,13 +32,10 @@ public sealed class Scheduler : MonoBehaviour
     public double songTimeOffset = 0;
 
     private List<Schedule.Event> _events = new();
-    private bool _tutorialAttemptRunning = false;
-    private bool _tutorialPassed = false;
 
     void Awake()
     {
         _metronome = GetComponent<Metronome>();
-        _streakTracker = GetComponent<StreakTracker>();
     }
 
     public void Start()
@@ -64,15 +56,6 @@ public sealed class Scheduler : MonoBehaviour
     void OnDisable()
     {
         _metronome.OnMetronomeTime -= OnMetronomeTime;
-    }
-
-    void Update()
-    {
-        if (!tutorialMode || !_tutorialAttemptRunning || _tutorialPassed) return;
-        if (HasMoreEvents()) return;
-        if (FindObjectsOfType<MovementCue>().Length > 0) return;
-
-        FinishTutorialAttempt();
     }
 
     // subscribed to OnMetronomeTime event in metronome.cs
@@ -115,21 +98,6 @@ public sealed class Scheduler : MonoBehaviour
         // Requires metronome initialization (e.g. bpm > 0)
         float bpm = _metronome.bpm;
         if (bpm > 0) _events.Sort((e1, e2) => e1.GetCanonTime(bpm).CompareTo(e2.GetCanonTime(bpm)));
-
-        if (!tutorialMode)
-        {
-            _tutorialAttemptRunning = false;
-            _tutorialPassed = false;
-            return;
-        }
-
-        _tutorialPassed = false;
-        _tutorialAttemptRunning = schedule != null;
-
-        if (_tutorialAttemptRunning && _streakTracker != null)
-        {
-            _streakTracker.streak = 0f;
-        }
     }
 
     // resets the schedule
@@ -181,28 +149,5 @@ public sealed class Scheduler : MonoBehaviour
     {
         if (evt.time < 0) return _metronome.BeatsToTime(evt.beat - 1); // Beats start at 1
         else return evt.time;
-    }
-
-    private void FinishTutorialAttempt()
-    {
-        _tutorialAttemptRunning = false;
-
-        if (_streakTracker == null)
-        {
-            Debug.LogWarning("Scheduler tutorial mode requires a StreakTracker component.");
-            return;
-        }
-
-        if (_streakTracker.streak >= tutorialRequiredPoints)
-        {
-            _tutorialPassed = true;
-            Debug.Log($"Scheduler: tutorial passed with {_streakTracker.streak} / {tutorialRequiredPoints} points.");
-            return;
-        }
-
-        Debug.Log($"Scheduler: tutorial failed with {_streakTracker.streak} / {tutorialRequiredPoints} points, restarting from beat 0.");
-        _streakTracker.streak = 0f;
-        Reset();
-        _tutorialAttemptRunning = true;
     }
 }

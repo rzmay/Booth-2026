@@ -451,7 +451,7 @@ PrefabInstance:
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: states.Array.data[0].songData
       value: 
-      objectReference: {fileID: 11400000, guid: cc4d98b5817384813a2de2b2dba14d9b, type: 2}
+      objectReference: {fileID: 11400000, guid: 62b1a34ea8b2a4e0296cd82799550c59, type: 2}
     - target: {fileID: 4385304975134692865, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
