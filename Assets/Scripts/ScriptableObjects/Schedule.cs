@@ -8,11 +8,10 @@ public class Schedule : ScriptableObject
   [System.Serializable]
   public class Event
   {
-    // Use beats if time is negative
+    [Header("Timing")]
     public float beat;
-
-    // By default, use beats
     public float time = -1f;
+    public bool useTime = false; // By default use beats
 
     // Item to instantiate
     [SerializeField] public Schedulable item;
@@ -20,10 +19,14 @@ public class Schedule : ScriptableObject
     // Use another schedule instead
     [SerializeField] public Schedule subschedule;
 
+    [Header("Transform")]
     // Position, rotation, and scale at which to spawn
     public Vector3 position = Vector3.zero;
-    public Vector3 scale = Vector3.one;
+    public Vector3 scale = Vector3.zero;
     public Quaternion rotation = Quaternion.identity;
+
+    // Mostly unused but defaults to zero so use boolean flag
+    public bool useScale = false;
 
     public Event AtSubscheduledTime(float beat, float time, Vector3 position, Vector3 scale, Quaternion rotation)
     {

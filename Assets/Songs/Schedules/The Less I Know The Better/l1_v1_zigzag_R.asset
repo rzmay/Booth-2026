@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
+  m_Name: l1_v1_zigzag_R
+  m_EditorClassIdentifier: Assembly-CSharp::Schedule
+  _events:
+  - beat: 1
+    time: 0
+    useTime: 0
+    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.5, y: 0.5, z: 0.15}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 2
+    time: 0
+    useTime: 0
+    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.5, y: 0.75, z: 0.5}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 2.5
+    time: 0
+    useTime: 0
+    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.5, y: 0.3, z: 0.15}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 3.5
+    time: 0
+    useTime: 0
+    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.5, y: 0.4, z: 0.15}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.5, y: 0.25, z: 0.15}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4.5
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.5, y: 0.25, z: 0.15}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0

@@ -20,7 +20,7 @@ public class StreakTracker : MonoBehaviour
     public float streak
     {
         get { return _streak; }
-        private set { _streak = Mathf.Clamp(value, 0, _song?.maxStreak ?? 0); }
+        set { _streak = Mathf.Clamp(value, 0, _song?.maxStreak ?? 0); }
     }
 
     // Returns a float array of each progress

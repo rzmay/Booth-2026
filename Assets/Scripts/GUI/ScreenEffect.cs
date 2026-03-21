@@ -33,16 +33,13 @@ public class ScreenEffect : MonoBehaviour
 
     // Set material amount
     _image.material.SetFloat("Amount", _smoothAmount);
-    Debug.Log($"Setting Amount={_smoothAmount}");
 
     // Set dilation power by progress
     _image.material.SetFloat("DilationPower", dilationPower.Evaluate(_smoothAmount));
-    Debug.Log($"Setting DilationPower={dilationPower.Evaluate(_smoothAmount)}");
 
     // Set dilation if begun
     if (_beat >= 0)
     {
-      _image.material.SetFloat("Beat", _beat % 1f);
       Debug.Log($"Setting Beat={_beat % 1f}");
     }
   }
