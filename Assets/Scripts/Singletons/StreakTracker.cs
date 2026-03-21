@@ -8,12 +8,19 @@ public class StreakTracker : MonoBehaviour
     public static StreakTracker Instance;
 
     private SongData _song = null;
-    public float _streak = 0f;
+    [SerializeField] private float _streak = 0f; // Private, but show in editor for debugging
+    private float _score = 0f;
+    public float score
+    {
+        get { return _score; }
+        private set { _score = Mathf.Max(value, 0); } // Score has no max value
+    }
+
 
     public float streak
     {
         get { return _streak; }
-        set { _streak = Mathf.Clamp(value, 0, _song?.maxStreak ?? 0); }
+        private set { _streak = Mathf.Clamp(value, 0, _song?.maxStreak ?? 0); }
     }
 
     // Returns a float array of each progress
@@ -42,7 +49,6 @@ public class StreakTracker : MonoBehaviour
     // Returns a float 0 - 4 representing progress through threshholds. Use for graphics
     public float streakProgress { get { return streakProgresses.Sum(); } }
 
-
     void Awake()
     {
         Instance = this;
@@ -58,7 +64,8 @@ public class StreakTracker : MonoBehaviour
         if (_song == null) return;
 
         int i = Mathf.Clamp(level, 0, _song.streakScoring.Count - 1);
-        _streak += _song.streakScoring[i][result];
+        streak += _song.streakScoring[i][result];
+        score += _song.streakScoring[i][result];
     }
 
     public void LoadSongData(SongData songData)

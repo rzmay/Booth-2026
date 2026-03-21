@@ -101,6 +101,9 @@
         },
         {
             "m_Id": "de54b1246b484d10ad3618d431b2fdd3"
+        },
+        {
+            "m_Id": "5ebf4dfccc104ff394560f18e4f9c23c"
         }
     ],
     "m_Keywords": [],
@@ -3277,7 +3280,7 @@
     "m_ObjectId": "0bd11d4dc5d240758a3f41a5bfc53dca",
     "m_Title": "Sand Color",
     "m_Position": {
-        "x": -2978.0,
+        "x": -2977.9990234375,
         "y": 1.5
     }
 }
@@ -3850,8 +3853,8 @@
     "m_ObjectId": "18a56e6f298349fbbf719dc63643c7d6",
     "m_Title": "Dilation",
     "m_Position": {
-        "x": -4142.0,
-        "y": -437.5
+        "x": -4141.9990234375,
+        "y": -437.5001220703125
     }
 }
 
@@ -6416,8 +6419,8 @@
     "m_ObjectId": "474e937fd46b44e78f111b11d72bb12e",
     "m_Title": "Sky Color",
     "m_Position": {
-        "x": -2973.0,
-        "y": 2179.0
+        "x": -2972.9990234375,
+        "y": 2179.000244140625
     }
 }
 
@@ -8347,6 +8350,42 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "5ebf4dfccc104ff394560f18e4f9c23c",
+    "m_Guid": {
+        "m_GuidSerialized": "798c80ee-b444-4b5e-a4ba-551386196c8a"
+    },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
+    "m_Name": "_MainTex",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "_MainTex",
+    "m_DefaultReferenceName": "_MainTex",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_PerRendererData": false,
+    "m_customAttributes": [],
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "useTexelSize": true,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "5edf9b63e36a45b39777beec03e31ceb",
     "m_Group": {
@@ -8662,8 +8701,8 @@
     "m_ObjectId": "67e2028c294e46b4bd135da14d28cc9f",
     "m_Title": "Sand Timing",
     "m_Position": {
-        "x": -2966.0,
-        "y": -1289.0
+        "x": -2965.99951171875,
+        "y": -1289.0001220703125
     }
 }
 
@@ -8976,8 +9015,8 @@
     "m_ObjectId": "703cbafa5e0f49be904cedbf85c93e23",
     "m_Title": "Background",
     "m_Position": {
-        "x": -2984.5,
-        "y": 994.5
+        "x": -2984.49951171875,
+        "y": 994.4999389648438
     }
 }
 
@@ -9693,8 +9732,8 @@
     "m_ObjectId": "7e3fc5ca74d84185b1d2b7e90bfa4410",
     "m_Title": "Windows",
     "m_Position": {
-        "x": -2987.5,
-        "y": 1653.5
+        "x": -2987.49951171875,
+        "y": 1653.499755859375
     }
 }
 
@@ -9983,8 +10022,8 @@
     "m_ObjectId": "823ed318efb6491eb54e04825df4da7e",
     "m_Title": "Sand Pattern",
     "m_Position": {
-        "x": -2975.5,
-        "y": -440.5
+        "x": -2975.49951171875,
+        "y": -440.500244140625
     }
 }
 
@@ -10369,8 +10408,8 @@
     "m_ObjectId": "8b04ca4817234892afc68d422379522c",
     "m_Title": "Vignette",
     "m_Position": {
-        "x": -342.0,
-        "y": 148.0
+        "x": -341.9990234375,
+        "y": 147.999755859375
     }
 }
 
@@ -12032,8 +12071,8 @@
     "m_ObjectId": "a530d5ac9e484211a906878a0cb0279f",
     "m_Title": "Dunes",
     "m_Position": {
-        "x": -2976.5,
-        "y": 470.0
+        "x": -2976.49951171875,
+        "y": 469.9999694824219
     }
 }
 
@@ -12960,8 +12999,8 @@
     "m_ObjectId": "bb875c38630649ba81bebf97c38233d2",
     "m_Title": "Polar Coordinates",
     "m_Position": {
-        "x": -2967.5,
-        "y": -859.0
+        "x": -2967.49951171875,
+        "y": -859.000244140625
     }
 }
 
@@ -13195,7 +13234,11 @@
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "c1777c7e988847a78322a80b39bad3b1",
     "m_Name": "",
-    "m_ChildObjectList": []
+    "m_ChildObjectList": [
+        {
+            "m_Id": "5ebf4dfccc104ff394560f18e4f9c23c"
+        }
+    ]
 }
 
 {
