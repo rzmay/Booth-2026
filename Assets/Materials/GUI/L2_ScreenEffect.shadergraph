@@ -467,6 +467,9 @@
         },
         {
             "m_Id": "25cd9659b50c44f9ae6bd6e74ad1d618"
+        },
+        {
+            "m_Id": "bc7d37169af44202942ba87baa5d03c6"
         }
     ],
     "m_GroupDatas": [
@@ -2440,6 +2443,9 @@
             },
             {
                 "m_Id": "9baadf99b0bb4bedb94bc5fdb89b6d9c"
+            },
+            {
+                "m_Id": "bc7d37169af44202942ba87baa5d03c6"
             }
         ]
     },
@@ -3280,7 +3286,7 @@
     "m_ObjectId": "0bd11d4dc5d240758a3f41a5bfc53dca",
     "m_Title": "Sand Color",
     "m_Position": {
-        "x": -2977.9990234375,
+        "x": -2978.0,
         "y": 1.5
     }
 }
@@ -3527,11 +3533,11 @@
     "m_ObjectId": "0f3a73c4a1ad47139980339bcc4fdbcd",
     "m_Datas": [
         {
-            "m_Id": "bd5b31a0c52b4e78a8be46f802b0f55b"
+            "m_Id": "551cc4c52f334ea4a6b203148e833b2d"
         }
     ],
     "m_ActiveSubTarget": {
-        "m_Id": "f7961e763b7e4982898c3c9d2007b8d7"
+        "m_Id": "38b5541e90cf457d85b39d558238494c"
     },
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
@@ -3853,8 +3859,8 @@
     "m_ObjectId": "18a56e6f298349fbbf719dc63643c7d6",
     "m_Title": "Dilation",
     "m_Position": {
-        "x": -4141.9990234375,
-        "y": -437.5001220703125
+        "x": -4142.0,
+        "y": -437.5
     }
 }
 
@@ -5678,6 +5684,12 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalCanvasSubTarget",
+    "m_ObjectId": "38b5541e90cf457d85b39d558238494c"
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.GradientMaterialSlot",
     "m_ObjectId": "394567739e484d90a2e02656b883e605",
     "m_Id": 0,
@@ -6419,8 +6431,8 @@
     "m_ObjectId": "474e937fd46b44e78f111b11d72bb12e",
     "m_Title": "Sky Color",
     "m_Position": {
-        "x": -2972.9990234375,
-        "y": 2179.000244140625
+        "x": -2973.0,
+        "y": 2179.0
     }
 }
 
@@ -7601,6 +7613,15 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.Rendering.Canvas.ShaderGraph.CanvasData",
+    "m_ObjectId": "551cc4c52f334ea4a6b203148e833b2d",
+    "m_Version": 0,
+    "m_AlphaClip": false,
+    "m_DisableTint": false
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "552f53bd0d004727a5e6a9047e1c8c6e",
     "m_Id": 1,
@@ -8701,8 +8722,8 @@
     "m_ObjectId": "67e2028c294e46b4bd135da14d28cc9f",
     "m_Title": "Sand Timing",
     "m_Position": {
-        "x": -2965.99951171875,
-        "y": -1289.0001220703125
+        "x": -2966.0,
+        "y": -1289.0
     }
 }
 
@@ -9015,8 +9036,8 @@
     "m_ObjectId": "703cbafa5e0f49be904cedbf85c93e23",
     "m_Title": "Background",
     "m_Position": {
-        "x": -2984.49951171875,
-        "y": 994.4999389648438
+        "x": -2984.5,
+        "y": 994.5
     }
 }
 
@@ -9732,8 +9753,8 @@
     "m_ObjectId": "7e3fc5ca74d84185b1d2b7e90bfa4410",
     "m_Title": "Windows",
     "m_Position": {
-        "x": -2987.49951171875,
-        "y": 1653.499755859375
+        "x": -2987.5,
+        "y": 1653.5
     }
 }
 
@@ -10022,8 +10043,8 @@
     "m_ObjectId": "823ed318efb6491eb54e04825df4da7e",
     "m_Title": "Sand Pattern",
     "m_Position": {
-        "x": -2975.49951171875,
-        "y": -440.500244140625
+        "x": -2975.5,
+        "y": -440.5
     }
 }
 
@@ -10408,8 +10429,8 @@
     "m_ObjectId": "8b04ca4817234892afc68d422379522c",
     "m_Title": "Vignette",
     "m_Position": {
-        "x": -341.9990234375,
-        "y": 147.999755859375
+        "x": -342.0,
+        "y": 148.0
     }
 }
 
@@ -12071,8 +12092,8 @@
     "m_ObjectId": "a530d5ac9e484211a906878a0cb0279f",
     "m_Title": "Dunes",
     "m_Position": {
-        "x": -2976.49951171875,
-        "y": 469.9999694824219
+        "x": -2976.5,
+        "y": 470.0
     }
 }
 
@@ -12999,9 +13020,43 @@
     "m_ObjectId": "bb875c38630649ba81bebf97c38233d2",
     "m_Title": "Polar Coordinates",
     "m_Position": {
-        "x": -2967.49951171875,
-        "y": -859.000244140625
+        "x": -2967.5,
+        "y": -859.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "bc7d37169af44202942ba87baa5d03c6",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.Emission",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "d6f5e059b1264a73b8cfa422464bb811"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.Emission"
 }
 
 {
@@ -13075,13 +13130,6 @@
         "w": 0.0
     },
     "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.UITK.ShaderGraph.UIData",
-    "m_ObjectId": "bd5b31a0c52b4e78a8be46f802b0f55b",
-    "m_Version": 0
 }
 
 {
@@ -14572,6 +14620,36 @@
         "m_SerializableColors": []
     },
     "m_BlendMode": 8
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.ColorRGBMaterialSlot",
+    "m_ObjectId": "d6f5e059b1264a73b8cfa422464bb811",
+    "m_Id": 0,
+    "m_DisplayName": "Emission",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Emission",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": [],
+    "m_ColorMode": 1,
+    "m_DefaultColor": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+    }
 }
 
 {
@@ -16313,12 +16391,6 @@
         "Z"
     ],
     "m_LiteralMode": false
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalUISubTarget",
-    "m_ObjectId": "f7961e763b7e4982898c3c9d2007b8d7"
 }
 
 {

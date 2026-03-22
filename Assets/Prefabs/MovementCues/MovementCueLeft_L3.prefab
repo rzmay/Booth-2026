@@ -65,12 +65,16 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+      propertyPath: onTimeWindow
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: lateWindowBeats
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: earlyWindowBeats
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4828543792311233338, guid: 311646658abec457c8028349f779d338, type: 3}
       propertyPath: 'sources.Array.data[0]'

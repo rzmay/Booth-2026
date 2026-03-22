@@ -21,7 +21,7 @@ public class ScreenEffect : MonoBehaviour
     MusicManager.Metronome.OnMetronomeTime += OnMetronomeTime;
 
     // Start with no dilation
-    _image.material.SetFloat("Beat", 0.99f);
+    _image.material.SetFloat("_Beat", 0.99f);
   }
 
   void Update()
@@ -32,15 +32,15 @@ public class ScreenEffect : MonoBehaviour
     _smoothAmount = Mathf.Lerp(_smoothAmount, progress, smoothing * Time.deltaTime);
 
     // Set material amount
-    _image.material.SetFloat("Amount", _smoothAmount);
+    _image.material.SetFloat("_Amount", _smoothAmount);
 
     // Set dilation power by progress
-    _image.material.SetFloat("DilationPower", dilationPower.Evaluate(_smoothAmount));
+    _image.material.SetFloat("_DilationPower", dilationPower.Evaluate(_smoothAmount));
 
     // Set dilation if begun
     if (_beat >= 0)
     {
-      Debug.Log($"Setting Beat={_beat % 1f}");
+      _image.material.SetFloat("_Beat", _beat % 1f);
     }
   }
 
