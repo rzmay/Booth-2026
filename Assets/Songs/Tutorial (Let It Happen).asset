@@ -27,7 +27,7 @@ MonoBehaviour:
     early: 0
     late: 0
     onTime: 1
-    perfect: 2
+    perfect: 1
   trackThresholds:
   - 99
   - 199

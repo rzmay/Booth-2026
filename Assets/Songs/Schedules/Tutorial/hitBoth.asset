@@ -22,7 +22,7 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0, w: 0}
   - beat: 1
     time: -1
-    item: {fileID: 3102656808963515007, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.5, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
