@@ -25,9 +25,14 @@ public class Schedule : ScriptableObject
     public Vector3 scale = Vector3.one;
     public Quaternion rotation = Quaternion.identity;
 
+    public Event CreateRuntimeCopy()
+    {
+      return (Event)MemberwiseClone();
+    }
+
     public Event AtSubscheduledTime(float beat, float time, Vector3 position, Vector3 scale, Quaternion rotation)
     {
-      Event copy = (Event)this.MemberwiseClone();
+      Event copy = CreateRuntimeCopy();
 
       // Position is offset, others are multiplicative
       copy.position += position;
@@ -51,6 +56,7 @@ public class Schedule : ScriptableObject
 
   // What we set in the editor for events
   [SerializeField] private List<Event> _events = new();
+  public IReadOnlyList<Event> rawEvents { get { return _events; } }
 
   // Version of events with subschedules replaced with their events
   public List<Event> events

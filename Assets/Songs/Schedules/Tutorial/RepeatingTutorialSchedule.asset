@@ -10,24 +10,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
-  m_Name: TutorialSchedule
+  m_Name: RepeatingTutorialSchedule
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
-  - beat: 4
+  - beat: 1
+    time: -1
+    item: {fileID: 3048451526883189555, guid: f7ba66234c158484196d3b2ca506ec44, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 20}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 8
     time: -1
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 43b84850979744b8693d9c51cc2f85c4, type: 2}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
-  - beat: 8
+  - beat: 10
+    time: -1
+    item: {fileID: 2496073206775919530, guid: 8048eef2aa1b3470ba26b965be42722b, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 20}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 16
     time: -1
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: a8fa7c25698394385a56d4656cb975c1, type: 2}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
-  - beat: 12
+  - beat: 18
+    time: -1
+    item: {fileID: 5543755416842510772, guid: 18071515aad1346b5923903f8241cc91, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 20}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 24
+    time: -1
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 7af2f5476d0114c9dbca24dda277f8e2, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 24
     time: -1
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 7af2f5476d0114c9dbca24dda277f8e2, type: 2}
