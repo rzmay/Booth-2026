@@ -56,6 +56,54 @@ PrefabInstance:
       propertyPath: hand
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: glowGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: glowGradient.key0.g
+      value: 0.39999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: glowGradient.key0.r
+      value: 0.39999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: glowGradient.key1.b
+      value: 0.9882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: glowGradient.key1.g
+      value: 0.40000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: glowGradient.key1.r
+      value: 0.40000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: meshGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: meshGradient.key0.g
+      value: 0.39999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: meshGradient.key0.r
+      value: 0.39999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: meshGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: meshGradient.key1.g
+      value: 0.39999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650748025937158407, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
+      propertyPath: meshGradient.key1.r
+      value: 0.39999998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
