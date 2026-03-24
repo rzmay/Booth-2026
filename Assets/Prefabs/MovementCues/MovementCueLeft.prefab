@@ -51,7 +51,7 @@ MonoBehaviour:
   hand: 0
   level: 0
   earlyWindowBeats: 2
-  lateWindowBeats: 2
+  lateWindowBeats: 1
   onTimeWindow: 0.25
   perfectWindow: 0.1
   hitRadius: 0.2

@@ -136,7 +136,7 @@ public sealed class Scheduler : MonoBehaviour
     private void SpawnEvent(Schedule.Event evt)
     {
         Schedulable obj = Instantiate(evt.item, evt.position, evt.rotation);
-        obj.transform.localScale = evt.scale;
+        if (evt.useScale) obj.transform.localScale = evt.scale;
 
         // Calculate start time
         double late = _songTime - (GetScheduledTime(evt) - evt.item.scheduleAhead);
@@ -147,7 +147,7 @@ public sealed class Scheduler : MonoBehaviour
 
     private double GetScheduledTime(Schedule.Event evt)
     {
-        if (evt.time < 0) return _metronome.BeatsToTime(evt.beat - 1); // Beats start at 1
-        else return evt.time;
+        if (evt.useTime) return evt.time;
+        else return _metronome.BeatsToTime(evt.beat - 1); // Beats start at 1
     }
 }
