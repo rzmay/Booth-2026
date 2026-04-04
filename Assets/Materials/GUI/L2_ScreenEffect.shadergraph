@@ -104,6 +104,9 @@
         },
         {
             "m_Id": "5ebf4dfccc104ff394560f18e4f9c23c"
+        },
+        {
+            "m_Id": "eee18024d24b4cdda6299635d6b0d670"
         }
     ],
     "m_Keywords": [],
@@ -470,6 +473,9 @@
         },
         {
             "m_Id": "bc7d37169af44202942ba87baa5d03c6"
+        },
+        {
+            "m_Id": "2744e79371be4bbebdb4d0dffc13772b"
         }
     ],
     "m_GroupDatas": [
@@ -868,6 +874,20 @@
                     "m_Id": "38521c3fe0ad4868922eff2d4fa97357"
                 },
                 "m_SlotId": 2
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "2744e79371be4bbebdb4d0dffc13772b"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "e321a99db321446cbc7969eb825e6900"
+                },
+                "m_SlotId": -268169229
             }
         },
         {
@@ -3286,8 +3306,8 @@
     "m_ObjectId": "0bd11d4dc5d240758a3f41a5bfc53dca",
     "m_Title": "Sand Color",
     "m_Position": {
-        "x": -2978.0,
-        "y": 1.5
+        "x": -2978.000244140625,
+        "y": 1.4999847412109376
     }
 }
 
@@ -3860,7 +3880,7 @@
     "m_Title": "Dilation",
     "m_Position": {
         "x": -4142.0,
-        "y": -437.5
+        "y": -437.49993896484377
     }
 }
 
@@ -4673,6 +4693,42 @@
         "Y"
     ],
     "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "2744e79371be4bbebdb4d0dffc13772b",
+    "m_Group": {
+        "m_Id": "8b04ca4817234892afc68d422379522c"
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -171.99998474121095,
+            "y": 366.5,
+            "width": 131.99996948242188,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "e1fe1b89979745d7a21ea984bf15ab8c"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "eee18024d24b4cdda6299635d6b0d670"
+    }
 }
 
 {
@@ -6309,6 +6365,9 @@
     "m_ChildObjectList": [
         {
             "m_Id": "8f293b1f3cb94ef4a1f2428d08b3d719"
+        },
+        {
+            "m_Id": "eee18024d24b4cdda6299635d6b0d670"
         },
         {
             "m_Id": "12aaee25d136497b9eb0935f6bb4f52c"
@@ -9036,7 +9095,7 @@
     "m_ObjectId": "703cbafa5e0f49be904cedbf85c93e23",
     "m_Title": "Background",
     "m_Position": {
-        "x": -2984.5,
+        "x": -2984.500244140625,
         "y": 994.5
     }
 }
@@ -9754,7 +9813,7 @@
     "m_Title": "Windows",
     "m_Position": {
         "x": -2987.5,
-        "y": 1653.5
+        "y": 1653.5001220703125
     }
 }
 
@@ -10043,8 +10102,8 @@
     "m_ObjectId": "823ed318efb6491eb54e04825df4da7e",
     "m_Title": "Sand Pattern",
     "m_Position": {
-        "x": -2975.5,
-        "y": -440.5
+        "x": -2975.500244140625,
+        "y": -440.4999084472656
     }
 }
 
@@ -12194,6 +12253,22 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "a9b149bf7f5a48cfbfac21c64e5a0f74",
+    "m_Id": 2,
+    "m_DisplayName": "Alpha",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Alpha",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": [],
+    "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "a9bb7121bc2b450e8213c2d95a71b685",
     "m_Id": 0,
     "m_DisplayName": "Amount",
@@ -12413,6 +12488,22 @@
     ],
     "m_Dropdowns": [],
     "m_DropdownSelectedEntries": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "afed134c4fae4666858c36efcabc69a7",
+    "m_Id": -268169229,
+    "m_DisplayName": "MaxRadius",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_MaxRadius",
+    "m_StageCapability": 3,
+    "m_Value": 1.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -13020,8 +13111,8 @@
     "m_ObjectId": "bb875c38630649ba81bebf97c38233d2",
     "m_Title": "Polar Coordinates",
     "m_Position": {
-        "x": -2967.5,
-        "y": -859.0
+        "x": -2967.500244140625,
+        "y": -859.0000610351563
     }
 }
 
@@ -15342,6 +15433,22 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "e1fe1b89979745d7a21ea984bf15ab8c",
+    "m_Id": 0,
+    "m_DisplayName": "MaxRadius",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": [],
+    "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "e20a18807bd1403b91f0c96bba0910aa",
     "m_Id": 0,
     "m_DisplayName": "Amount",
@@ -15409,10 +15516,16 @@
             "m_Id": "07d550f4b7394aa08f011344a65dbcdf"
         },
         {
+            "m_Id": "afed134c4fae4666858c36efcabc69a7"
+        },
+        {
             "m_Id": "445dbdd159024570929572791725c351"
         },
         {
             "m_Id": "0d9d47dc68414d59a1e68c47a5fd39a4"
+        },
+        {
+            "m_Id": "a9b149bf7f5a48cfbfac21c64e5a0f74"
         }
     ],
     "synonyms": [],
@@ -15428,13 +15541,15 @@
         "df7c6976-bae7-4f5e-9011-191f924b1032",
         "c65893fb-3726-4592-b5ca-d0b6c8f2f08e",
         "b9b6d5b5-fed1-47dd-96c8-83cac7ec81ec",
-        "8d3778b6-1498-4291-b7d5-9f921a77a5df"
+        "8d3778b6-1498-4291-b7d5-9f921a77a5df",
+        "abd7483b-14ac-4f80-b555-a2aed106f1ba"
     ],
     "m_PropertyIds": [
         -1121220205,
         -1142252384,
         -664203467,
-        -2103652733
+        -2103652733,
+        -268169229
     ],
     "m_Dropdowns": [],
     "m_DropdownSelectedEntries": []
@@ -16129,6 +16244,50 @@
     "m_DefaultValue": 0.0,
     "m_Labels": [],
     "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "eee18024d24b4cdda6299635d6b0d670",
+    "m_Guid": {
+        "m_GuidSerialized": "05b44931-04a8-4017-834a-aaf9fb93c4f1"
+    },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
+    "m_Name": "MaxRadius",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "MaxRadius",
+    "m_DefaultReferenceName": "_MaxRadius",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_PerRendererData": false,
+    "m_customAttributes": [],
+    "m_Value": 1.0,
+    "m_FloatType": 0,
+    "m_LiteralFloatMode": false,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [
+        "Default"
+    ],
+    "m_EnumValues": [
+        0
+    ]
 }
 
 {

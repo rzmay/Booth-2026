@@ -10,11 +10,11 @@
       "hash": "81a21b22fbefb4e983379aed3a4490e9c446c9fb"
     },
     "com.meta.xr.mrutilitykit": {
-      "version": "71.0.0",
+      "version": "85.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "71.0.0",
+        "com.meta.xr.sdk.core": "85.0.0",
         "com.unity.textmeshpro": "3.0.6",
         "com.unity.ai.navigation": "1.1.4",
         "com.unity.nuget.newtonsoft-json": "3.0.2"
@@ -29,10 +29,19 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.core": {
-      "version": "71.0.0",
-      "depth": 0,
+      "version": "85.0.0",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.meta.xr.sdk.haptics": {
+      "version": "85.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.meta.xr.sdk.core": "85.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.sprite": {

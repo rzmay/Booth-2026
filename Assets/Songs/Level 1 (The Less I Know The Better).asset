@@ -23,9 +23,9 @@ MonoBehaviour:
   beatsPerMeasure: 4
   loopToBeats: 20
   streakScoring:
-  - miss: -1
-    early: 0
-    late: 0
+  - miss: -0.25
+    early: 0.5
+    late: 0.5
     onTime: 1
     perfect: 2
   - miss: 0

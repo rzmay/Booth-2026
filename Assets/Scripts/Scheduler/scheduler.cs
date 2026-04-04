@@ -30,6 +30,13 @@ public sealed class Scheduler : MonoBehaviour
     */
     public float beatOffset = 0;
     public double songTimeOffset = 0;
+    // Whether or not to spawn items relative to the location of the player. This can be changed to "false" later on if we want a more robust calibration
+    public bool spawnRelative = true;
+    public float getTransform = -2f; // At what beat do we grab the headset transform for the origin?
+    public float heightOffset = -0.5f;
+    private Vector3 _basePosition;
+    private Quaternion _baseRotation;
+    private bool _gotTransform = false;
 
     private List<Schedule.Event> _events = new();
 
@@ -66,6 +73,14 @@ public sealed class Scheduler : MonoBehaviour
 
         _songTime = songTime - songTimeOffset;
         _beat = beatFloat - beatOffset;
+
+        if (!_gotTransform && _beat > getTransform)
+        {
+            _basePosition = Player.Instance.transform.position + new Vector3(0, heightOffset, 0);
+            _baseRotation = Player.Instance.transform.rotation;
+
+            _gotTransform = true;
+        }
 
         ProcessDueEvents();
     }
@@ -135,7 +150,11 @@ public sealed class Scheduler : MonoBehaviour
     // spawns a gameObject based off of scheduled event information
     private void SpawnEvent(Schedule.Event evt)
     {
-        Schedulable obj = Instantiate(evt.item, evt.position, evt.rotation);
+        Vector3 worldPos = basePosition + _baseRotation * evt.position;
+        Quaternion worldRot = _baseRotation * evt.rotation;
+
+        Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
+
         if (evt.useScale) obj.transform.localScale = evt.scale;
 
         // Calculate start time

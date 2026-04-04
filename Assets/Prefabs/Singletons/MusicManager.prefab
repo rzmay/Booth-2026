@@ -173,7 +173,10 @@ MonoBehaviour:
   dbMin: -80
   dbMax: -20
   detectTransients: 1
+  detectionHeuristic: 0
+  useFluxThreshhold: 0
   fluxWindowSamples: 30
+  skipSamples: 0
   cooldownSeconds: 0.1
 --- !u!1 &919765955272962761
 GameObject:
@@ -348,7 +351,10 @@ MonoBehaviour:
   dbMin: -80
   dbMax: -20
   detectTransients: 1
+  detectionHeuristic: 0
+  useFluxThreshhold: 0
   fluxWindowSamples: 30
+  skipSamples: 0
   cooldownSeconds: 0.1
 --- !u!1 &2225503102517923193
 GameObject:
@@ -1039,7 +1045,10 @@ MonoBehaviour:
   dbMin: -80
   dbMax: -20
   detectTransients: 1
+  detectionHeuristic: 0
+  useFluxThreshhold: 0
   fluxWindowSamples: 30
+  skipSamples: 0
   cooldownSeconds: 0.1
 --- !u!1 &8581888343044318486
 GameObject:
@@ -1269,6 +1278,10 @@ MonoBehaviour:
   schedule: {fileID: 0}
   beatOffset: 0
   songTimeOffset: 0
+  spawnRelative: 1
+  getTransform: -2
+  heightOffset: -0.5
+  axisScale: {x: 0.65, y: 0.8, z: 0.7}
 --- !u!1 &8692623827494439402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,5 +1455,8 @@ MonoBehaviour:
   dbMin: -80
   dbMax: -20
   detectTransients: 1
+  detectionHeuristic: 0
+  useFluxThreshhold: 0
   fluxWindowSamples: 30
+  skipSamples: 0
   cooldownSeconds: 0.1

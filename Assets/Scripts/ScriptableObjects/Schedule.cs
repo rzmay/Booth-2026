@@ -25,6 +25,7 @@ public class Schedule : ScriptableObject
     public Vector3 scale = Vector3.zero;
     public Quaternion rotation = Quaternion.identity;
 
+
     // Mostly unused but defaults to zero so use boolean flag
     public bool useScale = false;
 
@@ -55,6 +56,9 @@ public class Schedule : ScriptableObject
   // What we set in the editor for events
   [SerializeField] private List<Event> _events = new();
 
+  // Tweak scale of positions
+  public Vector3 axisScale = Vector3.one;
+
   // Version of events with subschedules replaced with their events
   public List<Event> events
   {
@@ -62,7 +66,7 @@ public class Schedule : ScriptableObject
     {
       List<Event> ret = _events
         .SelectMany(e => e.subschedule?.events?
-          .Select(sub_e => sub_e.AtSubscheduledTime(e.beat, e.time, e.position, e.scale, e.rotation))
+          .Select(sub_e => sub_e.AtSubscheduledTime(e.beat, e.time, Vector3.Scale(e.position, axisScale), e.scale, e.rotation))
           ?? new List<Event>() { e })
         .ToList();
       return ret;

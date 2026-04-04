@@ -176,6 +176,7 @@ public class MovementCue : Schedulable
 
         StreakTracker.TrackCue(result, level);
         _visualizer.VisualizeResult(result);
+        Player.Instance.hapticsController.Play(hand, result);
 
         // Detach and destroy
         _detacher.Detach();
