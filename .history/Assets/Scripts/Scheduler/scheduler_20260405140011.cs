@@ -121,7 +121,7 @@ public class Scheduler : MonoBehaviour
         beatOffset += _beat - 1;
 
         // Time should be aligned to beats
-        songTimeOffset += _metronome.BeatsToTime(Mathf.Floor(_beat));
+        songTimeOffset += _metronome.BeatsToTime(beatOffset);
     }
 
     // does this have more events to initialize?

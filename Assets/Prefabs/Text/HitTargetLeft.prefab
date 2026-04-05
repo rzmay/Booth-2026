@@ -197,7 +197,7 @@ MonoBehaviour:
   _text: {fileID: 5712020712832896901}
   _message: Try to hit the target with your left hand!
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _lifespan: 1.5
+  _lifespan: 4.8
   _fadeTime: 0.5
   _useGlow: 1
   _glowColor: {r: 0.7459899, g: 0.41985583, b: 0.8018868, a: 1}
