@@ -110,6 +110,7 @@ public class TutorialScheduler : MonoBehaviour
 
     private bool IsCurrentSegmentFinished()
     {
+        // TODO: Replace this placeholder with the final segment completion check.
         return !_scheduler.HasMoreEvents();
     }
 }

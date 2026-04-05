@@ -74,42 +74,32 @@ public class TutorialScheduler : MonoBehaviour
 
         float currentPoints = GetCurrentSegmentPoints();
 
-        if (currentPoints >= tutorialSegments[_currentSegmentIndex].requiredPoints)
-        {
-            AdvanceToNextSegment();
-        }
-        else
-        {
-            RestartCurrentSegment();
-        }
+        // TODO: Compare currentPoints against the current segment threshold.
+        // TODO: Advance to the next segment when the player passes.
+        // TODO: Restart the current segment when the player fails.
     }
 
     private void AdvanceToNextSegment()
     {
-        _currentSegmentIndex++;
-
-        if (_currentSegmentIndex >= tutorialSegments.Count)
-        {
-            EndTutorial();
-        }
-        else
-        {
-            LoadCurrentSegment();
-        }
+        // TODO: Move to the next segment.
+        // TODO: End the tutorial if there are no more segments.
     }
 
     private void RestartCurrentSegment()
     {
-        LoadCurrentSegment();
+        // TODO: Reset any per-attempt state if needed.
+        // TODO: Restart the currently active segment.
     }
 
     private float GetCurrentSegmentPoints()
     {
+        // TODO: Replace this with the final per-segment points calculation.
         return _streakTracker.score - _segmentStartScore;
     }
 
     private bool IsCurrentSegmentFinished()
     {
+        // TODO: Replace this placeholder with the final segment completion check.
         return !_scheduler.HasMoreEvents();
     }
 }
