@@ -5,7 +5,7 @@ using UnityEngine;
 // SCHEDULER CLASS
 // handles the scheduling of events based on the metronome's beat timing, allowing for precise timing of gameplay events and visual effects in sync with the music
 [RequireComponent(typeof(Metronome))]
-public class Scheduler : MonoBehaviour
+public sealed class Scheduler : MonoBehaviour
 {
     // SCHEDULER WORKFLOW:
     // 1. scheduler subscribes to the metronome events (VisualizerOnBeat and ScoringEvent) to receive beat timing information
