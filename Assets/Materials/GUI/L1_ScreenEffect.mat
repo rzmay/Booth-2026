@@ -43,6 +43,10 @@ Material:
     m_Floats:
     - _Amount: 0.5
     - _Beat: 0.31559944
+=======
+    - _Amount: 0
+    - _Beat: 0.1388855
+>>>>>>> Stashed changes
     - _BottomStripeSize: 0.025
     - _ColorMask: 15
     - _DilationPower: 0

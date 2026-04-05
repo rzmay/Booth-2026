@@ -24,7 +24,8 @@ MonoBehaviour:
   loopToBeats: 12
   streakScoring:
   - miss: 0
-    offTime: 0
+    early: 0
+    late: 0
     onTime: 0
     perfect: 0
   trackThresholds:
@@ -32,4 +33,5 @@ MonoBehaviour:
   - 199
   - 299
   - 400
-  schedule: {fileID: 0}
+  schedule: {fileID: 11400000, guid: a05b5eec99b674d4e967539cf6a782fe, type: 2}
+  screenEffectMaterial: {fileID: 2100000, guid: 4e7f2eef289224aa48b53feeb0e8b821, type: 2}
