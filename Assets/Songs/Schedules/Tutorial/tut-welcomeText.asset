@@ -25,6 +25,15 @@ MonoBehaviour:
   - beat: 9
     time: -1
     useTime: 0
+    item: {fileID: 7892402988313613051, guid: 06c44d2bd2c85427d8bcf2f24a7a7d38, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 20}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 17
+    time: -1
+    useTime: 0
     item: {fileID: 5895892040128088774, guid: 8f264aa615b3c4a4483893d502d58aed, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0, y: 0, z: 20}
