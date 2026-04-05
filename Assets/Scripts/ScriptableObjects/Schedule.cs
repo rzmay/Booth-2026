@@ -49,7 +49,7 @@ public class Schedule : ScriptableObject
 
     public float GetCanonTime(float bpm)
     {
-      return time > 0 ? time : (float)MusicManager.Metronome.BeatsToTime(beat - 1);
+      return useTime ? time : (float)MusicManager.Metronome.BeatsToTime(beat - 1);
     }
   }
 
