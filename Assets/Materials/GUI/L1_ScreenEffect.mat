@@ -41,11 +41,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 0
-    - _Beat: 0.4196
+    - _Amount: 0.041684814
+    - _Beat: 0.7523999
     - _BottomStripeSize: 0.025
     - _ColorMask: 15
-    - _DilationPower: 0
+    - _DilationPower: 0.080365
     - _DistortionAngle: 4
     - _DistortionFeather: 0.5
     - _DistortionSpeed: 0.25
