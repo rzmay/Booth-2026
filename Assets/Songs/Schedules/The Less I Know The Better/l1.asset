@@ -112,4 +112,13 @@ MonoBehaviour:
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  axisScale: {x: 0.5, y: 0.75, z: 0.5}
+  - beat: 129
+    time: 0
+    useTime: 0
+    item: {fileID: 7808822366476597949, guid: 53d56dc98e155482f90b86374ee04952, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  axisScale: {x: 0.4, y: 0.6, z: 0.25}

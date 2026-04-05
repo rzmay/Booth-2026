@@ -1091,7 +1091,7 @@
     "m_Title": "Dilation",
     "m_Position": {
         "x": -1735.5,
-        "y": 1122.999755859375
+        "y": 1123.0
     }
 }
 
@@ -2269,7 +2269,7 @@
     "m_Title": "Stripe Coloring",
     "m_Position": {
         "x": -1225.5,
-        "y": 9.50006103515625
+        "y": 9.499996185302735
     }
 }
 
@@ -2338,7 +2338,7 @@
     "m_Title": "Stripe Timing",
     "m_Position": {
         "x": -1759.5,
-        "y": 44.500064849853519
+        "y": 44.500003814697269
     }
 }
 
@@ -2499,7 +2499,7 @@
             "x": -1761.0,
             "y": 244.99998474121095,
             "width": 181.5,
-            "height": 34.00004577636719
+            "height": 34.00001525878906
         }
     },
     "m_Slots": [
@@ -2584,7 +2584,7 @@
     "m_Title": "Distortion Timing",
     "m_Position": {
         "x": -1738.0,
-        "y": 692.0001220703125
+        "y": 692.0
     }
 }
 
@@ -2663,7 +2663,7 @@
     "m_Title": "Distortion Map",
     "m_Position": {
         "x": -1746.0,
-        "y": 492.0
+        "y": 491.9999694824219
     }
 }
 
@@ -2805,8 +2805,8 @@
     "m_ObjectId": "8b04ca4817234892afc68d422379522c",
     "m_Title": "Vignette",
     "m_Position": {
-        "x": -342.0,
-        "y": 148.00009155273438
+        "x": -342.00006103515627,
+        "y": 147.99996948242188
     }
 }
 
@@ -2904,7 +2904,7 @@
     "m_Title": "Bottom Stripe Range",
     "m_Position": {
         "x": -1786.0,
-        "y": 186.00006103515626
+        "y": 186.0
     }
 }
 
@@ -2993,7 +2993,7 @@
     "m_Title": "Distortion Vector",
     "m_Position": {
         "x": -1741.0,
-        "y": 845.0
+        "y": 844.9999389648438
     }
 }
 
@@ -3067,7 +3067,7 @@
     "m_Title": "UV Distortion",
     "m_Position": {
         "x": -1743.5,
-        "y": 972.5000610351563
+        "y": 972.5
     }
 }
 
@@ -3706,6 +3706,9 @@
             "m_Id": "445dbdd159024570929572791725c351"
         },
         {
+            "m_Id": "fab8b46af4cc475f9b016cafc0baf81b"
+        },
+        {
             "m_Id": "0d9d47dc68414d59a1e68c47a5fd39a4"
         },
         {
@@ -3727,7 +3730,8 @@
         "b9b6d5b5-fed1-47dd-96c8-83cac7ec81ec",
         "8d3778b6-1498-4291-b7d5-9f921a77a5df",
         "abd7483b-14ac-4f80-b555-a2aed106f1ba",
-        "d59a7824-5517-4264-bac6-eee7b25e9342"
+        "d59a7824-5517-4264-bac6-eee7b25e9342",
+        "83c3ab51-2908-4cd6-bed6-be8ee5286cf6"
     ],
     "m_PropertyIds": [
         -1121220205,
@@ -3735,7 +3739,8 @@
         -664203467,
         -2103652733,
         -268169229,
-        847492411
+        847492411,
+        -1211663358
     ],
     "m_Dropdowns": [],
     "m_DropdownSelectedEntries": []
@@ -3993,6 +3998,22 @@
     "m_Property": {
         "m_Id": "453f706636cf43b4bd8b5b5be7c41ede"
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "fab8b46af4cc475f9b016cafc0baf81b",
+    "m_Id": -1211663358,
+    "m_DisplayName": "UV Scale",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_UV_Scale",
+    "m_StageCapability": 3,
+    "m_Value": 2.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {

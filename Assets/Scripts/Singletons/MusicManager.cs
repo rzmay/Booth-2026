@@ -40,10 +40,10 @@ public class MusicManager : MonoBehaviour
     private Scheduler _scheduler;
     private RawImage _screenEffectImage;
 
-    public MusicState state
+    public static MusicState state
     {
-        get { return _state; }
-        set { SetState(value); }
+        get { return _Instance._state; }
+        set { _Instance.SetState(value); }
     }
 
     void Awake()

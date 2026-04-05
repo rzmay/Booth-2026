@@ -7264,7 +7264,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4618879553596357477}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d8b7c2c02aa34e8c806ea233e57541b, type: 3}
   m_Name: 
@@ -7272,11 +7272,10 @@ MonoBehaviour:
   _menuLerpFactor: 5
   _menus:
   - {fileID: 2033877374370697773}
-  - {fileID: 2095673245491079408}
-  - {fileID: 0}
   - {fileID: 8025633914372264033}
   _acceptRestartDelay: 3
-  _restartAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _restartAction: {fileID: 0}
+  restartSceneName: Level1
 --- !u!1 &4819558051365327284
 GameObject:
   m_ObjectHideFlags: 0
