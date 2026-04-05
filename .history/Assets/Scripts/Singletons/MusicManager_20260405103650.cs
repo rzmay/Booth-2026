@@ -63,15 +63,6 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         SetState(startState);
-
-        if (startState == MusicState.TutorialMenu)
-        {
-            TutorialScheduler tutorialScheduler = GetComponent<TutorialScheduler>();
-            if (tutorialScheduler != null)
-            {
-                tutorialScheduler.BeginTutorial();
-            }
-        }
     }
 
     void Update()

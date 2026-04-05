@@ -118,10 +118,10 @@ public class Scheduler : MonoBehaviour
         _nextIndex = 0;
 
         // Set beat offset so that old events may fire again
-        beatOffset += _beat + 1f;
+        beatOffset += _beat;
 
         // Time should be aligned to beats
-        songTimeOffset += _metronome.BeatsToTime(_beat + 1f);
+        songTimeOffset += _metronome.BeatsToTime(_beat);
     }
 
     // does this have more events to initialize?
@@ -158,10 +158,6 @@ public class Scheduler : MonoBehaviour
         double late = _songTime - (GetScheduledTime(evt) - evt.item.scheduleAhead);
 
         // Start time is in the past
-        if (late > 0)
-        {
-            Debug.LogWarning($"Event {evt} is late by {late} seconds. Consider increasing schedule ahead time.");
-        }
         obj.startTime = Time.time - (float)late;
     }
 

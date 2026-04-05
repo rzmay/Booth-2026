@@ -14,7 +14,7 @@ public class TutorialScheduler : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] private List<TutorialSegment> tutorialSegments = new();
-    [SerializeField] private float segmentFinishBufferBeats = 1f;
+    [SerializeField] private float segmentFinishBufferBeats = 0f;
 
     private Scheduler _scheduler;
     private StreakTracker _streakTracker;
@@ -72,10 +72,8 @@ public class TutorialScheduler : MonoBehaviour
 
         _scheduler.LoadSchedule(currentSegment.schedule);
         _scheduler.Reset();
-
         _segmentStartScore = _streakTracker.score;
         _segmentFinishStartBeat = -1f;
-
     }
 
     private void CheckCurrentSegment()
@@ -125,6 +123,7 @@ public class TutorialScheduler : MonoBehaviour
             _segmentFinishStartBeat = -1f;
             return false;
         }
+
         // update bufferBeats
         float bufferBeats = segmentFinishBufferBeats;
 

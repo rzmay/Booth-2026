@@ -14,30 +14,23 @@ public class TutorialScheduler : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] private List<TutorialSegment> tutorialSegments = new();
-    [SerializeField] private float segmentFinishBufferBeats = 1f;
 
     private Scheduler _scheduler;
     private StreakTracker _streakTracker;
-    private Metronome _metronome;
 
     private int _currentSegmentIndex;
     private float _segmentStartScore;
     private bool _tutorialRunning;
     private bool _tutorialComplete;
-    private float _segmentFinishStartBeat = -1f;
 
     void Awake()
     {
         _scheduler = GetComponent<Scheduler>();
         _streakTracker = GetComponent<StreakTracker>();
-        _metronome = GetComponent<Metronome>();
     }
 
     void Start()
     {
-        _currentSegmentIndex = 0;
-        _tutorialRunning = false;
-        _tutorialComplete = false;
     }
 
     void Update()
@@ -72,10 +65,7 @@ public class TutorialScheduler : MonoBehaviour
 
         _scheduler.LoadSchedule(currentSegment.schedule);
         _scheduler.Reset();
-
         _segmentStartScore = _streakTracker.score;
-        _segmentFinishStartBeat = -1f;
-
     }
 
     private void CheckCurrentSegment()
@@ -120,23 +110,6 @@ public class TutorialScheduler : MonoBehaviour
 
     private bool IsCurrentSegmentFinished()
     {
-        if (_scheduler.HasMoreEvents())
-        {
-            _segmentFinishStartBeat = -1f;
-            return false;
-        }
-        // update bufferBeats
-        float bufferBeats = segmentFinishBufferBeats;
-
-        float currentBeat = _metronome.GetBeatFloat();
-
-        // update the segment finish start beat if it hasn't been set yet
-        if (_segmentFinishStartBeat < 0f)
-        {
-            _segmentFinishStartBeat = currentBeat;
-            return false;
-        }
-
-        return currentBeat - _segmentFinishStartBeat >= bufferBeats;
+        return !_scheduler.HasMoreEvents();
     }
 }

@@ -118,10 +118,10 @@ public class Scheduler : MonoBehaviour
         _nextIndex = 0;
 
         // Set beat offset so that old events may fire again
-        beatOffset += _beat + 1f;
+        beatOffset += _beat;
 
         // Time should be aligned to beats
-        songTimeOffset += _metronome.BeatsToTime(_beat + 1f);
+        songTimeOffset += _metronome.BeatsToTime(_beat);
     }
 
     // does this have more events to initialize?

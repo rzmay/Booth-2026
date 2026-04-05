@@ -14,7 +14,7 @@ public class TutorialScheduler : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] private List<TutorialSegment> tutorialSegments = new();
-    [SerializeField] private float segmentFinishBufferBeats = 1f;
+    [SerializeField] private float segmentFinishBufferBeats = 0f;
 
     private Scheduler _scheduler;
     private StreakTracker _streakTracker;

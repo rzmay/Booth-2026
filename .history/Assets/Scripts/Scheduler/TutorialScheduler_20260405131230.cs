@@ -14,7 +14,7 @@ public class TutorialScheduler : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] private List<TutorialSegment> tutorialSegments = new();
-    [SerializeField] private float segmentFinishBufferBeats = 1f;
+    [SerializeField] private float segmentFinishBufferBeats = 0f;
 
     private Scheduler _scheduler;
     private StreakTracker _streakTracker;
@@ -24,7 +24,8 @@ public class TutorialScheduler : MonoBehaviour
     private float _segmentStartScore;
     private bool _tutorialRunning;
     private bool _tutorialComplete;
-    private float _segmentFinishStartBeat = -1f;
+    private float _segmentStartBeat;
+    private float _segmentDurationBeats;
 
     void Awake()
     {
@@ -72,10 +73,9 @@ public class TutorialScheduler : MonoBehaviour
 
         _scheduler.LoadSchedule(currentSegment.schedule);
         _scheduler.Reset();
-
+        _segmentStartBeat = _metronome.GetBeatFloat();
+        _segmentDurationBeats = GetScheduleDurationBeats(currentSegment.schedule);
         _segmentStartScore = _streakTracker.score;
-        _segmentFinishStartBeat = -1f;
-
     }
 
     private void CheckCurrentSegment()
@@ -122,21 +122,26 @@ public class TutorialScheduler : MonoBehaviour
     {
         if (_scheduler.HasMoreEvents())
         {
-            _segmentFinishStartBeat = -1f;
             return false;
         }
-        // update bufferBeats
-        float bufferBeats = segmentFinishBufferBeats;
 
         float currentBeat = _metronome.GetBeatFloat();
+        return currentBeat - _segmentStartBeat >= _segmentDurationBeats + segmentFinishBufferBeats;
+    }
 
-        // update the segment finish start beat if it hasn't been set yet
-        if (_segmentFinishStartBeat < 0f)
+    private float GetScheduleDurationBeats(Schedule schedule)
+    {
+        float lastBeat = 0f;
+
+        foreach (Schedule.Event evt in schedule.events)
         {
-            _segmentFinishStartBeat = currentBeat;
-            return false;
+            float eventBeat = evt.useTime ? _metronome.TimeToBeats(evt.time) : evt.beat - 1f;
+            if (eventBeat > lastBeat)
+            {
+                lastBeat = eventBeat;
+            }
         }
 
-        return currentBeat - _segmentFinishStartBeat >= bufferBeats;
+        return lastBeat;
     }
 }

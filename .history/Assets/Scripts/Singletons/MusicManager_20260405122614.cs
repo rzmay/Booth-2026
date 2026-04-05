@@ -62,16 +62,18 @@ public class MusicManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetState(startState);
-
         if (startState == MusicState.TutorialMenu)
         {
+            // if tutorial, then let the tutorial scheduler handle starting the music
             TutorialScheduler tutorialScheduler = GetComponent<TutorialScheduler>();
+
+            // change this later to calibrate before starting the tutorial
             if (tutorialScheduler != null)
             {
                 tutorialScheduler.BeginTutorial();
             }
         }
+        SetState(startState);
     }
 
     void Update()
