@@ -19,7 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -41,13 +41,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-<<<<<<< Updated upstream
-    - _Amount: 0.5
-    - _Beat: 0.31559944
-=======
     - _Amount: 0
     - _Beat: 0.1388855
->>>>>>> Stashed changes
     - _BottomStripeSize: 0.025
     - _ColorMask: 15
     - _DilationPower: 0
