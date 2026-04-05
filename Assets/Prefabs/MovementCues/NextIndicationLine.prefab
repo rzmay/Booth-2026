@@ -158,7 +158,8 @@ MonoBehaviour:
   numPoints: 16
   startPoint: {x: 0, y: 0, z: 0}
   endPoint: {x: 0, y: 0, z: 1}
-  speed: 10
+  speed: 5
   width: 0.01
   trailLength: 1
+  fadeAfterHead: 0.05
   trailAlpha: 1

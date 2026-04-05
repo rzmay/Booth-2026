@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
+  m_Name: l1_outro
+  m_EditorClassIdentifier: Assembly-CSharp::Schedule
+  _events:
+  - beat: 1
+    time: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 3fa62b22d4b5648629a8c3a876ea7302, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 7
+    time: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 2b4055818922d4bba821b24f82a1f90f, type: 2}
+    position: {x: 0, y: 0, z: 0.15}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 9
+    time: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 3fa62b22d4b5648629a8c3a876ea7302, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - beat: 15
+    time: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 526b6090a5d5447519a3cae7dc2f549b, type: 2}
+    position: {x: 0, y: 0, z: 0.15}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}

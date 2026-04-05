@@ -24,4 +24,7 @@ public class SongData : ScriptableObject
 
   [Header("Scheduling")]
   public Schedule schedule;
+
+  [Header("Graphics")]
+  public Material screenEffectMaterial;
 }

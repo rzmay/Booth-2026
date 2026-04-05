@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Scheduler))]
 [RequireComponent(typeof(Metronome))]
@@ -37,6 +38,7 @@ public class MusicManager : MonoBehaviour
     private Metronome _metronome;
     private StreakTracker _streakTracker;
     private Scheduler _scheduler;
+    private RawImage _screenEffectImage;
 
     public MusicState state
     {
@@ -52,6 +54,9 @@ public class MusicManager : MonoBehaviour
         _metronome = GetComponent<Metronome>();
         _streakTracker = GetComponent<StreakTracker>();
         _scheduler = GetComponent<Scheduler>();
+
+        // There should only be one
+        _screenEffectImage = Object.FindFirstObjectByType<ScreenEffect>().GetComponent<RawImage>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,6 +93,9 @@ public class MusicManager : MonoBehaviour
         _metronome.LoadSongData(config.songData); // Metronome needs to load first for schedule sorting
         _streakTracker.LoadSongData(config.songData);
         _scheduler.LoadSchedule(config.songData.schedule);
+
+        // Load screen effect
+        _screenEffectImage.material = config.songData.screenEffectMaterial;
 
         // Set the game music -- don't start yet
         List<float> volumes = new List<float>(new[] { 1.0f, 0f, 0f, 0f });

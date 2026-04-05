@@ -10,6 +10,7 @@ public class LookAtCamera : MonoBehaviour
     {
         LookAtConstraint lookAt = GetComponent<LookAtConstraint>();
 
-        lookAt.AddSource(new ConstraintSource() { sourceTransform = Camera.main.transform, weight = 1.0f });
+        // Look at the player (center eye camera)
+        lookAt.AddSource(new ConstraintSource() { sourceTransform = Player.Instance.transform, weight = 1.0f });
     }
 }

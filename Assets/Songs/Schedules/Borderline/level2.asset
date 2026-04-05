@@ -15,22 +15,38 @@ MonoBehaviour:
   _events:
   - beat: 3
     time: -1
+    useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 076f24604903b462ba54af8e4958aa21, type: 2}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   - beat: 19
     time: -1
+    useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 076f24604903b462ba54af8e4958aa21, type: 2}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   - beat: 35
     time: -1
+    useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 21999ce6e66d941f88f79e9cce37be50, type: 2}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 51
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 21999ce6e66d941f88f79e9cce37be50, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  axisScale: {x: 1, y: 1, z: 1}

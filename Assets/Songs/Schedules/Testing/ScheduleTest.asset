@@ -13,31 +13,48 @@ MonoBehaviour:
   m_Name: ScheduleTest
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
-  - beat: 1
-    time: -1
-    item: {fileID: 0}
-    subschedule: {fileID: 11400000, guid: 7ec3b6532a2b3497a87abf7327f66b9f, type: 2}
-    position: {x: 0, y: 0, z: 0}
-    scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-  - beat: 9
-    time: -1
-    item: {fileID: 0}
-    subschedule: {fileID: 11400000, guid: 7ec3b6532a2b3497a87abf7327f66b9f, type: 2}
-    position: {x: 0, y: 0, z: 0}
-    scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-  - beat: 17
-    time: -1
-    item: {fileID: 1809690065059926116, guid: 30f7b24183bd647ca94f7c9b70f188d2, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: 0.5, y: 0, z: 0}
-    scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-  - beat: 17
-    time: -1
+  - beat: 0
+    time: 10
+    useTime: 1
     item: {fileID: 7050717569898637890, guid: 45ed0fc8a302a40a496848538cae1042, type: 3}
     subschedule: {fileID: 0}
     position: {x: -0.5, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 1
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 7ec3b6532a2b3497a87abf7327f66b9f, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 9
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 7ec3b6532a2b3497a87abf7327f66b9f, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 17
+    time: -1
+    useTime: 0
+    item: {fileID: 1809690065059926116, guid: 30f7b24183bd647ca94f7c9b70f188d2, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.5, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 17
+    time: -1
+    useTime: 0
+    item: {fileID: 7050717569898637890, guid: 45ed0fc8a302a40a496848538cae1042, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.5, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0

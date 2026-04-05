@@ -1,8 +1,10 @@
 {
   "dependencies": {
-    "com.meta.xr.mrutilitykit": "71.0.0",
+    "com.jimmycushnie.noisynodes": "https://github.com/JimmyCushnie/Noisy-Nodes.git",
+    "com.meta.xr.mrutilitykit": "85.0.0",
     "com.meta.xr.sdk.audio": "71.0.0",
     "com.meta.xr.sdk.core": "71.0.0",
+    "com.meta.xr.sdk.haptics": "85.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.collab-proxy": "2.11.2",

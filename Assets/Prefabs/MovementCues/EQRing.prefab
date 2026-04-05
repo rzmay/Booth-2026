@@ -170,7 +170,7 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 0.59607846}
-      key1: {r: 1, g: 1, b: 1, a: 0.29803923}
+      key1: {r: 1, g: 1, b: 1, a: 0.59607846}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   scaleFrequencyWithSpectrum: 1
   scaleFrequencyWithSpectrumAmount: 2
   useTransients: 1
-  transientThreshhold: 1.5
+  transientThreshhold: 3
 --- !u!114 &2445512496077410121
 MonoBehaviour:
   m_ObjectHideFlags: 0
