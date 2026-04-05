@@ -12,10 +12,10 @@ public class MenuController : DelayableMonoBehaviour
 
     [SerializeField] private float _menuLerpFactor = 5f;
 
-    [SerializeField] private List<GameObject> _menus; // Expecting 4 -- title, gameplay, lose, win
-
+    [SerializeField] private List<GameObject> _menus; // Expecting 2 -- level select, game over
     [SerializeField] private float _acceptRestartDelay;
     [SerializeField] private InputActionReference _restartAction;
+    public string restartSceneName;
 
     private List<bool> _menuActive;
 
@@ -32,8 +32,8 @@ public class MenuController : DelayableMonoBehaviour
         _restartAction.action.performed += OnRestartAction;
         _menuActive = new(new bool[_menus.Count]);
 
-        // Set initial menu
-        SetMenu(0);
+        // Set initial menu -- no menu
+        _SetMenu(-1);
     }
 
     void OnDestroy()
@@ -69,8 +69,8 @@ public class MenuController : DelayableMonoBehaviour
             _menuActive[i] = i == index;
         }
 
-        // If it's game over / victory accept restart input
-        if (index == 2 || index == 3)
+        // If it's game over, accept restart input
+        if (index == 1)
         {
             Delay(() =>
             {
@@ -81,7 +81,7 @@ public class MenuController : DelayableMonoBehaviour
 
     void OnRestartAction(InputAction.CallbackContext obj)
     {
-        if (_acceptRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (_acceptRestart) SceneManager.LoadScene(restartSceneName);
     }
 
     public static void SetMenu(int index)

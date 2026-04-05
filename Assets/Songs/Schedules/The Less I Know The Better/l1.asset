@@ -18,7 +18,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: f2518dc917e0b45e682b07e4f8131490, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.2}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 9f0740d3a134b42719830771c6c8a820, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.2}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: f2518dc917e0b45e682b07e4f8131490, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.2}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 9f0740d3a134b42719830771c6c8a820, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.2}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 0981a75bab2144cd5b45ef6199f6e75c, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.2}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -63,7 +63,16 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: d59624dcdf6f346fda14a67146ada06c, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.2}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 7
+    time: 0
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: a991e9fa26e28439b99efcc5d1cfec7b, type: 2}
+    position: {x: 0, y: 0, z: 0.6}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -72,7 +81,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: c8a4f919b774d4af38564c9adbddab5d, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.1}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -81,7 +90,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: c8a4f919b774d4af38564c9adbddab5d, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.1}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -90,7 +99,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: f68b292b146a84041b37a41b554b8286, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.1}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -99,7 +108,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: f68b292b146a84041b37a41b554b8286, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.1}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -108,8 +117,17 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: d8a0928b77a954ca1b03cefd1f253edb, type: 2}
+    position: {x: 0, y: 0, z: 0.1}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 129
+    time: 0
+    useTime: 0
+    item: {fileID: 7808822366476597949, guid: 53d56dc98e155482f90b86374ee04952, type: 3}
+    subschedule: {fileID: 0}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  axisScale: {x: 0.5, y: 0.75, z: 0.5}
+  axisScale: {x: 0.3, y: 0.5, z: 0.25}

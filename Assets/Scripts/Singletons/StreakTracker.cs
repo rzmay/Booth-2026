@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+
 using UnityEngine;
 
 public class StreakTracker : MonoBehaviour
@@ -9,6 +11,7 @@ public class StreakTracker : MonoBehaviour
 
     private SongData _song = null;
     [SerializeField] private float _streak = 0f; // Private, but show in editor for debugging
+    [SerializeField] private TMP_Text _scoreLabel;
     private float _score = 0f;
     public float score
     {
@@ -57,6 +60,7 @@ public class StreakTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_scoreLabel != null) _scoreLabel.text = _score.ToString();
     }
 
     void _TrackCue(MovementCue.Result result, int level = 0)
@@ -65,7 +69,7 @@ public class StreakTracker : MonoBehaviour
 
         int i = Mathf.Clamp(level, 0, _song.streakScoring.Count - 1);
         streak += _song.streakScoring[i][result];
-        score += _song.streakScoring[i][result];
+        score += _song.streakScoring[i][result] * i; // Scoring scales more with harder cues
     }
 
     public void LoadSongData(SongData songData)

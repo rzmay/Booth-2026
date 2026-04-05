@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3102656808963515007}
   - component: {fileID: 8168223611347620439}
   - component: {fileID: 7825951645658483152}
-  - component: {fileID: -8908226605437833602}
   - component: {fileID: 8191525612031827743}
   m_Layer: 0
   m_Name: MovementCueLeft
@@ -200,24 +199,6 @@ MonoBehaviour:
   - {fileID: 2579444034478004334}
   - {fileID: 6937535148331213943}
   _trails: []
---- !u!1183024399 &-8908226605437833602
-LookAtConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285412310671866433}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_Roll: 0
-  m_WorldUpObject: {fileID: 0}
-  m_UseUpObject: 0
-  m_Active: 0
-  m_IsLocked: 0
-  m_Sources: []
 --- !u!114 &8191525612031827743
 MonoBehaviour:
   m_ObjectHideFlags: 0

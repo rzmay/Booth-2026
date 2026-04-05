@@ -58,7 +58,7 @@ MonoBehaviour:
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 4.5
+  - beat: 5.5
     time: 0
     useTime: 0
     item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
@@ -67,3 +67,4 @@ MonoBehaviour:
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
+  axisScale: {x: 1, y: 1, z: 1}

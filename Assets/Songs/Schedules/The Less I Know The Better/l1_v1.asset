@@ -15,29 +15,38 @@ MonoBehaviour:
   _events:
   - beat: 1
     time: 0
+    useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: ac46a81a1d07a4da2adaf4df5d6f130f, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.25}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   - beat: 7
     time: 0
+    useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: b312ad0a175244d3f8872744c34f727b, type: 2}
-    position: {x: 0, y: 0, z: 1}
+    position: {x: 0, y: 0, z: 0.5}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   - beat: 9
     time: 0
+    useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 2ff03794f949e46ecb7c3517bbc5777f, type: 2}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0.25}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   - beat: 16
     time: 0
+    useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 6326fba547ab943c9969a43167c08058, type: 2}
-    position: {x: 0, y: 0, z: 1}
+    position: {x: 0, y: 0, z: 0.5}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  axisScale: {x: 1, y: 1, z: 1}
