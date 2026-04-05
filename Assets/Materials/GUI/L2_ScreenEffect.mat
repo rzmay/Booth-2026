@@ -44,19 +44,20 @@ Material:
     - _Amount: 0
     - _BackgroundScale: 5
     - _BackgroundSpeed: 0.1
-    - _Beat: 0.99
+    - _Beat: 0.9949322
     - _CloudDetail: 5
     - _CloudDetailSpeed: 0
     - _CloudScale: 20
     - _CloudSpeed: 0.05
     - _CloudThreshold: 0.45
     - _ColorMask: 15
-    - _DilationPower: 0.75
+    - _DilationPower: 0
     - _DuneDisplacementStrength: 0.5
     - _DuneFrequency: 3
     - _DuneScale: 2.5
     - _DuneStrength: 2
     - _LerpPower: 0.5
+    - _MaxRadius: 1
     - _MinRadius: 0
     - _SandOpacity: 10
     - _SandPatternScale: 10

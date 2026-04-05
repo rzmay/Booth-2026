@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
+  m_Name: hitLeft
+  m_EditorClassIdentifier: Assembly-CSharp::Schedule
+  _events:
+  - beat: 1
+    time: -1
+    useTime: 0
+    item: {fileID: 3048451526883189555, guid: f7ba66234c158484196d3b2ca506ec44, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 20}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 5
+    time: -1
+    useTime: 0
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.5, y: 0, z: 0.5}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  axisScale: {x: 1, y: 1, z: 1}

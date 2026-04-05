@@ -147,6 +147,8 @@ public class MovementCueVisualizer : MonoBehaviour
     {
         foreach (var p in previous)
         {
+            if (p == null) continue;
+
             NextIndicationLine line = Instantiate(nextLinePrefab);
             line.startPoint = p.transform.position;
             line.endPoint = transform.position;

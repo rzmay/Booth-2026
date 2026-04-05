@@ -24,12 +24,13 @@ MonoBehaviour:
   loopToBeats: 12
   streakScoring:
   - miss: 0
-    offTime: 0
-    onTime: 0
-    perfect: 0
+    early: 0
+    late: 0
+    onTime: 1
+    perfect: 1
   trackThresholds:
   - 99
   - 199
   - 299
   - 400
-  schedule: {fileID: 0}
+  schedule: {fileID: 11400000, guid: 512ddc59e1dc64673ba9e1f4e0c92f5f, type: 2}
