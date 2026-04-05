@@ -26,12 +26,11 @@ MonoBehaviour:
   - miss: 0
     early: 0
     late: 0
-    onTime: 0
-    perfect: 0
+    onTime: 1
+    perfect: 1
   trackThresholds:
   - 99
   - 199
   - 299
   - 400
-  schedule: {fileID: 11400000, guid: a05b5eec99b674d4e967539cf6a782fe, type: 2}
-  screenEffectMaterial: {fileID: 2100000, guid: 4e7f2eef289224aa48b53feeb0e8b821, type: 2}
+  schedule: {fileID: 11400000, guid: 512ddc59e1dc64673ba9e1f4e0c92f5f, type: 2}

@@ -7,6 +7,11 @@ public class MovementCue : Schedulable
 {
     private static Queue<MovementCue> _Queue = new();
 
+    private static void PruneQueue()
+    {
+        _Queue = new Queue<MovementCue>(_Queue.Where(e => e != null));
+    }
+
     public enum Result
     {
         Miss,
@@ -97,6 +102,9 @@ public class MovementCue : Schedulable
     {
         get
         {
+            PruneQueue();
+            if (_Queue.Count == 0) return false;
+
             MovementCue next = _Queue.Peek();
             return next == this || next.targetTime == targetTime;
         }
@@ -116,6 +124,8 @@ public class MovementCue : Schedulable
 
     void Start()
     {
+        PruneQueue();
+
         List<MovementCue> sideList = _Queue.Where(e => e.hand == hand).ToList();
         if (sideList.Count > 0)
         {
@@ -124,6 +134,13 @@ public class MovementCue : Schedulable
         }
 
         _Queue.Enqueue(this);
+    }
+
+    void OnDestroy()
+    {
+        if (_Queue.Count == 0) return;
+
+        _Queue = new Queue<MovementCue>(_Queue.Where(e => e != null && e != this));
     }
 
     // Update is called once per frame
@@ -170,6 +187,8 @@ public class MovementCue : Schedulable
 
     void TrackResult(Result result)
     {
+        PruneQueue();
+
         // Can't dequeue, as the cue being removed may not actually be the oldest.
         // Instead remove specific element
         _Queue = new Queue<MovementCue>(_Queue.Where(e => e != this));
