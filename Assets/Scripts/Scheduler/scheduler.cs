@@ -150,7 +150,7 @@ public sealed class Scheduler : MonoBehaviour
     // spawns a gameObject based off of scheduled event information
     private void SpawnEvent(Schedule.Event evt)
     {
-        Vector3 worldPos = basePosition + _baseRotation * evt.position;
+        Vector3 worldPos = _basePosition + _baseRotation * evt.position;
         Quaternion worldRot = _baseRotation * evt.rotation;
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
