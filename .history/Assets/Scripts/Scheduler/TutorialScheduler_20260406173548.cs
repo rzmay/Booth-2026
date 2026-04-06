@@ -111,7 +111,7 @@ public class TutorialScheduler : MonoBehaviour
         }
     }
 
-    public void AdvanceToNextSegment()
+    private void AdvanceToNextSegment()
     {
         _currentSegmentIndex++;
 
