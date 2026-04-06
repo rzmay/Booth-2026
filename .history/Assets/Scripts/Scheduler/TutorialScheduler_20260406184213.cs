@@ -5,6 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(StreakTracker))]
 public class TutorialScheduler : MonoBehaviour
 {
+    [System.Serializable]
+    private class TutorialSegment
+    {
+        public Schedule schedule;
+        public float requiredPoints;
+        public bool useBool;
+        public BoolValueSource boolValue;
+    }
 
     [Header("Tutorial")]
     [SerializeField] private List<TutorialSegment> tutorialSegments = new();
@@ -27,16 +35,6 @@ public class TutorialScheduler : MonoBehaviour
         _streakTracker = GetComponent<StreakTracker>();
         _metronome = GetComponent<Metronome>();
         _calibrationManager = CalibrationManager.Instance;
-        BindTutorialSegmentBoolSources();
-    }
-
-    [System.Serializable]
-    private class TutorialSegment
-    {
-        public Schedule schedule;
-        public float requiredPoints;
-        public bool useBool;
-        public BoolValueSource boolValue;
     }
 
     void Start()
@@ -55,12 +53,6 @@ public class TutorialScheduler : MonoBehaviour
 
     public void BeginTutorial()
     {
-        if (_calibrationManager == null)
-        {
-            _calibrationManager = CalibrationManager.Instance;
-        }
-        BindTutorialSegmentBoolSources();
-
         //set calibration to false
         _calibrationManager.SetCalibrationBool(false);
         Debug.Log("set calibration to false in tutorial scheduler");
@@ -136,17 +128,6 @@ public class TutorialScheduler : MonoBehaviour
     private void RestartCurrentSegment()
     {
         LoadCurrentSegment();
-    }
-
-    private void BindTutorialSegmentBoolSources()
-    {
-        if (_calibrationManager == null) return;
-
-        foreach (TutorialSegment tutorialSegment in tutorialSegments)
-        {
-            if (tutorialSegment == null) continue;
-            tutorialSegment.boolValue = _calibrationManager;
-        }
     }
 
     private float GetCurrentSegmentPoints()

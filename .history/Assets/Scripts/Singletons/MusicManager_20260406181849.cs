@@ -59,7 +59,7 @@ public class MusicManager : MonoBehaviour
         _metronome = GetComponent<Metronome>();
         _streakTracker = GetComponent<StreakTracker>();
         _scheduler = GetComponent<Scheduler>();
-        _calibrationManager = CalibrationManager.Instance;
+        _calibrationManager = GetComponent<CalibrationManager>();
         _tutorialScheduler = GetComponent<TutorialScheduler>();
 
         // There should only be one

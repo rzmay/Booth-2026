@@ -16,70 +16,29 @@ public class CalibrationManager : BoolValueSource
 
     public CalibrationData CurrentCalibration => currentCalibration;
     public override bool Value => currentCalibration.isCalibrated;
-    private bool _doCalib = false;
-    private bool _resetLocn = false;
 
-    public static CalibrationManager Instance { get; private set; }
-
-    private void Awake()
+    public void Calibrate()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void LateUpdate()
-    {
-        if (_doCalib)
-        {
-            Calibrate();
-            _doCalib = false;
-        }
-        if (_resetLocn)
-        {
-            ResetLocn();
-            _resetLocn = false;
-        }
-    }
-
-    private void ResetLocn()
-    {
-        // re-get the location and rotation of the headset, but keep the same scale
-        Vector3 headsetPosition = cameraRig.centerEyeAnchor.position;
-        Vector3 rotationEuler = (cameraRig.centerEyeAnchor.rotation * Quaternion.Euler(rotationOffsetEuler)).eulerAngles;
-        if (freezeRotationX)
-        {
-            rotationEuler.x = 0f;
-        }
-
-        if (freezeRotationY)
-        {
-            rotationEuler.y = 0f;
-        }
-
-        if (freezeRotationZ)
-        {
-            rotationEuler.z = 0f;
-        }
-        currentCalibration.originPosition = headsetPosition;
-        currentCalibration.originRotation = Quaternion.Euler(rotationEuler);
-    }
-    private void Calibrate()
-    {
+        Debug.Log("CALIBRATE BEING CALLED");
         currentCalibration.isCalibrated = false;
         currentCalibration.originPosition = Vector3.zero;
         currentCalibration.originRotation = Quaternion.identity;
         currentCalibration.scale = 1f;
+        Debug.Log("CALIBRATION RESET");
+        Debug.Log("PICKING PLAYER TRANSFORM AS ORIGIN");
+        if (cameraRig.centerEyeAnchor == null)
+        {
+            Debug.LogWarning("Camera rig or centerEyeAnchor is missing.");
+        }
         Vector3 headsetPosition = cameraRig.centerEyeAnchor.position;
+        Debug.Log("HEADSET POSITION IS: " + headsetPosition);
 
         float leftArmLength = Vector3.Distance(headsetPosition, Player.Instance.leftHand.transform.position);
         float rightArmLength = Vector3.Distance(headsetPosition, Player.Instance.rightHand.transform.position);
         float armLength = Mathf.Max(leftArmLength, rightArmLength);
+        // debug logs of left arm, right arm
+        Debug.Log("LEFT ARM LENGTH: " + leftArmLength);
+        Debug.Log("RIGHT ARM LENGTH: " + rightArmLength);
 
         Vector3 rotationEuler = (cameraRig.centerEyeAnchor.rotation * Quaternion.Euler(rotationOffsetEuler)).eulerAngles;
 
@@ -98,9 +57,14 @@ public class CalibrationManager : BoolValueSource
             rotationEuler.z = 0f;
         }
 
+        Debug.Log("SETTING ORIGIN POSITION TO: " + headsetPosition);
+        Debug.Log("SETTING ORIGIN ROTATION TO: " + rotationEuler);
+        Debug.Log("SETTING SCALE TO: " + armLength);
+
         currentCalibration.originPosition = headsetPosition;
         currentCalibration.originRotation = Quaternion.Euler(rotationEuler);
         currentCalibration.scale = armLength;
+        Debug.Log("ARM LENGTH BEING RECORDED: " + currentCalibration.scale);
         currentCalibration.isCalibrated = true;
     }
 
@@ -108,25 +72,23 @@ public class CalibrationManager : BoolValueSource
     {
         if (!currentCalibration.isCalibrated)
         {
+            Debug.LogWarning("calibration not yet set");
             return position;
         }
+        Debug.Log("ARM LENGTH BEING RECORDED: " + currentCalibration.scale);
 
         Vector3 newPos = position * currentCalibration.scale;
 
+        Debug.Log("ORIGIN POSITION IS: " + currentCalibration.originPosition);
+        Debug.Log("ORIGIN ROTATION IS: " + currentCalibration.originRotation);
+        Debug.Log("SCALE IS: " + currentCalibration.scale);
+        Debug.Log("returning position: " + (currentCalibration.originPosition + currentCalibration.originRotation * newPos));
         return currentCalibration.originPosition + currentCalibration.originRotation * newPos;
     }
 
     public void SetCalibrationBool(bool value)
     {
+        Debug.Log("SET CALIBRATION BOOL BEING CALLED");
         currentCalibration.isCalibrated = value;
-    }
-
-    public void doCalibrationExternal()
-    {
-        _doCalib = true;
-    }
-    public void doResetLocnExternal()
-    {
-        _resetLocn = true;
     }
 }

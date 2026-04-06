@@ -16,60 +16,8 @@ public class CalibrationManager : BoolValueSource
 
     public CalibrationData CurrentCalibration => currentCalibration;
     public override bool Value => currentCalibration.isCalibrated;
-    private bool _doCalib = false;
-    private bool _resetLocn = false;
 
-    public static CalibrationManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void LateUpdate()
-    {
-        if (_doCalib)
-        {
-            Calibrate();
-            _doCalib = false;
-        }
-        if (_resetLocn)
-        {
-            ResetLocn();
-            _resetLocn = false;
-        }
-    }
-
-    private void ResetLocn()
-    {
-        // re-get the location and rotation of the headset, but keep the same scale
-        Vector3 headsetPosition = cameraRig.centerEyeAnchor.position;
-        Vector3 rotationEuler = (cameraRig.centerEyeAnchor.rotation * Quaternion.Euler(rotationOffsetEuler)).eulerAngles;
-        if (freezeRotationX)
-        {
-            rotationEuler.x = 0f;
-        }
-
-        if (freezeRotationY)
-        {
-            rotationEuler.y = 0f;
-        }
-
-        if (freezeRotationZ)
-        {
-            rotationEuler.z = 0f;
-        }
-        currentCalibration.originPosition = headsetPosition;
-        currentCalibration.originRotation = Quaternion.Euler(rotationEuler);
-    }
-    private void Calibrate()
+    public void Calibrate()
     {
         currentCalibration.isCalibrated = false;
         currentCalibration.originPosition = Vector3.zero;
@@ -113,20 +61,13 @@ public class CalibrationManager : BoolValueSource
 
         Vector3 newPos = position * currentCalibration.scale;
 
+        currentCalibration.originRotation* newPos));
         return currentCalibration.originPosition + currentCalibration.originRotation * newPos;
     }
 
     public void SetCalibrationBool(bool value)
     {
+        Debug.Log("SET CALIBRATION BOOL BEING CALLED");
         currentCalibration.isCalibrated = value;
-    }
-
-    public void doCalibrationExternal()
-    {
-        _doCalib = true;
-    }
-    public void doResetLocnExternal()
-    {
-        _resetLocn = true;
     }
 }

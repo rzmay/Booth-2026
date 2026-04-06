@@ -44,6 +44,7 @@ public class MusicManager : MonoBehaviour
     private TutorialScheduler _tutorialScheduler;
     private RawImage _screenEffectImage;
     private bool _isTutorialScene => startState == MusicState.TutorialMenu;
+    private bool _doCalib = false;
 
     public MusicState state
     {
@@ -59,11 +60,18 @@ public class MusicManager : MonoBehaviour
         _metronome = GetComponent<Metronome>();
         _streakTracker = GetComponent<StreakTracker>();
         _scheduler = GetComponent<Scheduler>();
-        _calibrationManager = CalibrationManager.Instance;
+        _calibrationManager = GetComponent<CalibrationManager>();
         _tutorialScheduler = GetComponent<TutorialScheduler>();
 
         // There should only be one
         _screenEffectImage = Object.FindFirstObjectByType<ScreenEffect>().GetComponent<RawImage>();
+    }
+
+    private void LateUpdate()
+    {
+        if (!_doCalib) return;
+        _doCalib = false;
+        _calibrationManager.Calibrate();
     }
 
     void OnEnable()
@@ -148,10 +156,12 @@ public class MusicManager : MonoBehaviour
     {
         if (!_isTutorialScene || _calibrationManager.CurrentCalibration.isCalibrated)
         {
+            Debug.Log("already calibrated, returning");
             return;
         }
 
-        _calibrationManager.doCalibrationExternal();
+        Debug.Log("calibrating from input action");
+        _doCalib = true;
         _tutorialScheduler.AdvanceToNextSegment();
     }
 }

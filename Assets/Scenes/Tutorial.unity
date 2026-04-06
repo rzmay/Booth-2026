@@ -397,6 +397,61 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &1029750898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1029750900}
+  - component: {fileID: 1029750899}
+  m_Layer: 0
+  m_Name: Calibration(DONTDESTROY)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1029750899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029750898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de896c5a4bfb406ab670537b0adc18a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CalibrationManager
+  positionOffset: {x: 0, y: 0, z: 0}
+  rotationOffsetEuler: {x: 0, y: 0, z: 0}
+  freezeRotationX: 1
+  freezeRotationY: 0
+  freezeRotationZ: 1
+  currentCalibration:
+    isCalibrated: 0
+    originPosition: {x: 0, y: 0, z: 0}
+    originRotation: {x: 0, y: 0, z: 0, w: 1}
+    scale: 1
+  cameraRig: {fileID: 0}
+--- !u!4 &1029750900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029750898}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602856250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
@@ -418,7 +473,7 @@ MonoBehaviour:
   - schedule: {fileID: 11400000, guid: 7e9e510e6e10c49f59f7520f76a709b9, type: 2}
     requiredPoints: 0
     useBool: 1
-    boolValue: {fileID: 1602856260}
+    boolValue: {fileID: 1029750899}
   - schedule: {fileID: 11400000, guid: 512ddc59e1dc64673ba9e1f4e0c92f5f, type: 2}
     requiredPoints: 0
     useBool: 0
@@ -440,28 +495,6 @@ MonoBehaviour:
     useBool: 0
     boolValue: {fileID: 0}
   segmentFinishBufferBeats: 8
---- !u!114 &1602856260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602856250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de896c5a4bfb406ab670537b0adc18a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CalibrationManager
-  positionOffset: {x: 0, y: 0, z: 0}
-  rotationOffsetEuler: {x: 0, y: 0, z: 0}
-  freezeRotationX: 1
-  freezeRotationY: 0
-  freezeRotationZ: 1
-  currentCalibration:
-    isCalibrated: 0
-    originPosition: {x: 0, y: 0, z: 0}
-    originRotation: {x: 0, y: 0, z: 0, w: 1}
-    scale: 1
 --- !u!1001 &1660696149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -552,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 802661971068250509, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 22.7
+      value: 11.35
       objectReference: {fileID: 0}
     - target: {fileID: 2477575601502947636, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -576,15 +609,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5786204672568346265, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 29
+      value: 14.5
       objectReference: {fileID: 0}
     - target: {fileID: 5787200644543018699, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 29
+      value: 14.5
       objectReference: {fileID: 0}
     - target: {fileID: 7606142749966859729, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 23.9
+      value: 11.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -723,7 +756,7 @@ PrefabInstance:
     - target: {fileID: 8389558958949024849, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: calibrationManager
       value: 
-      objectReference: {fileID: 1602856260}
+      objectReference: {fileID: 1029750899}
     - target: {fileID: 8389558958949024849, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: tutorialRepeatSchedule
       value: 
@@ -779,9 +812,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1602856251}
-    - targetCorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1602856260}
   m_SourcePrefab: {fileID: 100100000, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -792,3 +822,4 @@ SceneRoots:
   - {fileID: 7998359587919511478}
   - {fileID: 1660696149}
   - {fileID: 1714828297}
+  - {fileID: 1029750900}

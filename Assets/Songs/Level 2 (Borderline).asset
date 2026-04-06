@@ -33,5 +33,5 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  schedule: {fileID: 11400000, guid: ef7ec21b9bd2b4456ad2d53d774b9f96, type: 2}
+  schedule: {fileID: 11400000, guid: 076f24604903b462ba54af8e4958aa21, type: 2}
   screenEffectMaterial: {fileID: 2100000, guid: 8f3c53bdf117f464ead389cb70642694, type: 2}

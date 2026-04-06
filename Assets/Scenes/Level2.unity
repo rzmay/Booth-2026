@@ -471,6 +471,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4491469372541419796, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4618879553596357477, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_Name
       value: GUI
@@ -546,7 +550,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: startState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: states.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: states.Array.data[0].state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: states.Array.data[0].songData
+      value: 
+      objectReference: {fileID: 11400000, guid: 396d1de77b8164c0d9b95beb16b4f1ff, type: 2}
+    - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: states.Array.data[1].songData
       value: 
       objectReference: {fileID: 11400000, guid: 396d1de77b8164c0d9b95beb16b4f1ff, type: 2}
     - target: {fileID: 4385304975134692865, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
