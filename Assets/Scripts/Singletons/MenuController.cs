@@ -84,6 +84,11 @@ public class MenuController : DelayableMonoBehaviour
         if (_acceptRestart) SceneManager.LoadScene(restartSceneName);
     }
 
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene($"Level{index}");
+    }
+
     public static void SetMenu(int index)
     {
         _Instance._SetMenu(index);

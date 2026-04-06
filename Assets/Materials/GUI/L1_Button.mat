@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: L1_ScreenEffect
-  m_Shader: {fileID: -6465566751694194690, guid: 891361b5e93494f76a4f0fa9e5bff0e3, type: 3}
+  m_Name: L1_Button
+  m_Shader: {fileID: -6465566751694194690, guid: e4b3bccf22c4d4943b3daf10701d8030, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -41,8 +41,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 0.99999285
-    - _Beat: 0.3611145
+    - _Amount: 1
+    - _Beat: 0.99
     - _BottomStripeSize: 0.025
     - _ColorMask: 15
     - _DilationPower: 0.75
@@ -50,7 +50,7 @@ Material:
     - _DistortionFeather: 0.5
     - _DistortionSpeed: 0.25
     - _LerpPower: 0.5
-    - _MaxRadius: 0.7
+    - _MaxRadius: 0.5
     - _MinRadius: 0
     - _NumStripes: 100
     - _ScaleWithAmount: 1.25
@@ -64,7 +64,7 @@ Material:
     - _UIMaskSoftnessY: 1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _DistortionSize: {r: 5, g: 2.5, b: 0, a: 0}
+    - _DistortionSize: {r: 4, g: 2, b: 0, a: 0}
     - _DistortionStrength: {r: 1, g: 1.5, b: 0, a: 0}
     - _StripeBaseColor: {r: 0.06666665, g: 0.07058821, b: 0.050980367, a: 1}
   m_BuildTextureStacks: []
