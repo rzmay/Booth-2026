@@ -162,8 +162,23 @@ public class Scheduler : MonoBehaviour
     {
         bool useAuthoredTransform = evt.item is ScheduledText;
 
-        Vector3 worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
-        Quaternion worldRot = _baseRotation * evt.rotation;
+        if (calibrationManager.CurrentCalibration.isCalibrated)
+        {
+            if (!_gotTransform || !_usingCalibration)
+            {
+                CalibrationData calibration = calibrationManager.CurrentCalibration;
+                _basePosition = calibration.originPosition;
+                _baseRotation = calibration.originRotation;
+                _gotTransform = true;
+                _usingCalibration = true;
+            }
+        }
+        Vector3 worldPos = useAuthoredTransform
+            ? evt.position
+            : calibrationManager.CurrentCalibration.isCalibrated
+                ? calibrationManager.ConvertNormalizedToWorldPosition(evt.position)
+                : _basePosition + _baseRotation * evt.position;
+        Quaternion worldRot = useAuthoredTransform ? evt.rotation : _baseRotation * evt.rotation;
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
 

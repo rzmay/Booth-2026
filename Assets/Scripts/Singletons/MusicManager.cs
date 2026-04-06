@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Scheduler))]
@@ -28,6 +29,7 @@ public class MusicManager : MonoBehaviour
     public MusicState startState = MusicState.TutorialMenu;
 
     [SerializeField] private List<StateConfig> states;
+    [SerializeField] private InputActionReference tutorialCalibrationAction;
 
     // How quickly does each track come in?
     public float volumePower = 0.25f;
@@ -38,7 +40,10 @@ public class MusicManager : MonoBehaviour
     private Metronome _metronome;
     private StreakTracker _streakTracker;
     private Scheduler _scheduler;
+    private CalibrationManager _calibrationManager;
+    private TutorialScheduler _tutorialScheduler;
     private RawImage _screenEffectImage;
+    private bool _isTutorialScene => startState == MusicState.TutorialMenu;
 
     public MusicState state
     {
@@ -54,9 +59,27 @@ public class MusicManager : MonoBehaviour
         _metronome = GetComponent<Metronome>();
         _streakTracker = GetComponent<StreakTracker>();
         _scheduler = GetComponent<Scheduler>();
+        _calibrationManager = GetComponent<CalibrationManager>();
+        _tutorialScheduler = GetComponent<TutorialScheduler>();
 
         // There should only be one
         _screenEffectImage = Object.FindFirstObjectByType<ScreenEffect>().GetComponent<RawImage>();
+    }
+
+    void OnEnable()
+    {
+        if (_isTutorialScene)
+        {
+            tutorialCalibrationAction.action.performed += OnTutorialCalibrationAction;
+        }
+    }
+
+    void OnDisable()
+    {
+        if (_isTutorialScene)
+        {
+            tutorialCalibrationAction.action.performed -= OnTutorialCalibrationAction;
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -66,10 +89,9 @@ public class MusicManager : MonoBehaviour
 
         if (startState == MusicState.TutorialMenu)
         {
-            TutorialScheduler tutorialScheduler = GetComponent<TutorialScheduler>();
-            if (tutorialScheduler != null)
+            if (_tutorialScheduler != null)
             {
-                tutorialScheduler.BeginTutorial();
+                _tutorialScheduler.BeginTutorial();
             }
         }
     }
@@ -120,5 +142,16 @@ public class MusicManager : MonoBehaviour
 
         // Delegate starting the music to the metronome
         _metronome.Play();
+    }
+
+    private void OnTutorialCalibrationAction(InputAction.CallbackContext obj)
+    {
+        if (!_isTutorialScene || _calibrationManager.CurrentCalibration.isCalibrated)
+        {
+            return;
+        }
+
+        _calibrationManager.Calibrate();
+        _tutorialScheduler.TryAdvanceCurrentSegment();
     }
 }

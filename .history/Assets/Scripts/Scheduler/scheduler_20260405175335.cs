@@ -38,7 +38,6 @@ public class Scheduler : MonoBehaviour
     private Vector3 _basePosition;
     private Quaternion _baseRotation;
     private bool _gotTransform = false;
-    private bool _usingCalibration = false;
 
     private List<Schedule.Event> _events = new();
 
@@ -74,21 +73,16 @@ public class Scheduler : MonoBehaviour
         // check if we have more events to schedule
         if (!HasMoreEvents()) return;
 
-        if (calibrationManager.CurrentCalibration.isCalibrated)
+        if (!_gotTransform)
         {
-            if (!_gotTransform || !_usingCalibration)
+            if (!calibrationManager.CurrentCalibration.isCalibrated)
             {
-                CalibrationData calibration = calibrationManager.CurrentCalibration;
-                _basePosition = calibration.originPosition;
-                _baseRotation = calibration.originRotation;
-                _gotTransform = true;
-                _usingCalibration = true;
+                continue;
             }
-        }
-        else
-        {
-            _basePosition = Player.Instance.transform.position + new Vector3(0, heightOffset, 0);
-            _baseRotation = Player.Instance.transform.rotation;
+
+            CalibrationData calibration = calibrationManager.CurrentCalibration;
+            _basePosition = calibration.originPosition;
+            _baseRotation = calibration.originRotation;
             _gotTransform = true;
         }
 
@@ -160,8 +154,6 @@ public class Scheduler : MonoBehaviour
     // spawns a gameObject based off of scheduled event information
     private void SpawnEvent(Schedule.Event evt)
     {
-        bool useAuthoredTransform = evt.item is ScheduledText;
-
         Vector3 worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
         Quaternion worldRot = _baseRotation * evt.rotation;
 

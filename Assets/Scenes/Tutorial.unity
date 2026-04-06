@@ -119,6 +119,20 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &139179561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/Calibrate
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: fda0b8f0-3aad-48ca-8a83-cd468b4d8204
 --- !u!1 &244209040
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,17 +415,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialScheduler
   tutorialSegments:
+  - schedule: {fileID: 11400000, guid: 7e9e510e6e10c49f59f7520f76a709b9, type: 2}
+    requiredPoints: 0
+    useBool: 1
+    boolValue: {fileID: 1602856260}
   - schedule: {fileID: 11400000, guid: 512ddc59e1dc64673ba9e1f4e0c92f5f, type: 2}
     requiredPoints: 0
+    useBool: 0
+    boolValue: {fileID: 0}
   - schedule: {fileID: 11400000, guid: 43b84850979744b8693d9c51cc2f85c4, type: 2}
     requiredPoints: 1
+    useBool: 0
+    boolValue: {fileID: 0}
   - schedule: {fileID: 11400000, guid: a8fa7c25698394385a56d4656cb975c1, type: 2}
     requiredPoints: 1
+    useBool: 0
+    boolValue: {fileID: 0}
   - schedule: {fileID: 11400000, guid: 7af2f5476d0114c9dbca24dda277f8e2, type: 2}
     requiredPoints: 2
+    useBool: 0
+    boolValue: {fileID: 0}
   - schedule: {fileID: 11400000, guid: 6e17445fa9dae43eab8e203bd4a7ae12, type: 2}
     requiredPoints: 0
+    useBool: 0
+    boolValue: {fileID: 0}
   segmentFinishBufferBeats: 8
+--- !u!114 &1602856260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602856250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de896c5a4bfb406ab670537b0adc18a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CalibrationManager
+  positionOffset: {x: 0, y: 0, z: 0}
+  rotationOffsetEuler: {x: 0, y: 0, z: 0}
+  freezeRotationX: 1
+  freezeRotationY: 0
+  freezeRotationZ: 1
+  currentCalibration:
+    isCalibrated: 0
+    originPosition: {x: 0, y: 0, z: 0}
+    originRotation: {x: 0, y: 0, z: 0, w: 1}
+    scale: 1
 --- !u!1001 &1660696149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,6 +550,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2477575601502947636, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590856248946722958, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4491469372541419796, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -529,17 +587,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[BuildingBlock] Camera Rig'
       objectReference: {fileID: 0}
+    - target: {fileID: 146681309907409220, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6089150315922613876, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.64226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6089150315922613876, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6089150315922613876, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.64226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6089150315922613876, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -585,6 +647,10 @@ PrefabInstance:
     - target: {fileID: 942287064671611150, guid: e5763c2e256744cad9500c9e7e6aa996, type: 3}
       propertyPath: m_Name
       value: DebugHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 942287064671611150, guid: e5763c2e256744cad9500c9e7e6aa996, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2621990362477084822, guid: e5763c2e256744cad9500c9e7e6aa996, type: 3}
       propertyPath: m_LocalPosition.x
@@ -639,6 +705,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: tutorialCalibrationAction
+      value: 
+      objectReference: {fileID: 139179561}
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: states.Array.data[0].songData
       value: 
@@ -696,6 +766,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8389558958949024849, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: calibrationManager
+      value: 
+      objectReference: {fileID: 1602856260}
+    - target: {fileID: 8389558958949024849, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: tutorialRepeatSchedule
       value: 
       objectReference: {fileID: 11400000, guid: a8fa7c25698394385a56d4656cb975c1, type: 2}
@@ -750,6 +824,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1602856251}
+    - targetCorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1602856260}
   m_SourcePrefab: {fileID: 100100000, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

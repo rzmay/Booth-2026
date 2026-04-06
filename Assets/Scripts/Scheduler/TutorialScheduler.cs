@@ -10,6 +10,8 @@ public class TutorialScheduler : MonoBehaviour
     {
         public Schedule schedule;
         public float requiredPoints;
+        public bool useBool;
+        public BoolValueSource boolValue;
     }
 
     [Header("Tutorial")]
@@ -62,6 +64,13 @@ public class TutorialScheduler : MonoBehaviour
         _tutorialComplete = true;
     }
 
+    public void TryAdvanceCurrentSegment()
+    {
+        if (!_tutorialRunning || _tutorialComplete) return;
+
+        CheckCurrentSegment();
+    }
+
     private void LoadCurrentSegment()
     {
         if (tutorialSegments.Count == 0) return;
@@ -82,9 +91,12 @@ public class TutorialScheduler : MonoBehaviour
     {
         if (!IsCurrentSegmentFinished()) return;
 
+        TutorialSegment currentSegment = tutorialSegments[_currentSegmentIndex];
+        if (currentSegment.useBool && !currentSegment.boolValue.Value) return;
+
         float currentPoints = GetCurrentSegmentPoints();
 
-        if (currentPoints >= tutorialSegments[_currentSegmentIndex].requiredPoints)
+        if (currentPoints >= currentSegment.requiredPoints)
         {
             AdvanceToNextSegment();
         }

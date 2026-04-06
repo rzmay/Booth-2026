@@ -160,9 +160,9 @@ public class Scheduler : MonoBehaviour
     // spawns a gameObject based off of scheduled event information
     private void SpawnEvent(Schedule.Event evt)
     {
-        bool useAuthoredTransform = evt.item is ScheduledText;
-
-        Vector3 worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
+        Vector3 worldPos = calibrationManager.CurrentCalibration.isCalibrated
+            ? calibrationManager.ConvertNormalizedToWorldPosition(evt.position)
+            : _basePosition + _baseRotation * evt.position;
         Quaternion worldRot = _baseRotation * evt.rotation;
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
