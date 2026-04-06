@@ -31,7 +31,6 @@ public class CalibrationManager : BoolValueSource
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        cameraRig = FindObjectOfType<OVRCameraRig>();
     }
 
     private void LateUpdate()
@@ -109,11 +108,9 @@ public class CalibrationManager : BoolValueSource
     {
         if (!currentCalibration.isCalibrated)
         {
-            Debug.Log("Calibration not done yet, returning uncalibrated position");
             return position;
         }
 
-        Debug.Log("Converting normalized position " + position + " to world position using calibration: " + currentCalibration);
         Vector3 newPos = position * currentCalibration.scale;
 
         return currentCalibration.originPosition + currentCalibration.originRotation * newPos;

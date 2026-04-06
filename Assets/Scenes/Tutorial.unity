@@ -133,6 +133,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ActionId: fda0b8f0-3aad-48ca-8a83-cd468b4d8204
+--- !u!114 &221667071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4937619020537895284, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+  m_PrefabInstance: {fileID: 1714828297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244209040
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +447,7 @@ MonoBehaviour:
     originPosition: {x: 0, y: 0, z: 0}
     originRotation: {x: 0, y: 0, z: 0, w: 1}
     scale: 1
-  cameraRig: {fileID: 0}
+  cameraRig: {fileID: 221667071}
 --- !u!4 &1029750900
 Transform:
   m_ObjectHideFlags: 0
@@ -488,6 +499,10 @@ MonoBehaviour:
     boolValue: {fileID: 0}
   - schedule: {fileID: 11400000, guid: 7af2f5476d0114c9dbca24dda277f8e2, type: 2}
     requiredPoints: 2
+    useBool: 0
+    boolValue: {fileID: 0}
+  - schedule: {fileID: 11400000, guid: 6e17445fa9dae43eab8e203bd4a7ae12, type: 2}
+    requiredPoints: 0
     useBool: 0
     boolValue: {fileID: 0}
   - schedule: {fileID: 11400000, guid: 6e17445fa9dae43eab8e203bd4a7ae12, type: 2}
@@ -585,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 802661971068250509, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 11.35
+      value: 22.7
       objectReference: {fileID: 0}
     - target: {fileID: 2477575601502947636, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -609,15 +624,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5786204672568346265, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 14.5
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5787200644543018699, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 14.5
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 7606142749966859729, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
-      value: 11.95
+      value: 23.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

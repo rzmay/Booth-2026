@@ -76,7 +76,7 @@ public class TutorialScheduler : MonoBehaviour
     {
         _tutorialRunning = false;
         _tutorialComplete = true;
-        SceneManager.LoadScene("Level2");
+
     }
 
     public void TryAdvanceCurrentSegment()
