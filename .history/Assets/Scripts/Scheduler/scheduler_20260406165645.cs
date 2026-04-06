@@ -166,13 +166,8 @@ public class Scheduler : MonoBehaviour
         Quaternion worldRot = evt.rotation;
         if (!useAuthoredTransform)
         {
-            worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
-            worldRot = _baseRotation * evt.rotation;
-            Debug.Log("!AUTH: SPAWNING EVENT " + evt + " AT NORMALIZED POSITION " + worldPos);
-        }
-        else
-        {
-            Debug.Log("YES AUTH: SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + worldPos);
+            Vector3 worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
+            Quaternion worldRot = _baseRotation * evt.rotation;
         }
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);

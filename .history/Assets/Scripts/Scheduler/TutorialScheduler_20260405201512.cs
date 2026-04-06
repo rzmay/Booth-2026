@@ -34,7 +34,6 @@ public class TutorialScheduler : MonoBehaviour
         _scheduler = GetComponent<Scheduler>();
         _streakTracker = GetComponent<StreakTracker>();
         _metronome = GetComponent<Metronome>();
-        _calibrationManager = GetComponent<CalibrationManager>();
     }
 
     void Start()
@@ -54,8 +53,7 @@ public class TutorialScheduler : MonoBehaviour
     public void BeginTutorial()
     {
         //set calibration to false
-        _calibrationManager.SetCalibrationBool(false);
-        Debug.Log("set calibration to false in tutorial scheduler");
+
         _currentSegmentIndex = 0;
         _tutorialRunning = true;
         _tutorialComplete = false;

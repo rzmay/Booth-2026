@@ -19,22 +19,13 @@ public class CalibrationManager : BoolValueSource
     public void Calibrate()
     {
         Debug.Log("CALIBRATE BEING CALLED");
-        currentCalibration.isCalibrated = false;
-        currentCalibration.originPosition = Vector3.zero;
-        currentCalibration.originRotation = Quaternion.identity;
-        currentCalibration.scale = 1f;
-        Debug.Log("CALIBRATION RESET");
-        Debug.Log("PICKING PLAYER TRANSFORM AS ORIGIN");
+        ResetCalibration();
         Transform headset = Player.Instance.transform;
         Vector3 headsetPosition = headset.position;
-        Debug.Log("HEADSET POSITION IS: " + headsetPosition);
 
         float leftArmLength = Vector3.Distance(headsetPosition, Player.Instance.leftHand.transform.position);
         float rightArmLength = Vector3.Distance(headsetPosition, Player.Instance.rightHand.transform.position);
-        float armLength = Mathf.Max(leftArmLength, rightArmLength);
-        // debug logs of left arm, right arm
-        Debug.Log("LEFT ARM LENGTH: " + leftArmLength);
-        Debug.Log("RIGHT ARM LENGTH: " + rightArmLength);
+        float armLength = Mathf.Min(leftArmLength, rightArmLength);
 
         Vector3 rotationEuler = (headset.rotation * Quaternion.Euler(rotationOffsetEuler)).eulerAngles;
 
@@ -76,10 +67,18 @@ public class CalibrationManager : BoolValueSource
         Vector3 newPos = position * currentCalibration.scale;
 
         Debug.Log("ORIGIN POSITION IS: " + currentCalibration.originPosition);
-        Debug.Log("ORIGIN ROTATION IS: " + currentCalibration.originRotation);
+        Debug.Log("ORIGIN POSITION IS: " + currentCalibration.originRotation);
         Debug.Log("SCALE IS: " + currentCalibration.scale);
-        Debug.Log("returning position: " + (currentCalibration.originPosition + currentCalibration.originRotation * newPos));
         return currentCalibration.originPosition + currentCalibration.originRotation * newPos;
+    }
+
+    public void ResetCalibration()
+    {
+        Debug.Log("RESET CALIBRATION BEING CALLED");
+        currentCalibration.isCalibrated = false;
+        currentCalibration.originPosition = Vector3.zero;
+        currentCalibration.originRotation = Quaternion.identity;
+        currentCalibration.scale = 1f;
     }
 
     public void SetCalibrationBool(bool value)

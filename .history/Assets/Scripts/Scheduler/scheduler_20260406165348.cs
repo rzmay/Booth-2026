@@ -162,17 +162,15 @@ public class Scheduler : MonoBehaviour
     private void SpawnEvent(Schedule.Event evt)
     {
         bool useAuthoredTransform = evt.item is ScheduledText;
-        Vector3 worldPos = evt.position;
-        Quaternion worldRot = evt.rotation;
-        if (!useAuthoredTransform)
+        if (useAuthoredTransform)
         {
-            worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
-            worldRot = _baseRotation * evt.rotation;
-            Debug.Log("!AUTH: SPAWNING EVENT " + evt + " AT NORMALIZED POSITION " + worldPos);
+            Vector3 worldPos = evt.position;
+            Quaternion worldRot = evt.rotation;
         }
         else
         {
-            Debug.Log("YES AUTH: SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + worldPos);
+            Vector3 worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
+            Quaternion worldRot = _baseRotation * evt.rotation;
         }
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);

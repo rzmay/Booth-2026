@@ -148,11 +148,9 @@ public class MusicManager : MonoBehaviour
     {
         if (!_isTutorialScene || _calibrationManager.CurrentCalibration.isCalibrated)
         {
-            Debug.Log("already calibrated, returning");
             return;
         }
 
-        Debug.Log("calibrating from input action");
         _calibrationManager.Calibrate();
         _tutorialScheduler.TryAdvanceCurrentSegment();
     }

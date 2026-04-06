@@ -54,7 +54,7 @@ public class TutorialScheduler : MonoBehaviour
     public void BeginTutorial()
     {
         //set calibration to false
-        _calibrationManager.SetCalibrationBool(false);
+        _calibrationManager.ResetCalibration();
         Debug.Log("set calibration to false in tutorial scheduler");
         _currentSegmentIndex = 0;
         _tutorialRunning = true;

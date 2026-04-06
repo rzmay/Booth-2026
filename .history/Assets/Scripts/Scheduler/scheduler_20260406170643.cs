@@ -168,11 +168,11 @@ public class Scheduler : MonoBehaviour
         {
             worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
             worldRot = _baseRotation * evt.rotation;
-            Debug.Log("!AUTH: SPAWNING EVENT " + evt + " AT NORMALIZED POSITION " + worldPos);
+            Debug.Log("SPAWNING EVENT " + evt + " AT NORMALIZED POSITION " + evt.position);
         }
         else
         {
-            Debug.Log("YES AUTH: SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + worldPos);
+            Debug.Log("SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + evt.position);
         }
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
