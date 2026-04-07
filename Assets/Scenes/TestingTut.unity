@@ -463,6 +463,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1274921610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/Restart
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: a8afd8c3-25de-44cd-990c-7aa82d5282e4
 --- !u!1 &1602856250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
@@ -578,6 +592,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 22.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1333365469964513332, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: m_fontSize
+      value: 62.55
+      objectReference: {fileID: 0}
     - target: {fileID: 2477575601502947636, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
@@ -585,6 +603,14 @@ PrefabInstance:
     - target: {fileID: 2590856248946722958, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552477633190081524, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648396852947234010, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: m_fontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4491469372541419796, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -609,6 +635,14 @@ PrefabInstance:
     - target: {fileID: 7606142749966859729, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
       value: 23.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586349393220857720, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: _restartAction
+      value: 
+      objectReference: {fileID: 1274921610}
+    - target: {fileID: 8894763122787044188, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: m_fontSize
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
