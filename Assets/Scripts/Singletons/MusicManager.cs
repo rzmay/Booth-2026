@@ -45,10 +45,10 @@ public class MusicManager : MonoBehaviour
     private RawImage _screenEffectImage;
     private bool _isTutorialScene => startState == MusicState.TutorialMenu;
 
-    public MusicState state
+    public static MusicState state
     {
-        get { return _state; }
-        set { SetState(value); }
+        get { return _Instance._state; }
+        set { _Instance.SetState(value); }
     }
 
     void Awake()

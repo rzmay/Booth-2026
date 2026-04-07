@@ -2076,9 +2076,15 @@
                     "initialStateCheck": false
                 },
                 {
+<<<<<<< HEAD
+                    "name": "Calibrate",
+                    "type": "Button",
+                    "id": "fda0b8f0-3aad-48ca-8a83-cd468b4d8204",
+=======
                     "name": "Restart",
                     "type": "Button",
                     "id": "a8afd8c3-25de-44cd-990c-7aa82d5282e4",
+>>>>>>> origin/main
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -2407,12 +2413,21 @@
                 },
                 {
                     "name": "",
+<<<<<<< HEAD
+                    "id": "bd6c9c59-a0bd-4e38-81a3-2d6592d1100e",
+                    "path": "<XRController>/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Calibrate",
+=======
                     "id": "f4f46f33-08b6-42e9-9fba-b5300b9a362d",
                     "path": "<XRController>{RightHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Restart",
+>>>>>>> origin/main
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

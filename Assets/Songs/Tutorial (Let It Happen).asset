@@ -34,3 +34,4 @@ MonoBehaviour:
   - 299
   - 400
   schedule: {fileID: 11400000, guid: 512ddc59e1dc64673ba9e1f4e0c92f5f, type: 2}
+  screenEffectMaterial: {fileID: 2100000, guid: 4e7f2eef289224aa48b53feeb0e8b821, type: 2}
