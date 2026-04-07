@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class SphereObstacle : Obstacle
+public class SimpleObstacle : Obstacle
 {
     public float speed = 5f;
-    public Vector3 moveDirection = Vector3.forward;
     public float destroyAfter = 6f;
-
+    public Vector3 moveDirection = Vector3.forward;
     private Rigidbody rb;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -20,9 +20,8 @@ public class SphereObstacle : Obstacle
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = moveDirection.normalized * speed;
-        Vector3 axis = Vector3.Cross(moveDirection, Vector3.up).normalized;
-        rb.angularVelocity = axis * speed;
+        Vector3 dir = Vector3.Scale(moveDirection.normalized, transform.forward.normalized);
+        rb.linearVelocity = dir * speed;
     }
 
     protected override void OnHit(Collision collision)
