@@ -49,4 +49,67 @@ MonoBehaviour:
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
+  - beat: 67
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 2eb4376bea82442a39c9ec824487a472, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 81
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: c112e0e02fdc643d8bc2d99e7158c668, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 97
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 076f24604903b462ba54af8e4958aa21, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 113
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 076f24604903b462ba54af8e4958aa21, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 129
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 49c4ae1d215334eb7ac5ff182c4662d6, type: 2}
+    position: {x: 0, y: 0, z: 0.66}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 133
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 1f73b202f505c4a48b6317270d1663cd, type: 2}
+    position: {x: 0, y: 0, z: 0.66}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 141
+    time: -1
+    useTime: 0
+    item: {fileID: 0}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 0.66}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   axisScale: {x: 1, y: 1, z: 1}

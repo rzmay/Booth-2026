@@ -15,6 +15,7 @@ public class Scheduler : MonoBehaviour
 
     // VARIABLE INITIALIZATION //
     [SerializeField] public Schedule schedule;
+    [SerializeField] private CalibrationManager calibrationManager;
 
     private Metronome _metronome;
 
@@ -32,22 +33,25 @@ public class Scheduler : MonoBehaviour
     public double songTimeOffset = 0;
     // Whether or not to spawn items relative to the location of the player. This can be changed to "false" later on if we want a more robust calibration
     public bool spawnRelative = true;
-    public float getTransform = -2f; // At what beat do we grab the headset transform for the origin?
+    public float getTransform = -2f; // Legacy field; calibration is now captured on player input.
     public float heightOffset = -0.5f;
     private Vector3 _basePosition;
     private Quaternion _baseRotation;
     private bool _gotTransform = false;
+    private bool _usingCalibration = false;
 
     private List<Schedule.Event> _events = new();
 
     void Awake()
     {
         _metronome = GetComponent<Metronome>();
+        calibrationManager = CalibrationManager.Instance;
     }
 
     public void Start()
     {
         _nextIndex = 0;
+        calibrationManager = CalibrationManager.Instance;
     }
 
     // subscribe to metronome events
@@ -71,12 +75,23 @@ public class Scheduler : MonoBehaviour
         // check if we have more events to schedule
         if (!HasMoreEvents()) return;
 
-        if (!_gotTransform && _beat > getTransform)
+        if (calibrationManager.CurrentCalibration.isCalibrated)
+        {
+            if (!_usingCalibration)
+            {
+                CalibrationData calibration = calibrationManager.CurrentCalibration;
+                _basePosition = calibration.originPosition;
+                _baseRotation = calibration.originRotation;
+                _gotTransform = true;
+                _usingCalibration = true;
+            }
+        }
+        else
         {
             _basePosition = Player.Instance.transform.position + new Vector3(0, heightOffset, 0);
             _baseRotation = Player.Instance.transform.rotation;
-
             _gotTransform = true;
+            _usingCalibration = false;
         }
 
         ProcessDueEvents();
@@ -118,7 +133,7 @@ public class Scheduler : MonoBehaviour
         _nextIndex = 0;
 
         // Set beat offset so that old events may fire again
-        beatOffset += _beat - 1;
+        beatOffset += Mathf.Floor(_beat) - 1;
 
         // Time should be aligned to beats
         songTimeOffset += _metronome.BeatsToTime(Mathf.Floor(_beat));
@@ -147,8 +162,19 @@ public class Scheduler : MonoBehaviour
     // spawns a gameObject based off of scheduled event information
     private void SpawnEvent(Schedule.Event evt)
     {
-        Vector3 worldPos = _basePosition + _baseRotation * evt.position;
-        Quaternion worldRot = _baseRotation * evt.rotation;
+        bool useAuthoredTransform = evt.item is ScheduledText;
+        Vector3 worldPos = evt.position;
+        Quaternion worldRot = evt.rotation;
+        if (!useAuthoredTransform)
+        {
+            worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
+            worldRot = _baseRotation * evt.rotation;
+            Debug.Log("!AUTH: SPAWNING EVENT " + evt + " AT NORMALIZED POSITION " + worldPos);
+        }
+        else
+        {
+            Debug.Log("YES AUTH: SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + worldPos);
+        }
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
 

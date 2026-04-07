@@ -313,6 +313,17 @@
                 },
                 {
                     "name": "",
+                    "id": "de3a2d95-5e2a-4f0d-b7a5-e58afec4c1d7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c17eb846-7a66-4006-9d57-6b91831868d0",
                     "path": "<Keyboard>/b",
                     "interactions": "",
