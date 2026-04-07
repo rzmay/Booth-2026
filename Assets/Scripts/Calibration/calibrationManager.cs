@@ -132,4 +132,14 @@ public class CalibrationManager : BoolValueSource
     {
         _resetLocn = true;
     }
+
+    public static void ResetLocation()
+    {
+        Instance._resetLocn = true;
+    }
+
+    public static void Recalibrate()
+    {
+        Instance._doCalib = true;
+    }
 }
