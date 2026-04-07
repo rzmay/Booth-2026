@@ -107,10 +107,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to the Phi Delta Theta Booth Experience!
+  m_text: Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0d515a939e644fdcb068287fe8df55a, type: 2}
-  m_sharedMaterial: {fileID: -8098122041339123851, guid: f0d515a939e644fdcb068287fe8df55a, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: c5c24e0fb3a8849008633e983d6116a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 38.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -179,7 +179,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2011607142103832842}
   m_maskType: 0
 --- !u!114 &8255621152595982435
