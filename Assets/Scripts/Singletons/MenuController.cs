@@ -52,6 +52,9 @@ public class MenuController : DelayableMonoBehaviour
             CanvasGroup group = _menuUI[i].GetComponent<CanvasGroup>();
             if (!group) continue;
 
+            group.interactable = _menuActive[i];
+            group.blocksRaycasts = _menuActive[i];
+
             float targetAlpha = _menuActive[i] ? 1f : 0f;
             if (!Mathf.Approximately(group.alpha, targetAlpha))
             {

@@ -9264,8 +9264,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 0.43137255}
-        key1: {r: 1, g: 1, b: 1, a: 0.6666667}
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.5882353}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 1}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -18787,6 +18787,14 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 24.95
       objectReference: {fileID: 0}
+    - target: {fileID: 2933423426188904067, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: _surface
+      value: 
+      objectReference: {fileID: 2588948331768763470}
+    - target: {fileID: 2933423426188904067, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      propertyPath: _selectSurface
+      value: 
+      objectReference: {fileID: 2588948331768763470}
     - target: {fileID: 3648396852947234010, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
       value: 44.65
@@ -18815,10 +18823,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6177851540632984630, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
-      propertyPath: m_fontSize
-      value: 23.8
-      objectReference: {fileID: 0}
     - target: {fileID: 6510797024778813172, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -26.599987
@@ -18830,10 +18834,6 @@ PrefabInstance:
     - target: {fileID: 6602250772983765272, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: _size.y
       value: 1117
-      objectReference: {fileID: 0}
-    - target: {fileID: 7522996307581480967, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
-      propertyPath: m_fontSize
-      value: 23.8
       objectReference: {fileID: 0}
     - target: {fileID: 7979328431260632238, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -18866,14 +18866,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2033877374370697773, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+    - {fileID: 1840470849077593110, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4618879553596357477, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2588948331768763470}
   m_SourcePrefab: {fileID: 100100000, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
 --- !u!224 &3668989214928779096 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 165440287868001260, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
   m_PrefabInstance: {fileID: 3504114217952783540}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8122403743558031313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4618879553596357477, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
+  m_PrefabInstance: {fileID: 3504114217952783540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2588948331768763470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8122403743558031313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf2a74d69b1c1e41916d2a7afdff5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.Surfaces.PlaneSurface
+  _facing: 0
+  _doubleSided: 0
 --- !u!1001 &4159562414672911945
 PrefabInstance:
   m_ObjectHideFlags: 0
