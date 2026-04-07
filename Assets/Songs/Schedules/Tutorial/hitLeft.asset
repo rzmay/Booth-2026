@@ -27,7 +27,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
     subschedule: {fileID: 0}
-    position: {x: -0.5, y: 0, z: 0.5}
+    position: {x: -0.25, y: 0, z: 0.75}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0

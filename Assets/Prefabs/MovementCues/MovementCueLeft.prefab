@@ -55,7 +55,7 @@ MonoBehaviour:
   lateWindowBeats: 1
   onTimeWindow: 0.25
   perfectWindow: 0.1
-  hitRadius: 0.2
+  hitRadius: 0.1
 --- !u!114 &8168223611347620439
 MonoBehaviour:
   m_ObjectHideFlags: 0
