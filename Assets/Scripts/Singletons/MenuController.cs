@@ -12,7 +12,9 @@ public class MenuController : DelayableMonoBehaviour
 
     [SerializeField] private float _menuLerpFactor = 5f;
 
-    [SerializeField] private List<GameObject> _menus; // Expecting 2 -- level select, game over
+    [SerializeField] private List<GameObject> _menuUI; // Expecting 2 -- level select, game over
+    [SerializeField] private List<GameObject> _menuObjects; // Any menu objects that need to be deactivated on change
+    public int initialMenu = -1; // Default to no menu active
     [SerializeField] private float _acceptRestartDelay;
     [SerializeField] private InputActionReference _restartAction;
     public string restartSceneName;
@@ -29,26 +31,29 @@ public class MenuController : DelayableMonoBehaviour
 
     void Start()
     {
-        _restartAction.action.performed += OnRestartAction;
-        _menuActive = new(new bool[_menus.Count]);
+        if (_restartAction != null) _restartAction.action.performed += OnRestartAction;
+        _menuActive = new(new bool[_menuUI.Count]);
 
         // Set initial menu -- no menu
-        _SetMenu(-1);
+        _SetMenu(initialMenu);
     }
 
     void OnDestroy()
     {
-        _restartAction.action.performed -= OnRestartAction;
+        if (_restartAction != null) _restartAction.action.performed -= OnRestartAction;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Lerp menu opacity
-        for (int i = 0; i < _menus.Count; i++)
+        for (int i = 0; i < _menuUI.Count; i++)
         {
-            CanvasGroup group = _menus[i].GetComponent<CanvasGroup>();
+            CanvasGroup group = _menuUI[i].GetComponent<CanvasGroup>();
             if (!group) continue;
+
+            group.interactable = _menuActive[i];
+            group.blocksRaycasts = _menuActive[i];
 
             float targetAlpha = _menuActive[i] ? 1f : 0f;
             if (!Mathf.Approximately(group.alpha, targetAlpha))
@@ -59,12 +64,15 @@ public class MenuController : DelayableMonoBehaviour
             {
                 group.alpha = targetAlpha;
             }
+
+
+            if (_menuObjects[i] != null) _menuObjects[i].SetActive(_menuActive[i]);
         }
     }
 
     void _SetMenu(int index)
     {
-        for (int i = 0; i < _Instance._menus.Count; i++)
+        for (int i = 0; i < _Instance._menuUI.Count; i++)
         {
             _menuActive[i] = i == index;
         }
@@ -82,6 +90,14 @@ public class MenuController : DelayableMonoBehaviour
     void OnRestartAction(InputAction.CallbackContext obj)
     {
         if (_acceptRestart) SceneManager.LoadScene(restartSceneName);
+    }
+
+    public void LoadLevel(int index)
+    {
+        // Recalibrate location before loading the next level
+        CalibrationManager.ResetLocation();
+
+        SceneManager.LoadScene($"Level{index}");
     }
 
     public static void SetMenu(int index)
