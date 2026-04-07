@@ -94,9 +94,6 @@ public class MenuController : DelayableMonoBehaviour
 
     public void LoadLevel(int index)
     {
-        // Recalibrate location before loading the next level
-        CalibrationManager.ResetLocation();
-
         SceneManager.LoadScene($"Level{index}");
     }
 

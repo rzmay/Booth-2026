@@ -20,7 +20,6 @@ MonoBehaviour:
   - AssemblyName: Meta.XR.MultiplayerBlocks.Shared
     DebugTypes:
     - Meta.XR.MultiplayerBlocks.Shared.CustomMatchmaking
-    - Meta.XR.MultiplayerBlocks.Shared.FriendsMatchmaking
   immersiveDebuggerEnabled: 1
   immersiveDebuggerDisplayAtStartup: 0
   enableOnlyInDebugBuild: 0
