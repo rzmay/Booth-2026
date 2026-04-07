@@ -158,10 +158,6 @@ public class Scheduler : MonoBehaviour
         double late = _songTime - (GetScheduledTime(evt) - evt.item.scheduleAhead);
 
         // Start time is in the past
-        if (late > 0)
-        {
-            Debug.LogWarning($"Event {evt} is late by {late} seconds. Consider increasing schedule ahead time.");
-        }
         obj.startTime = Time.time - (float)late;
     }
 
