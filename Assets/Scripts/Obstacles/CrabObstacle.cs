@@ -6,7 +6,7 @@ public class CrabObstacle : Obstacle
     public Vector3 moveDirection = Vector3.forward;
     public float destroyAfter = 6f;
 
-    private Animator animator; 
+    private Animator animator;
 
     private Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

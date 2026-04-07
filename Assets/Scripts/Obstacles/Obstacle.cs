@@ -19,7 +19,7 @@ public abstract class Obstacle : MonoBehaviour
     }
 
     protected abstract void OnHit(Collision collision);
-        // Implementation is up to the subclass
+    // Implementation is up to the subclass
 
     /* Whenever an obstacle collides with a player's body, deal streak damage
     * If the obstacle collides with a player's hand and is not invulnerable, trigger OnHit
