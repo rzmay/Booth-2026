@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Amount: 0
-    - _Beat: 0.112400055
+    - _Beat: 0.9028015
     - _BottomStripeSize: 0.025
     - _ColorMask: 15
     - _DilationPower: 0

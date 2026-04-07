@@ -63,7 +63,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: d59624dcdf6f346fda14a67146ada06c, type: 2}
-    position: {x: 0, y: 0, z: 0.2}
+    position: {x: 0, y: 0, z: 0.66}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: a991e9fa26e28439b99efcc5d1cfec7b, type: 2}
-    position: {x: 0, y: 0, z: 0.6}
+    position: {x: 0, y: 0, z: 0.66}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: c8a4f919b774d4af38564c9adbddab5d, type: 2}
-    position: {x: 0, y: 0, z: 0.1}
+    position: {x: 0, y: 0, z: 0.66}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: c8a4f919b774d4af38564c9adbddab5d, type: 2}
-    position: {x: 0, y: 0, z: 0.1}
+    position: {x: 0, y: 0, z: 0.66}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: f68b292b146a84041b37a41b554b8286, type: 2}
-    position: {x: 0, y: 0, z: 0.1}
+    position: {x: 0, y: 0, z: 0.66}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: f68b292b146a84041b37a41b554b8286, type: 2}
-    position: {x: 0, y: 0, z: 0.1}
+    position: {x: 0, y: 0, z: 0.66}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: d8a0928b77a954ca1b03cefd1f253edb, type: 2}
-    position: {x: 0, y: 0, z: 0.1}
+    position: {x: 0, y: 0, z: 0.66}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0

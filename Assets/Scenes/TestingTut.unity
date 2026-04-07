@@ -119,20 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &139179561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: XRI Right Interaction/Calibrate
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_ActionId: fda0b8f0-3aad-48ca-8a83-cd468b4d8204
 --- !u!114 &221667071 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4937619020537895284, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
@@ -463,7 +449,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1274921610
+--- !u!114 &1254734937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -477,6 +463,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ActionId: a8afd8c3-25de-44cd-990c-7aa82d5282e4
+--- !u!114 &1405506421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/Calibrate
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: 8021f05e-2c69-42fd-8306-2df8768df66e
 --- !u!1 &1602856250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 8586349393220857720, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: _restartAction
       value: 
-      objectReference: {fileID: 1274921610}
+      objectReference: {fileID: 1254734937}
     - target: {fileID: 8894763122787044188, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
       propertyPath: m_fontSize
       value: 25
@@ -721,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: tutorialCalibrationAction
       value: 
-      objectReference: {fileID: 139179561}
+      objectReference: {fileID: 1405506421}
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: states.Array.data[0].songData
       value: 
