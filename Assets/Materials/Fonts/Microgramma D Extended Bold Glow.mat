@@ -31,8 +31,9 @@ Material:
     - _GlowOffset: 0
     - _GlowOuter: 1
     - _GlowPower: 1
+    - _OutlineWidth: 0
     - _ScaleRatioB: 0.73125
     m_Colors:
-    - _GlowColor: {r: 0.7333334, g: 0.4, b: 0.8, a: 0.5}
+    - _GlowColor: {r: 0.69411767, g: 0.16078429, b: 0.8, a: 0.5019608}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

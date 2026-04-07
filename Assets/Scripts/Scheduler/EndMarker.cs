@@ -10,6 +10,6 @@ public class EndMarker : Schedulable
     MusicManager.state = MusicManager.MusicState.GameOver;
 
     // Set game over menu
-    MenuController.SetMenu(1);
+    MenuController.SetMenu(2);
   }
 }

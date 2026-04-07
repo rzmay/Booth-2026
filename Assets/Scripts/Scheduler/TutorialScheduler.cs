@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,9 @@ public class TutorialScheduler : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] private List<TutorialSegment> tutorialSegments = new();
-    [SerializeField] private float segmentFinishBufferBeats = 1f;
+
+    [Header("UI")]
+    [SerializeField] private TMP_Text _text;
 
     private Scheduler _scheduler;
     private StreakTracker _streakTracker;
@@ -35,9 +38,11 @@ public class TutorialScheduler : MonoBehaviour
     private class TutorialSegment
     {
         public Schedule schedule;
+        [TextArea] public string text;
         public float requiredPoints;
         public bool useBool;
         public BoolValueSource boolValue;
+        public float bufferBeats;
     }
 
     void Start()
@@ -77,8 +82,8 @@ public class TutorialScheduler : MonoBehaviour
         _tutorialRunning = false;
         _tutorialComplete = true;
 
-        // Open the GUI
-        MenuController.SetMenu(0);
+        // Open the level select
+        MenuController.SetMenu(1);
     }
 
     public void TryAdvanceCurrentSegment()
@@ -102,6 +107,7 @@ public class TutorialScheduler : MonoBehaviour
         _segmentStartScore = _streakTracker.score;
         _segmentFinishStartBeat = -1f;
 
+        _text.text = currentSegment.text;
     }
 
     private void CheckCurrentSegment()
@@ -165,8 +171,9 @@ public class TutorialScheduler : MonoBehaviour
             _segmentFinishStartBeat = -1f;
             return false;
         }
+
         // update bufferBeats
-        float bufferBeats = segmentFinishBufferBeats;
+        float bufferBeats = tutorialSegments[_currentSegmentIndex].bufferBeats;
 
         float currentBeat = _metronome.GetBeatFloat();
 

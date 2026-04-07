@@ -10,33 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
-  m_Name: tut-welcomeText
+  m_Name: hitLeft4
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
   - beat: 1
     time: -1
     useTime: 0
-    item: {fileID: 8255621152595982435, guid: ceb9822bf30e14ecfaba092f62e6708c, type: 3}
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0, y: 0, z: 20}
+    position: {x: -0.75, y: 0, z: 0.75}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 9
+  - beat: 2
     time: -1
     useTime: 0
-    item: {fileID: 7892402988313613051, guid: 06c44d2bd2c85427d8bcf2f24a7a7d38, type: 3}
+    item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0, y: 0, z: 20}
+    position: {x: -0.25, y: 0, z: 0.75}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 17
+  - beat: 3
     time: -1
     useTime: 0
-    item: {fileID: 5895892040128088774, guid: 8f264aa615b3c4a4483893d502d58aed, type: 3}
+    item: {fileID: 2474768178300293423, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0, y: 0, z: 20}
+    position: {x: 0.25, y: 0, z: 0.75}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4
+    time: -1
+    useTime: 0
+    item: {fileID: 1809690065059926116, guid: 30f7b24183bd647ca94f7c9b70f188d2, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.75, y: 0, z: 0.75}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
