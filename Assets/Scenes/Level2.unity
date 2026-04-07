@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &32355998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4937619020537895284, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+  m_PrefabInstance: {fileID: 1687109679}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244209040
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &662468948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +306,7 @@ MonoBehaviour:
     originPosition: {x: 0, y: 0, z: 0}
     originRotation: {x: 0, y: 0, z: 0, w: 1}
     scale: 1
-  cameraRig: {fileID: 0}
+  cameraRig: {fileID: 32355998}
 --- !u!4 &662468949
 Transform:
   m_ObjectHideFlags: 0
@@ -551,6 +562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[BuildingBlock] Camera Rig'
       objectReference: {fileID: 0}
+    - target: {fileID: 146681309907409220, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6089150315922613876, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -622,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2621990362477084822, guid: e5763c2e256744cad9500c9e7e6aa996, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 2621990362477084822, guid: e5763c2e256744cad9500c9e7e6aa996, type: 3}
       propertyPath: m_LocalRotation.w
@@ -651,6 +666,10 @@ PrefabInstance:
     - target: {fileID: 2621990362477084822, guid: e5763c2e256744cad9500c9e7e6aa996, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181100744382485374, guid: e5763c2e256744cad9500c9e7e6aa996, type: 3}
+      propertyPath: z
+      value: 0.66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -731,7 +750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4715900545788813502, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: delay
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8389558958949024849, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: tutorialMode
@@ -796,8 +815,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 244209043}
   - {fileID: 746719328}
+  - {fileID: 662468949}
   - {fileID: 7998359587919511478}
   - {fileID: 6994218259643143086}
-  - {fileID: 1660696149}
-  - {fileID: 662468949}
   - {fileID: 1687109679}
+  - {fileID: 1660696149}

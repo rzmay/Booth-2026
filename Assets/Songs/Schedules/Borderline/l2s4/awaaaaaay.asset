@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
+  m_Name: awaaaaaay
+  m_EditorClassIdentifier: Assembly-CSharp::Schedule
+  _events:
+  - beat: 1
+    time: 0
+    useTime: 0
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.4, y: 0.4, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 2
+    time: 0
+    useTime: 0
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.4, y: 0.15, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 3
+    time: 0
+    useTime: 0
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.4, y: -0.15, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 3.5
+    time: 0
+    useTime: 0
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.4, y: -0.4, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 3.8
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 3.9
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.1, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.2, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4.1
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.3, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4.2
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.4, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4.3
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.5, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 4.4
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.6, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  axisScale: {x: 1, y: 1, z: 1}

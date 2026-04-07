@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
-  m_Name: 1234-top
+  m_Name: 1234-bot
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
   - beat: 1
@@ -18,7 +18,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
     subschedule: {fileID: 0}
-    position: {x: -1, y: 0.25, z: 0}
+    position: {x: -0.25, y: -0.25, z: 0.66}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
     subschedule: {fileID: 0}
-    position: {x: -0.33, y: 0.5, z: 0}
+    position: {x: -0.1, y: -0.5, z: 0.66}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0.33, y: 0.5, z: 0}
+    position: {x: 0.1, y: -0.5, z: 0.66}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 1, y: 0.25, z: 0}
+    position: {x: 0.25, y: -0.25, z: 0.66}
     scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
