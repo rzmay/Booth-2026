@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 21.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7370077423343659750, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: _enableDynamicResolution
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319319938423577237, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_IsActive
       value: 1
