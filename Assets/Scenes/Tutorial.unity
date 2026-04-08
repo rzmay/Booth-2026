@@ -351,6 +351,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1296029435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/Restart
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: a8afd8c3-25de-44cd-990c-7aa82d5282e4
 --- !u!114 &1585972182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialScheduler
   tutorialSegments:
   - schedule: {fileID: 11400000, guid: 7e9e510e6e10c49f59f7520f76a709b9, type: 2}
-    text: 'Welcome to our Rythm Game!
+    text: 'Welcome to our Rhythm Game!
 
 
       Please calibrate yourself by putting
@@ -461,6 +475,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 139034092173270848, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 25.85
+      objectReference: {fileID: 0}
     - target: {fileID: 146681309907409220, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Name
       value: '[BuildingBlock] Camera Rig'
@@ -476,6 +494,10 @@ PrefabInstance:
     - target: {fileID: 1468911240781171456, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_AspectRatio
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2458980258548358272, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 64.6
       objectReference: {fileID: 0}
     - target: {fileID: 3172772149851600636, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: selectAction
@@ -500,6 +522,14 @@ PrefabInstance:
     - target: {fileID: 5153889528661332736, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_enableAutoSizing
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154873448923218892, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: _restartAction
+      value: 
+      objectReference: {fileID: 1296029435}
+    - target: {fileID: 5463313573475248104, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 25.85
       objectReference: {fileID: 0}
     - target: {fileID: 5593791906764403071, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: selectAction
@@ -545,9 +575,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6396818018986400947, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 21.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6900036720222551253, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286048415799046274, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 21.5
       objectReference: {fileID: 0}
     - target: {fileID: 7807502524894447998, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_text

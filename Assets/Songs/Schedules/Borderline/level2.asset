@@ -106,7 +106,7 @@ MonoBehaviour:
   - beat: 141
     time: -1
     useTime: 0
-    item: {fileID: 0}
+    item: {fileID: 7808822366476597949, guid: 53d56dc98e155482f90b86374ee04952, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0, y: 0, z: 0.66}
     scale: {x: 1, y: 1, z: 1}

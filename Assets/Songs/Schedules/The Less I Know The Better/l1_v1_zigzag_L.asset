@@ -18,7 +18,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0.5, y: 0.6, z: 0.15}
+    position: {x: 0.25, y: 0.3, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
-    position: {x: -0.5, y: 1, z: 0.5}
+    position: {x: -0.25, y: 0.15, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0.5, y: 0.3, z: 0.15}
+    position: {x: 0.25, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
-    position: {x: -0.5, y: 0.7, z: 0.15}
+    position: {x: -0.25, y: -0.15, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
@@ -54,16 +54,16 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
     subschedule: {fileID: 0}
-    position: {x: 0.5, y: 0.1, z: 0.15}
+    position: {x: 0.25, y: -0.3, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
   - beat: 5.5
     time: 0
     useTime: 0
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 1809690065059926116, guid: 30f7b24183bd647ca94f7c9b70f188d2, type: 3}
     subschedule: {fileID: 0}
-    position: {x: -0.5, y: 0.1, z: 0.15}
+    position: {x: -0.25, y: -0.45, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0

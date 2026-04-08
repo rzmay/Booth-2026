@@ -10,43 +10,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
-  m_Name: crissy crossy
+  m_Name: l1_v1_doublehands
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
   - beat: 1
     time: 0
     useTime: 0
-    item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: 0, y: -0.4, z: 0}
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 2ff03794f949e46ecb7c3517bbc5777f, type: 2}
+    position: {x: -0.35, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 2
+  - beat: 1
     time: 0
     useTime: 0
-    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: 0, y: 0.4, z: 0}
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: ac46a81a1d07a4da2adaf4df5d6f130f, type: 2}
+    position: {x: 0.35, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 3
+  - beat: 9
     time: 0
     useTime: 0
-    item: {fileID: 2474768178300293423, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: 0.4, y: 0, z: 0}
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: ac46a81a1d07a4da2adaf4df5d6f130f, type: 2}
+    position: {x: 0.35, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 4
+  - beat: 9
     time: 0
     useTime: 0
-    item: {fileID: 7559516121658227523, guid: 44813847a85fa47f98930d635a50ff10, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: -0.4, y: 0, z: 0}
+    item: {fileID: 0}
+    subschedule: {fileID: 11400000, guid: 2ff03794f949e46ecb7c3517bbc5777f, type: 2}
+    position: {x: -0.35, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  axisScale: {x: 1, y: 1, z: 1}
+  axisScale: {x: 0.5, y: 1, z: 1}

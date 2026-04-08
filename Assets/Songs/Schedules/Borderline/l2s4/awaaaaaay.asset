@@ -88,7 +88,7 @@ MonoBehaviour:
   - beat: 4.2
     time: 0
     useTime: 0
-    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.4, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   - beat: 4.3
     time: 0
     useTime: 0
-    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    item: {fileID: 7559516121658227523, guid: 44813847a85fa47f98930d635a50ff10, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.5, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   - beat: 4.4
     time: 0
     useTime: 0
-    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    item: {fileID: 7050717569898637890, guid: 45ed0fc8a302a40a496848538cae1042, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.6, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
