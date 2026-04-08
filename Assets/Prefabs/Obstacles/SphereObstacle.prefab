@@ -162,6 +162,7 @@ MonoBehaviour:
   hitReward: 1
   minHitStrength: 0.0001
   hitSpeedMultiplier: 3
+  lookAtPlayer: 0
 --- !u!1001 &3058115158147209397
 PrefabInstance:
   m_ObjectHideFlags: 0
