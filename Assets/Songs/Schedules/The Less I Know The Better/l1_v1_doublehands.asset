@@ -31,6 +31,15 @@ MonoBehaviour:
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
+  - beat: 7
+    time: 0
+    useTime: 0
+    item: {fileID: 1060266295964885938, guid: c967186e30a3d644cb7fb474fa76b5de, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.35, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   - beat: 9
     time: 0
     useTime: 0
@@ -45,6 +54,15 @@ MonoBehaviour:
     useTime: 0
     item: {fileID: 0}
     subschedule: {fileID: 11400000, guid: 2ff03794f949e46ecb7c3517bbc5777f, type: 2}
+    position: {x: -0.35, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 15
+    time: 0
+    useTime: 0
+    item: {fileID: 1060266295964885938, guid: c967186e30a3d644cb7fb474fa76b5de, type: 3}
+    subschedule: {fileID: 0}
     position: {x: -0.35, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
