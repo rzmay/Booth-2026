@@ -31,7 +31,7 @@ public class CalibrationManager : BoolValueSource
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        cameraRig = FindObjectOfType<OVRCameraRig>();
+        cameraRig = FindFirstObjectByType<OVRCameraRig>();
     }
 
     private void LateUpdate()

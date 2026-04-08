@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EndMarker : Schedulable
 {
-  public float scheduleAhead = 0f;
+  override public float scheduleAhead { get { return 0f; } }
 
   void Start()
   {
