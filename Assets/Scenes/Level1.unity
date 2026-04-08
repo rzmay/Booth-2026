@@ -119,20 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &415178185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: XRI Right Interaction/Restart
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_ActionId: a8afd8c3-25de-44cd-990c-7aa82d5282e4
 --- !u!1 &746719326
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 5154873448923218892, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: _restartAction
       value: 
-      objectReference: {fileID: 415178185}
+      objectReference: {fileID: 1928884737}
     - target: {fileID: 6089150315922613876, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -394,6 +380,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1928884737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/Restart
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: a8afd8c3-25de-44cd-990c-7aa82d5282e4
 --- !u!1001 &7998359587919511478
 PrefabInstance:
   m_ObjectHideFlags: 0

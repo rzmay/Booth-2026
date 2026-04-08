@@ -6,8 +6,8 @@ public class SimpleObstacle : Obstacle
     public float destroyAfter = 6f;
     private Rigidbody rb;
     [SerializeField] public float speed = 1f;
-    [SerializeField] public float maxSpawnDistance = 10f;
-    public override float scheduleAhead => maxSpawnDistance / speed;
+    [SerializeField] public float spawnDistance = 10f;
+    public override float scheduleAhead => spawnDistance / speed;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

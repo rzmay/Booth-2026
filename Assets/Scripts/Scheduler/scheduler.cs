@@ -194,14 +194,13 @@ public class Scheduler : MonoBehaviour
     private void SpawnEvent(Schedule.Event evt)
     {
         bool useAuthoredTransform = evt.item is ScheduledText;
-        Obstacle obstacleItem = evt.item as Obstacle;
+        SimpleObstacle obstacleItem = evt.item as SimpleObstacle;
         Vector3 worldPos = evt.position;
         Quaternion worldRot = evt.rotation;
 
-
         if (obstacleItem != null)
         {
-            worldPos = _basePosition + (_baseRotation * new Vector3(0f, 0f, obstacleItem.maxSpawnDistance));
+            worldPos = _basePosition + (_baseRotation * new Vector3(0f, 0f, obstacleItem.spawnDistance));
             worldRot = Quaternion.LookRotation((_basePosition - worldPos).normalized, _baseRotation * Vector3.up);
             Debug.Log("OBSTACLE: SPAWNING EVENT " + evt + " AT WORLD POSITION " + worldPos);
         }
@@ -215,7 +214,6 @@ public class Scheduler : MonoBehaviour
         {
             Debug.Log("YES AUTH: SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + worldPos);
         }
-
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
 
