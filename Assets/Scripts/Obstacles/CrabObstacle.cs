@@ -12,6 +12,7 @@ public class CrabObstacle : Obstacle
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        transform.position -= moveDirection.normalized * speed * (scheduleAhead - (Time.time - startTime));
         animator.Play("Claw_Attack");
         Destroy(gameObject, destroyAfter);
     }

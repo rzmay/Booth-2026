@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Obstacle : MonoBehaviour
+public abstract class Obstacle : Schedulable
 {
     // Can this be defended against?
     public bool invulnerable = true;
@@ -9,7 +9,6 @@ public abstract class Obstacle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
     }
 
     // Update is called once per frame
