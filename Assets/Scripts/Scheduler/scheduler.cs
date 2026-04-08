@@ -172,18 +172,9 @@ public class Scheduler : MonoBehaviour
         Vector3 worldPos = evt.position;
         Quaternion worldRot = evt.rotation;
 
-<<<<<<< HEAD
-        if (obstacleItem != null)
-        {
-            worldPos = _basePosition + (_baseRotation * new Vector3(0f, 0f, obstacleItem.spawnDistance));
-            worldRot = Quaternion.LookRotation((_basePosition - worldPos).normalized, _baseRotation * Vector3.up);
-            Debug.Log("OBSTACLE: SPAWNING EVENT " + evt + " AT WORLD POSITION " + worldPos);
-        }
-=======
 
         if (obstacleItem != null) worldPos = evt.position + Vector3.forward * obstacleItem.spawnDistance;
 
->>>>>>> origin/main
         if (!useAuthoredTransform)
         {
             worldPos = calibrationManager.ConvertNormalizedToWorldPosition(worldPos, obstacleItem == null);
