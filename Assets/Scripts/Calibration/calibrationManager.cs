@@ -105,7 +105,7 @@ public class CalibrationManager : BoolValueSource
         currentCalibration.isCalibrated = true;
     }
 
-    public Vector3 ConvertNormalizedToWorldPosition(Vector3 position)
+    public Vector3 ConvertNormalizedToWorldPosition(Vector3 position, bool useScale = true)
     {
         if (!currentCalibration.isCalibrated)
         {
@@ -113,8 +113,8 @@ public class CalibrationManager : BoolValueSource
             return position;
         }
 
-        Debug.Log("Converting normalized position " + position + " to world position using calibration: " + currentCalibration);
-        Vector3 newPos = position * currentCalibration.scale;
+        Vector3 newPos = position;
+        if (useScale) newPos *= currentCalibration.scale;
 
         return currentCalibration.originPosition + currentCalibration.originRotation * newPos;
     }

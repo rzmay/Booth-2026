@@ -49,6 +49,5 @@ public abstract class Obstacle : Schedulable
 
         // Decrease streak if we hit the player
         if (player != null) StreakTracker.Instance.streak -= streakDamage;
-        Destroy(gameObject);
     }
 }

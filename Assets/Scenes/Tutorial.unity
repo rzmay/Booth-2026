@@ -424,6 +424,27 @@ MonoBehaviour:
     useBool: 0
     boolValue: {fileID: 0}
     bufferBeats: 4
+  - schedule: {fileID: 11400000, guid: b93a2b52e338e47729d93fb95ec3196a, type: 2}
+    text: 'Try to dodge this obstacle!
+
+
+      If it hits you, you will lose points.'
+    gameObjects: []
+    requiredPoints: 0
+    useBool: 0
+    boolValue: {fileID: 0}
+    bufferBeats: 8
+  - schedule: {fileID: 11400000, guid: 1028ded3bc13a42c695e71042c0b8ce2, type: 2}
+    text: 'Obstacles with rings can be hit. Use your controller to hit this obstacle
+      away!
+
+
+      Hitting obstacles away will give you points!'
+    gameObjects: []
+    requiredPoints: 1
+    useBool: 0
+    boolValue: {fileID: 0}
+    bufferBeats: 8
   - schedule: {fileID: 11400000, guid: 6e17445fa9dae43eab8e203bd4a7ae12, type: 2}
     text: Awesome! You're ready to play!
     gameObjects: []
