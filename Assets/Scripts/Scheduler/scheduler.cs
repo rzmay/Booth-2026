@@ -41,11 +41,6 @@ public class Scheduler : MonoBehaviour
     public bool spawnRelative = true;
     public float getTransform = -2f; // Legacy field; calibration is now captured on player input.
     public float heightOffset = -0.5f;
-    private Vector3 _basePosition;
-    private Quaternion _baseRotation;
-    private bool _gotTransform = false;
-    private bool _usingCalibration = false;
-
 
     private List<Schedule.Event> _events = new();
 
@@ -87,27 +82,6 @@ public class Scheduler : MonoBehaviour
 
         // check if we have more events to schedule
         if (!HasMoreEvents()) return;
-
-
-        if (calibrationManager.CurrentCalibration.isCalibrated)
-        {
-            if (!_usingCalibration)
-            {
-                CalibrationData calibration = calibrationManager.CurrentCalibration;
-                _basePosition = calibration.originPosition;
-                _baseRotation = calibration.originRotation;
-                _gotTransform = true;
-                _usingCalibration = true;
-            }
-        }
-        else
-        {
-            _basePosition = Player.Instance.transform.position + new Vector3(0, heightOffset, 0);
-            _baseRotation = Player.Instance.transform.rotation;
-            _gotTransform = true;
-            _usingCalibration = false;
-        }
-
 
         ProcessDueEvents();
     }
@@ -198,21 +172,22 @@ public class Scheduler : MonoBehaviour
         Vector3 worldPos = evt.position;
         Quaternion worldRot = evt.rotation;
 
+<<<<<<< HEAD
         if (obstacleItem != null)
         {
             worldPos = _basePosition + (_baseRotation * new Vector3(0f, 0f, obstacleItem.spawnDistance));
             worldRot = Quaternion.LookRotation((_basePosition - worldPos).normalized, _baseRotation * Vector3.up);
             Debug.Log("OBSTACLE: SPAWNING EVENT " + evt + " AT WORLD POSITION " + worldPos);
         }
+=======
+
+        if (obstacleItem != null) worldPos = evt.position + Vector3.forward * obstacleItem.spawnDistance;
+
+>>>>>>> origin/main
         if (!useAuthoredTransform)
         {
-            worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
-            worldRot = _baseRotation * evt.rotation;
-            Debug.Log("!AUTH: SPAWNING EVENT " + evt + " AT NORMALIZED POSITION " + worldPos);
-        }
-        else
-        {
-            Debug.Log("YES AUTH: SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + worldPos);
+            worldPos = calibrationManager.ConvertNormalizedToWorldPosition(worldPos, obstacleItem == null);
+            // worldRot *= calibrationManager.CurrentCalibration.originRotation;
         }
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
