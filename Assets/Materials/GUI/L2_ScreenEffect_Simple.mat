@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: L1_ScreenEffect
-  m_Shader: {fileID: -6465566751694194690, guid: 891361b5e93494f76a4f0fa9e5bff0e3, type: 3}
+  m_Name: L2_ScreenEffect_Simple
+  m_Shader: {fileID: -6465566751694194690, guid: 4d38e6f8faf584a929654dbbfa66f387, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -42,30 +42,47 @@ Material:
     m_Ints: []
     m_Floats:
     - _Amount: 1
-    - _Beat: 0.89444447
-    - _BottomStripeSize: 0.025
+    - _BackgroundScale: 10
+    - _BackgroundSpeed: 0.1
+    - _Beat: 0.99
+    - _CloudDetail: 5
+    - _CloudDetailSpeed: 0
+    - _CloudScale: 20
+    - _CloudSpeed: 0.05
+    - _CloudThreshold: 0.45
     - _ColorMask: 15
-    - _DilationPower: 0.74999994
-    - _DistortionAngle: 4
-    - _DistortionFeather: 0.5
-    - _DistortionSpeed: 0.25
+    - _DilationPower: 0
+    - _DuneDisplacementStrength: 0.5
+    - _DuneFrequency: 3
+    - _DuneScale: 2.5
+    - _DuneStrength: 2
     - _LerpPower: 0.5
     - _MaxRadius: 0.7
     - _MinRadius: 0
-    - _NumStripes: 100
+    - _SandOpacity: 10
+    - _SandPatternScale: 10
+    - _SandScale: 1000
+    - _SandSpeedMax: 0.75
+    - _SandSpeedMin: 0.5
+    - _SandThresholdMax: 0.4
+    - _SandThresholdMin: 0.55
     - _ScaleWithAmount: 1.25
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _StripeColorSpeed: 0.5
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1
+    - _WindAngle: 45
+    - _WindowScale: 3
+    - _WindowSpeed: 0.05
+    - _WindowThreshold: 0.5
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _DistortionSize: {r: 5, g: 2.5, b: 0, a: 0}
-    - _DistortionStrength: {r: 1, g: 1.5, b: 0, a: 0}
-    - _StripeBaseColor: {r: 0.06666665, g: 0.07058821, b: 0.050980367, a: 1}
+    - _DuneColor: {r: 0.21568623, g: 0.14141035, b: 0.07450979, a: 1}
+    - _SandColor_1: {r: 0.6415094, g: 0.34656906, b: 0.23905295, a: 1}
+    - _SandColor_2: {r: 1, g: 0.66370976, b: 0.43867916, a: 1}
+    - _WindowColor: {r: 0.40392157, g: 0.635294, b: 0.6588235, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

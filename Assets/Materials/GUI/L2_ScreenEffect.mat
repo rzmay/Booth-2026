@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 0
+    - _Amount: 1
     - _BackgroundScale: 5
     - _BackgroundSpeed: 0.1
     - _Beat: 0.99
@@ -57,7 +57,7 @@ Material:
     - _DuneScale: 2.5
     - _DuneStrength: 2
     - _LerpPower: 0.5
-    - _MaxRadius: 1
+    - _MaxRadius: 0.7
     - _MinRadius: 0
     - _SandOpacity: 10
     - _SandPatternScale: 10

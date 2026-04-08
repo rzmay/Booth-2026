@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainOVR.unity
     guid: 8036a3b5b03f849128aeaffa9097f6f9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 9790af87009f442f4ab9052823f056e0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestingTut.unity
     guid: 31a8383f12d73423e9e1cc47c0e767d9
   - enabled: 1

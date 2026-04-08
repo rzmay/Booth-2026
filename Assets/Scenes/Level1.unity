@@ -260,6 +260,20 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &1116639094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI UI/RaySelect
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: 42dc8c12-7412-4a80-8020-e8514e74220e
 --- !u!1001 &1549546722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,6 +293,14 @@ PrefabInstance:
     - target: {fileID: 4288198288244753721, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_fontSize
       value: 20.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297624826764911673, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154873448923218892, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: initialMenu
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5154873448923218892, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: _restartAction
@@ -388,6 +410,10 @@ PrefabInstance:
       propertyPath: states.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
+      propertyPath: tutorialCalibrationAction
+      value: 
+      objectReference: {fileID: 1116639094}
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: states.Array.data[0].state
       value: 1

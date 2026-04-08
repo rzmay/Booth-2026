@@ -69,7 +69,7 @@ public class StreakTracker : MonoBehaviour
 
         int i = Mathf.Clamp(level, 0, _song.streakScoring.Count - 1);
         streak += _song.streakScoring[i][result];
-        score += _song.streakScoring[i][result] * i; // Scoring scales more with harder cues
+        score += _song.streakScoring[i][result] * (i + 1); // Scoring scales more with harder cues
     }
 
     public void LoadSongData(SongData songData)

@@ -39,6 +39,7 @@ public class TutorialScheduler : MonoBehaviour
     {
         public Schedule schedule;
         [TextArea] public string text;
+        [SerializeField] public List<GameObject> gameObjects;
         public float requiredPoints;
         public bool useBool;
         public BoolValueSource boolValue;
@@ -69,7 +70,6 @@ public class TutorialScheduler : MonoBehaviour
 
         //set calibration to false
         _calibrationManager.SetCalibrationBool(false);
-        Debug.Log("set calibration to false in tutorial scheduler");
         _currentSegmentIndex = 0;
         _tutorialRunning = true;
         _tutorialComplete = false;
@@ -104,10 +104,24 @@ public class TutorialScheduler : MonoBehaviour
         _scheduler.LoadSchedule(currentSegment.schedule);
         _scheduler.Reset();
 
-        _segmentStartScore = _streakTracker.score;
+        // Reset streak rather than tracking the new score
+        _streakTracker.streak = _segmentStartScore;
         _segmentFinishStartBeat = -1f;
 
         _text.text = currentSegment.text;
+
+        SetGameObjectsActive(_currentSegmentIndex - 1, false);
+        SetGameObjectsActive(_currentSegmentIndex, true);
+    }
+
+    private void SetGameObjectsActive(int i, bool active)
+    {
+        if (i < 0 || tutorialSegments.Count <= i) return;
+
+        foreach (GameObject go in tutorialSegments[i].gameObjects)
+        {
+            go.SetActive(active);
+        }
     }
 
     private void CheckCurrentSegment()
@@ -132,6 +146,9 @@ public class TutorialScheduler : MonoBehaviour
     public void AdvanceToNextSegment()
     {
         _currentSegmentIndex++;
+
+        // Track starting score
+        _segmentStartScore = _streakTracker.streak;
 
         if (_currentSegmentIndex >= tutorialSegments.Count)
         {
@@ -161,7 +178,8 @@ public class TutorialScheduler : MonoBehaviour
 
     private float GetCurrentSegmentPoints()
     {
-        return _streakTracker.score - _segmentStartScore;
+        Debug.Log($"_streakTracker.streak[{_streakTracker.streak}] - _segmentStartScore[{_segmentStartScore}] = {_streakTracker.streak - _segmentStartScore}");
+        return _streakTracker.streak - _segmentStartScore;
     }
 
     private bool IsCurrentSegmentFinished()

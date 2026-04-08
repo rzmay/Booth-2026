@@ -18852,11 +18852,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8586349393220857720, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
-      propertyPath: _menuObjects.Array.size
-      value: 2
+      propertyPath: '_menuObjects.Array.data[0]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8586349393220857720, guid: b2afd136b1f184afcb18e15943b37242, type: 3}
-      propertyPath: '_menuObjects.Array.data[0]'
+      propertyPath: '_menuObjects.Array.data[1]'
       value: 
       objectReference: {fileID: 5433287038146727787}
     - target: {fileID: 9058839765091162492, guid: b2afd136b1f184afcb18e15943b37242, type: 3}

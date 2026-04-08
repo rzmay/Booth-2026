@@ -142,7 +142,7 @@ public class Scheduler : MonoBehaviour
     // does this have more events to initialize?
     public bool HasMoreEvents()
     {
-        if (schedule == null) return false;
+        if (schedule == null || _events.Count == 0) return false;
 
         return _nextIndex < _events.Count;
     }
