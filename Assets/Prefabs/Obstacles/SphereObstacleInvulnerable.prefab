@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereObstacleInvulnerable
       objectReference: {fileID: 0}
+    - target: {fileID: 5222704331992135960, guid: c967186e30a3d644cb7fb474fa76b5de, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5152820253216416592, guid: c967186e30a3d644cb7fb474fa76b5de, type: 3}

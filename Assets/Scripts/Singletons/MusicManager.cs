@@ -31,6 +31,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private List<StateConfig> states;
     [SerializeField] private List<AudioClip> cheers;
     [SerializeField] private InputActionReference tutorialCalibrationAction;
+    [SerializeField] private AudioSource cheerAudioSource;
 
     // How quickly does each track come in?
     public float volumePower = 0.25f;
@@ -151,7 +152,8 @@ public class MusicManager : MonoBehaviour
     {
         AudioClip clip = cheers[Random.Range(0, cheers.Count)];
 
-        AudioUtility.PlayClipAtPointWithVariation(clip, Player.Instance.transform.position, false);
+        cheerAudioSource.clip = clip;
+        cheerAudioSource.Play();
     }
 
     private void OnTutorialCalibrationAction(InputAction.CallbackContext obj)

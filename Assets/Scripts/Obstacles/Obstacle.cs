@@ -52,6 +52,10 @@ public abstract class Obstacle : Schedulable
         // Decrease streak if we hit the player
         StreakTracker.Instance.streak -= streakDamage;
 
-        if (collisionClip != null) AudioUtility.PlayClipAtPointWithVariation(collisionClip, collision.contacts[0].point, true);
+        if (collisionClip != null && player.obstacleAudioSource != null)
+        {
+            player.obstacleAudioSource.clip = collisionClip;
+            player.obstacleAudioSource.Play();
+        }
     }
 }

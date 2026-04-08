@@ -56,9 +56,17 @@ PrefabInstance:
       propertyPath: invulnerable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6649734703004070206, guid: eb80572d0fe3d41d1ae9408fbe1b8dfb, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7281134725552097668, guid: eb80572d0fe3d41d1ae9408fbe1b8dfb, type: 3}
       propertyPath: m_Name
       value: CrabObstacleInvulnerable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281134725552097668, guid: eb80572d0fe3d41d1ae9408fbe1b8dfb, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

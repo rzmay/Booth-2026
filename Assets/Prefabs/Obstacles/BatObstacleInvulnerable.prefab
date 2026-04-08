@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatObstacleInvulnerable
       objectReference: {fileID: 0}
+    - target: {fileID: 1771043287382731974, guid: 1f61e9adafdfd4b96baea5e141437ba8, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2164263061790133796, guid: 1f61e9adafdfd4b96baea5e141437ba8, type: 3}
       propertyPath: hitReward
       value: 0
@@ -55,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 3954964108512027196, guid: 1f61e9adafdfd4b96baea5e141437ba8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252699903521812332, guid: 1f61e9adafdfd4b96baea5e141437ba8, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

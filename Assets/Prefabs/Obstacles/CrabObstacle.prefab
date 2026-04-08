@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5136467573277888747}
   - component: {fileID: 3738067180963202832}
   - component: {fileID: 5788977400100393423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrabT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 376871955569406124}
   - component: {fileID: 3844018086955164600}
   - component: {fileID: 4005637862898377514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrabObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,6 +185,7 @@ MonoBehaviour:
   minHitStrength: 0.0001
   hitSpeedMultiplier: 3
   lookAtPlayer: 0
+  hapticClip: {fileID: 2460798210113038985, guid: 76653393484994c67ac40b8513436ad3, type: 3}
 --- !u!54 &4005637862898377514
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -299,6 +300,10 @@ PrefabInstance:
     - target: {fileID: 7922646691302161381, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
       propertyPath: m_Name
       value: EQRing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922646691302161381, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

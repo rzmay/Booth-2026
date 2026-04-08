@@ -20,7 +20,7 @@ public static class AudioUtility
     // Add an AudioSource component
     AudioSource audioSource = tempAudioObject.AddComponent<AudioSource>();
     audioSource.clip = clip;
-    audioSource.volume = 1f;
+    audioSource.volume = volume;
     audioSource.pitch = pitch;
     audioSource.spatialize = spatialize;
     audioSource.spatialBlend = spatialize ? 1f : 0f;
@@ -30,10 +30,6 @@ public static class AudioUtility
     {
       audioSource.outputAudioMixerGroup = _mixerGroup;
     }
-
-    // Add the Meta XR Audio Source component
-    MetaXRAudioSource metaXRAudioSource = tempAudioObject.AddComponent<MetaXRAudioSource>();
-    metaXRAudioSource.GainBoostDb = volume;
 
     // Play the audio
     audioSource.Play();

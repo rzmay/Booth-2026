@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3954964108512027196}
   - component: {fileID: 6004702749173306950}
   - component: {fileID: 2164263061790133796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BatObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8359065199148939891}
   - component: {fileID: 6045425864803012281}
   - component: {fileID: 3311774453741644879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BatObstacleInvulnerable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,6 +285,10 @@ PrefabInstance:
     - target: {fileID: 7922646691302161381, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
       propertyPath: m_Name
       value: EQRing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922646691302161381, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

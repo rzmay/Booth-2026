@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     public Hand leftHand;
     public Hand rightHand;
+    public AudioSource obstacleAudioSource;
     [HideInInspector] public HapticsController hapticsController;
 
     void Awake()

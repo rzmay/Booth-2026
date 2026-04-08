@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8480649676007195796}
   - component: {fileID: 1511130643817767833}
   - component: {fileID: 1060266295964885938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SphereObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,6 +164,7 @@ MonoBehaviour:
   minHitStrength: 0.0001
   hitSpeedMultiplier: 3
   lookAtPlayer: 0
+  hapticClip: {fileID: 2460798210113038985, guid: 76653393484994c67ac40b8513436ad3, type: 3}
 --- !u!1001 &3058115158147209397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,6 +252,10 @@ PrefabInstance:
     - target: {fileID: 7922646691302161381, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
       propertyPath: m_Name
       value: EQRing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922646691302161381, guid: db522df1ec9f64118b8fc8e42dc80266, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
