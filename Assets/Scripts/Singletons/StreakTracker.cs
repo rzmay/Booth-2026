@@ -60,7 +60,7 @@ public class StreakTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_scoreLabel != null) _scoreLabel.text = _score.ToString();
+        if (_scoreLabel != null) _scoreLabel.text = Mathf.Ceil(_score).ToString();
     }
 
     void _TrackCue(MovementCue.Result result, int level = 0)

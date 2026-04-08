@@ -54,7 +54,7 @@ MonoBehaviour:
   lateWindowBeats: 1
   onTimeWindow: 0.25
   perfectWindow: 0.1
-  hitRadius: 0.1
+  hitRadius: 0.085
 --- !u!114 &8168223611347620439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10035,7 +10035,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.0875, y: 0.0875, z: 0.0875}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 969035525221680889}
