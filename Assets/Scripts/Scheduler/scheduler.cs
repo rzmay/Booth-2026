@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // SCHEDULER CLASS
 // handles the scheduling of events based on the metronome's beat timing, allowing for precise timing of gameplay events and visual effects in sync with the music
 [RequireComponent(typeof(Metronome))]
@@ -13,16 +14,21 @@ public class Scheduler : MonoBehaviour
     // 3. keeps a pointer nextIndex into the list of events to always know the next event to be scheduled
     // 4. runs update loop. If an event is due to run on timestep curTime + scheduleAheadTime, then we instantiate the prefab and trigger the event, and move the pointer to the next event in the list. This allows us to schedule events slightly ahead of time to ensure they are triggered precisely on beat, even if there are frame rate drops or other performance issues.
 
+
     // VARIABLE INITIALIZATION //
     [SerializeField] public Schedule schedule;
     [SerializeField] private CalibrationManager calibrationManager;
 
+
     private Metronome _metronome;
+
 
     private int _nextIndex = 0;
 
+
     private double _songTime;
     private float _beat;
+
 
     /* Used for resetting.
         * Although songTimeOffset should be synced to beats in this code,
@@ -40,7 +46,9 @@ public class Scheduler : MonoBehaviour
     private bool _gotTransform = false;
     private bool _usingCalibration = false;
 
+
     private List<Schedule.Event> _events = new();
+
 
     void Awake()
     {
@@ -48,11 +56,13 @@ public class Scheduler : MonoBehaviour
         calibrationManager = CalibrationManager.Instance;
     }
 
+
     public void Start()
     {
         _nextIndex = 0;
         calibrationManager = CalibrationManager.Instance;
     }
+
 
     // subscribe to metronome events
     void OnEnable()
@@ -60,11 +70,13 @@ public class Scheduler : MonoBehaviour
         _metronome.OnMetronomeTime += OnMetronomeTime;
     }
 
+
     // unsubscribe to metronome events
     void OnDisable()
     {
         _metronome.OnMetronomeTime -= OnMetronomeTime;
     }
+
 
     // subscribed to OnMetronomeTime event in metronome.cs
     private void OnMetronomeTime(float beatFloat, double songTime)
@@ -72,8 +84,10 @@ public class Scheduler : MonoBehaviour
         _songTime = songTime - songTimeOffset;
         _beat = beatFloat - beatOffset;
 
+
         // check if we have more events to schedule
         if (!HasMoreEvents()) return;
+
 
         if (calibrationManager.CurrentCalibration.isCalibrated)
         {
@@ -94,8 +108,10 @@ public class Scheduler : MonoBehaviour
             _usingCalibration = false;
         }
 
+
         ProcessDueEvents();
     }
+
 
     // main logic loop, runs on every update to OnMetronomeTime
     private void ProcessDueEvents()
@@ -105,8 +121,10 @@ public class Scheduler : MonoBehaviour
         {
             Schedule.Event evt = _events[_nextIndex];
 
+
             // Spawn the item associated with the event
             SpawnEvent(evt);
+
 
             // increment
             _nextIndex++;
@@ -114,57 +132,79 @@ public class Scheduler : MonoBehaviour
     }
 
 
+
+
     //####### HELPER FUNCTIONS / UTILITY FUNCTIONS #######//
     public void LoadSchedule(Schedule s)
     {
         schedule = s;
 
+
         // Cache and sort events
         _events = new(schedule.events);
+
 
         // Requires metronome initialization (e.g. bpm > 0)
         float bpm = _metronome.bpm;
         if (bpm > 0) _events.Sort((e1, e2) => e1.GetCanonTime(bpm).CompareTo(e2.GetCanonTime(bpm)));
     }
 
+
     // resets the schedule
     public void Reset()
     {
         _nextIndex = 0;
 
+
         // Set beat offset so that old events may fire again
         beatOffset += Mathf.Floor(_beat) - 1;
+
 
         // Time should be aligned to beats
         songTimeOffset += _metronome.BeatsToTime(Mathf.Floor(_beat));
     }
 
+
     // does this have more events to initialize?
     public bool HasMoreEvents()
     {
-        if (schedule == null || _events.Count == 0) return false;
+        if (schedule == null) return false;
+
 
         return _nextIndex < _events.Count;
     }
+
 
     // checks if event is due to be scheduled in reference to current song time and schedule ahead time
     private bool IsNextEventDue()
     {
         if (schedule == null) return false;
 
+
         // check if event is due to be scheduled within the schedule ahead time
         Schedule.Event evt = _events[_nextIndex];
+
 
         // Use beats if time is negative, othterwise use time
         return GetScheduledTime(evt) - evt.item.scheduleAhead <= _songTime;
     }
 
+
     // spawns a gameObject based off of scheduled event information
     private void SpawnEvent(Schedule.Event evt)
     {
         bool useAuthoredTransform = evt.item is ScheduledText;
+        Obstacle obstacleItem = evt.item as Obstacle;
         Vector3 worldPos = evt.position;
         Quaternion worldRot = evt.rotation;
+
+
+        if (obstacleItem != null)
+        {
+            worldPos = _basePosition + (_baseRotation * new Vector3(0f, 0f, obstacleItem.maxSpawnDistance));
+            worldRot = Quaternion.LookRotation((_basePosition - worldPos).normalized, _baseRotation * Vector3.up);
+            Debug.Log("OBSTACLE: SPAWNING EVENT " + evt + " AT WORLD POSITION " + worldPos);
+        }
         if (!useAuthoredTransform)
         {
             worldPos = calibrationManager.ConvertNormalizedToWorldPosition(evt.position);
@@ -176,16 +216,22 @@ public class Scheduler : MonoBehaviour
             Debug.Log("YES AUTH: SPAWNING EVENT " + evt + " AT AUTHORED POSITION " + worldPos);
         }
 
+
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
 
+
         if (evt.useScale) obj.transform.localScale = evt.scale;
+
 
         // Calculate start time
         double late = _songTime - (GetScheduledTime(evt) - evt.item.scheduleAhead);
 
+
         // Start time is in the past
-        obj.startTime = Time.time - (float)late;
+        // max is used to prevent negative start times, which could cause issues with certain item behaviors (e.g. obstacles moving backwards)
+        obj.startTime = Time.time - Mathf.Max((float)late, 0f);
     }
+
 
     private double GetScheduledTime(Schedule.Event evt)
     {
@@ -193,3 +239,5 @@ public class Scheduler : MonoBehaviour
         else return _metronome.BeatsToTime(evt.beat - 1); // Beats start at 1
     }
 }
+
+

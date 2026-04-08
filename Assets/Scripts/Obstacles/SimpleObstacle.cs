@@ -1,15 +1,21 @@
 using UnityEngine;
 
+
 public class SimpleObstacle : Obstacle
 {
-    public float speed = 5f;
     public float destroyAfter = 6f;
-    public Vector3 moveDirection = Vector3.forward;
     private Rigidbody rb;
+    [SerializeField] public float speed = 1f;
+    [SerializeField] public float maxSpawnDistance = 10f;
+    public override float scheduleAhead => maxSpawnDistance / speed;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        Vector3 dir = transform.forward;
+        float lateBy = Mathf.Max(0f, Time.time - startTime);
+        transform.position += dir * speed * lateBy;
         Destroy(gameObject, destroyAfter);
     }
     // Update is called once per frame
@@ -18,11 +24,12 @@ public class SimpleObstacle : Obstacle
         rb = GetComponent<Rigidbody>();
     }
 
+
     private void FixedUpdate()
     {
-        Vector3 dir = Vector3.Scale(moveDirection.normalized, transform.forward.normalized);
-        rb.linearVelocity = dir * speed;
+        rb.linearVelocity = transform.forward * speed;
     }
+
 
     protected override void OnHit(Collision collision)
     {
