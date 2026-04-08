@@ -89,7 +89,13 @@ public class MenuController : DelayableMonoBehaviour
 
     void OnRestartAction(InputAction.CallbackContext obj)
     {
-        if (_acceptRestart) SceneManager.LoadScene(restartSceneName);
+        if (_acceptRestart)
+        {
+            // Destroy the calibration manager
+            Destroy(CalibrationManager.Instance);
+
+            SceneManager.LoadScene(restartSceneName);
+        }
     }
 
     public void LoadLevel(int index)

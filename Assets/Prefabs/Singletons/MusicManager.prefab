@@ -1253,6 +1253,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 985649ed76e5943f29101f774bfb1a5a, type: 3}
   - {fileID: 8300000, guid: 6d039bc5b454d4ad0bb256b9e6fe9100, type: 3}
   - {fileID: 8300000, guid: 00472295b9004440c883908d64d38d38, type: 3}
+  - {fileID: 8300000, guid: 5609a65e99210470988eef44a47b16c4, type: 3}
   tutorialCalibrationAction: {fileID: 0}
   volumePower: 0.25
 --- !u!114 &2186249624622387085
