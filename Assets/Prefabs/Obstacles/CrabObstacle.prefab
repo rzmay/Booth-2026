@@ -183,6 +183,7 @@ MonoBehaviour:
   hitReward: 1
   minHitStrength: 0.0001
   hitSpeedMultiplier: 3
+  lookAtPlayer: 0
 --- !u!54 &4005637862898377514
 Rigidbody:
   m_ObjectHideFlags: 0
