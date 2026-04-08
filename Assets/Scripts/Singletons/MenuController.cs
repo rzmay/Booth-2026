@@ -78,7 +78,7 @@ public class MenuController : DelayableMonoBehaviour
         }
 
         // If it's game over, accept restart input
-        if (index == 1)
+        if (index == 2)
         {
             Delay(() =>
             {

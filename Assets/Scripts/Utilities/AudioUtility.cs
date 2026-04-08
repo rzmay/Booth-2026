@@ -11,7 +11,7 @@ public static class AudioUtility
     _mixerGroup = mixerGroup;
   }
 
-  public static void PlaySpatialClipAtPoint(AudioClip clip, Vector3 position, float volume = 1.0f, float pitch = 1.0f)
+  public static void PlayClipAtPoint(AudioClip clip, Vector3 position, bool spatialize = true, float volume = 1.0f, float pitch = 1.0f)
   {
     // Create a new GameObject at the specified position
     GameObject tempAudioObject = new GameObject("SpatialAudio");
@@ -22,8 +22,8 @@ public static class AudioUtility
     audioSource.clip = clip;
     audioSource.volume = 1f;
     audioSource.pitch = pitch;
-    audioSource.spatialize = true;
-    audioSource.spatialBlend = 1.0f; // Ensure the audio is fully 3D
+    audioSource.spatialize = spatialize;
+    audioSource.spatialBlend = spatialize ? 1f : 0f;
 
     // Assign the AudioMixerGroup if provided
     if (_mixerGroup != null)
@@ -42,9 +42,9 @@ public static class AudioUtility
     Object.Destroy(tempAudioObject, clip.length);
   }
 
-  public static void PlaySpatialClipAtPointWithVariation(AudioClip clip, Vector3 position, float volume = 1.0f, float pitchVariation = 0.1f)
+  public static void PlayClipAtPointWithVariation(AudioClip clip, Vector3 position, bool spatialize = true, float volume = 1.0f, float pitchVariation = 0.1f)
   {
     float pitch = 1.0f + Random.Range(-1f, 1f) * pitchVariation;
-    PlaySpatialClipAtPoint(clip, position, volume, pitch);
+    PlayClipAtPoint(clip, position, spatialize, volume, pitch);
   }
 }

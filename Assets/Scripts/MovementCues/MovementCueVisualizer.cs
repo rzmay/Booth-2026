@@ -139,8 +139,9 @@ public class MovementCueVisualizer : MonoBehaviour
         // Play particle system
         particleSystem.Play();
 
-        // Show feedback
-        _hitFeedback.Show(result);
+        // Instantiate feedback and show
+        HitFeedback hitFeedbackObject = Instantiate(_hitFeedback, transform.position, transform.rotation);
+        hitFeedbackObject.Show(result);
     }
 
     public void ShowNextLine(List<MovementCue> previous)

@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleObstacle
   invulnerable: 0
   streakDamage: 2
+  collisionClip: {fileID: 8300000, guid: ff337751ff79d4dab93621cbdce4c6bd, type: 3}
   destroyAfter: 6
   speed: 5
   spawnDistance: 10

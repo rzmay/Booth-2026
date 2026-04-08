@@ -1249,6 +1249,11 @@ MonoBehaviour:
     songData: {fileID: 11400000, guid: 396d1de77b8164c0d9b95beb16b4f1ff, type: 2}
   - state: 1
     songData: {fileID: 11400000, guid: 98449bba5a8884d13b459ce2dd6f1952, type: 2}
+  cheers:
+  - {fileID: 8300000, guid: 985649ed76e5943f29101f774bfb1a5a, type: 3}
+  - {fileID: 8300000, guid: 6d039bc5b454d4ad0bb256b9e6fe9100, type: 3}
+  - {fileID: 8300000, guid: 00472295b9004440c883908d64d38d38, type: 3}
+  tutorialCalibrationAction: {fileID: 0}
   volumePower: 0.25
 --- !u!114 &2186249624622387085
 MonoBehaviour:
@@ -1263,6 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StreakTracker
   _streak: 0
+  _scoreLabel: {fileID: 0}
 --- !u!114 &8389558958949024849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,12 +1282,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scheduler
   schedule: {fileID: 0}
+  calibrationManager: {fileID: 0}
   beatOffset: 0
   songTimeOffset: 0
   spawnRelative: 1
   getTransform: -2
   heightOffset: -0.5
-  axisScale: {x: 0.65, y: 0.8, z: 0.7}
 --- !u!1 &8692623827494439402
 GameObject:
   m_ObjectHideFlags: 0

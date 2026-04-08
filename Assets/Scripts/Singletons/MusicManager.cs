@@ -29,6 +29,7 @@ public class MusicManager : MonoBehaviour
     public MusicState startState = MusicState.TutorialMenu;
 
     [SerializeField] private List<StateConfig> states;
+    [SerializeField] private List<AudioClip> cheers;
     [SerializeField] private InputActionReference tutorialCalibrationAction;
 
     // How quickly does each track come in?
@@ -116,6 +117,8 @@ public class MusicManager : MonoBehaviour
     {
         _state = s;
 
+        if (s == MusicState.GameOver) PlayCheer();
+
         // Find matching state and song name if applicable
         StateConfig config = states.Find(s => s.state == _state && (songName == null ? true : s.songData.songName == songName));
         if (config == null) return;
@@ -142,6 +145,13 @@ public class MusicManager : MonoBehaviour
 
         // Delegate starting the music to the metronome
         _metronome.Play();
+    }
+
+    private void PlayCheer()
+    {
+        AudioClip clip = cheers[Random.Range(0, cheers.Count)];
+
+        AudioUtility.PlayClipAtPointWithVariation(clip, Player.Instance.transform.position, false);
     }
 
     private void OnTutorialCalibrationAction(InputAction.CallbackContext obj)

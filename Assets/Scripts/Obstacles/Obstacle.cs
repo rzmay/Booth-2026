@@ -6,6 +6,7 @@ public abstract class Obstacle : Schedulable
     // Can this be defended against?
     public bool invulnerable = true;
     public float streakDamage = 2f;
+    [SerializeField] public AudioClip collisionClip;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,10 +45,13 @@ public abstract class Obstacle : Schedulable
         }
 
 
+        // Check if we collided with the player
         Player player = other.GetComponent<Player>();
-
+        if (player == null) return;
 
         // Decrease streak if we hit the player
-        if (player != null) StreakTracker.Instance.streak -= streakDamage;
+        StreakTracker.Instance.streak -= streakDamage;
+
+        if (collisionClip != null) AudioUtility.PlayClipAtPointWithVariation(collisionClip, collision.contacts[0].point);
     }
 }
