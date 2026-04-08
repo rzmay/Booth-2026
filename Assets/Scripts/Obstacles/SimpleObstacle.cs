@@ -1,3 +1,4 @@
+using Oculus.Haptics;
 using UnityEngine;
 
 public class SimpleObstacle : Obstacle
@@ -9,6 +10,7 @@ public class SimpleObstacle : Obstacle
     public float minHitStrength = 0.0001f;
     public float hitSpeedMultiplier = 3f;
     public bool lookAtPlayer = false;
+    [SerializeField] private HapticClip hapticClip;
 
     public override float scheduleAhead => spawnDistance / speed;
 
@@ -72,5 +74,12 @@ public class SimpleObstacle : Obstacle
 
         _moveDirection = hitDir;
         _currentSpeed = speed * hitSpeedMultiplier;
+
+        HapticSource hapticSource = collision.gameObject.GetComponent<HapticSource>();
+        if (hapticSource != null && hapticClip != null)
+        {
+            hapticSource.clip = hapticClip;
+            hapticSource.Play();
+        }
     }
 }

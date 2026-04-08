@@ -83,6 +83,7 @@ MonoBehaviour:
   minHitStrength: 0.0001
   hitSpeedMultiplier: 3
   lookAtPlayer: 1
+  hapticClip: {fileID: 2460798210113038985, guid: 76653393484994c67ac40b8513436ad3, type: 3}
 --- !u!1 &5252699903521812332
 GameObject:
   m_ObjectHideFlags: 0
