@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SongData
   songName: level3
   tracks:
-  - {fileID: 8300000, guid: 90547181869694b3191725b4b5a4f27a, type: 3}
-  - {fileID: 8300000, guid: 78980c3ef7b914f9ca317ccfc7fa5b94, type: 3}
-  - {fileID: 8300000, guid: 751252b5412154ca9a95396036826b2e, type: 3}
-  - {fileID: 8300000, guid: 7f2487104eff947248136eea6307bd34, type: 3}
+  - {fileID: 8300000, guid: e57e111f148fd47409f53bc8d0af4b50, type: 3}
+  - {fileID: 8300000, guid: 9a9d8b684d78142d7893db9ffeae9d6f, type: 3}
+  - {fileID: 8300000, guid: 17b6209f2986741f89aadc3036bc6662, type: 3}
+  - {fileID: 8300000, guid: 135e8a3af6efb4ca8ab1a89f02393d07, type: 3}
   bpm: 115
   countInBeats: 4
   beatsPerMeasure: 4
@@ -29,8 +29,9 @@ MonoBehaviour:
     onTime: 1
     perfect: 2
   trackThresholds:
-  - 0
-  - 0
-  - 0
-  - 0
-  schedule: {fileID: 0}
+  - 10
+  - 20
+  - 30
+  - 50
+  schedule: {fileID: 11400000, guid: b4c3d2e1f0a97867564534231a0b9c8d, type: 2}
+  screenEffectMaterial: {fileID: 2100000, guid: 25f1dda7adc1e40b38b6d1aaa77ddc26, type: 2}
