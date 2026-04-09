@@ -89,6 +89,7 @@ public sealed class Metronome : MonoBehaviour
 
             // invoke on-beat event
             // this is an event that happens every single beat. We don't need to have an event here (we could just have it be null and its fine) but this on-beat event can be used for a synthesizer, visualizer, or any other visual effects that need to be in sync with the beat of the song.
+            Debug.Log(beat);
             OnBeat?.Invoke(beat, beatDspTime);
             lastBeatIndex = beat;
         }

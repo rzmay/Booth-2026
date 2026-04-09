@@ -10,42 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b2b543707fbc45c99728b725ecd05f0, type: 3}
-  m_Name: l3_runfromdracula_end
+  m_Name: l3_prechorus
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
+  - beat: 1
+    time: 0
+    useTime: 0
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.28, y: 0.14, z: 0.4}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 2
+    time: 0
+    useTime: 0
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: 0.15, y: -0.24, z: 0.4}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
+  - beat: 3
+    time: 0
+    useTime: 0
+    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    subschedule: {fileID: 0}
+    position: {x: -0.09, y: -0.1, z: 0.4}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    useScale: 0
   - beat: 4
     time: 0
     useTime: 0
-    item: {fileID: 2164263061790133796, guid: 1f61e9adafdfd4b96baea5e141437ba8, type: 3}
+    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
     subschedule: {fileID: 0}
-    position: {x: -0.35, y: 0.2, z: 0.4}
-    scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    useScale: 0
-  - beat: 4.75
-    time: 0
-    useTime: 0
-    item: {fileID: 2164263061790133796, guid: 6b23a9ce07cfb4e4ab694b6583760dbe, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: 0, y: -0.3, z: 0}
-    scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    useScale: 0
-  - beat: 5.25
-    time: 0
-    useTime: 0
-    item: {fileID: 3844018086955164600, guid: eb80572d0fe3d41d1ae9408fbe1b8dfb, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: 0, y: -0.1, z: 0}
-    scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    useScale: 0
-  - beat: 5.75
-    time: 0
-    useTime: 0
-    item: {fileID: 1060266295964885938, guid: c967186e30a3d644cb7fb474fa76b5de, type: 3}
-    subschedule: {fileID: 0}
-    position: {x: 0, y: 0.1, z: 0}
+    position: {x: 0.25, y: -0.2, z: 0.4}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0

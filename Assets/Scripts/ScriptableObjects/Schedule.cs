@@ -54,6 +54,14 @@ public class Schedule : ScriptableObject
     {
       return useTime ? time : (float)MusicManager.Metronome.BeatsToTime(beat - 1);
     }
+
+    public float GetCanonSpawnTime(float bpm)
+    {
+      float canonTime = GetCanonTime(bpm);
+      if (item != null) canonTime -= item.scheduleAhead;
+
+      return canonTime;
+    }
   }
 
   // What we set in the editor for events

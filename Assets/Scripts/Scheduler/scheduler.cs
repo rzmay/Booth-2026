@@ -120,7 +120,7 @@ public class Scheduler : MonoBehaviour
 
         // Requires metronome initialization (e.g. bpm > 0)
         float bpm = _metronome.bpm;
-        if (bpm > 0) _events.Sort((e1, e2) => e1.GetCanonTime(bpm).CompareTo(e2.GetCanonTime(bpm)));
+        if (bpm > 0) _events.Sort((e1, e2) => e1.GetCanonSpawnTime(bpm).CompareTo(e2.GetCanonSpawnTime(bpm)));
     }
 
 
@@ -160,7 +160,7 @@ public class Scheduler : MonoBehaviour
 
 
         // Use beats if time is negative, othterwise use time
-        return GetScheduledTime(evt) - evt.item.scheduleAhead <= _songTime;
+        return evt.GetCanonSpawnTime(_metronome.bpm) <= _songTime;
     }
 
 
@@ -188,19 +188,12 @@ public class Scheduler : MonoBehaviour
 
 
         // Calculate start time
-        double late = _songTime - (GetScheduledTime(evt) - evt.item.scheduleAhead);
+        double late = _songTime - evt.GetCanonSpawnTime(_metronome.bpm);
 
 
         // Start time is in the past
         // max is used to prevent negative start times, which could cause issues with certain item behaviors (e.g. obstacles moving backwards)
         obj.startTime = Time.time - Mathf.Max((float)late, 0f);
-    }
-
-
-    private double GetScheduledTime(Schedule.Event evt)
-    {
-        if (evt.useTime) return evt.time;
-        else return _metronome.BeatsToTime(evt.beat - 1); // Beats start at 1
     }
 }
 
