@@ -55,11 +55,11 @@ Material:
     - _DuneDisplacementStrength: 0.5
     - _DuneFrequency: 3
     - _DuneScale: 2.5
-    - _DuneStrength: 2
+    - _DuneStrength: 1.5
     - _LerpPower: 0.5
     - _MaxRadius: 1
     - _MinRadius: 0
-    - _SandOpacity: 20
+    - _SandOpacity: 10
     - _SandPatternScale: 1
     - _SandScale: 1
     - _SandSpeedMax: 0.5
@@ -80,7 +80,7 @@ Material:
     - _WindowThreshold: 0.5
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _DuneColor: {r: 0.21568623, g: 0.14141035, b: 0.07450979, a: 1}
+    - _DuneColor: {r: 0, g: 0.029190063, b: 1, a: 1}
     - _SandColor_1: {r: 0, g: 0.08927679, b: 1, a: 1}
     - _SandColor_2: {r: 1, g: 1, b: 1, a: 1}
     - _WindowColor: {r: 0.40392157, g: 0.635294, b: 0.6588235, a: 1}
