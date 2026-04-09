@@ -8,22 +8,8 @@ public abstract class Obstacle : Schedulable
     public float streakDamage = 2f;
     [SerializeField] public AudioClip collisionClip;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
-
-    protected abstract void OnHit(Collision collision);
+    protected abstract void OnHitHand(Collision collision);
+    protected abstract void OnHitPlayer(Collision collission);
     // Implementation is up to the subclass
 
 
@@ -41,7 +27,11 @@ public abstract class Obstacle : Schedulable
             Hand hand = other.GetComponent<Hand>();
 
 
-            if (hand != null) OnHit(collision);
+            if (hand != null)
+            {
+                OnHitHand(collision);
+                return;
+            }
         }
 
 
@@ -57,5 +47,7 @@ public abstract class Obstacle : Schedulable
             player.obstacleAudioSource.clip = collisionClip;
             player.obstacleAudioSource.Play();
         }
+
+        OnHitPlayer(collision);
     }
 }

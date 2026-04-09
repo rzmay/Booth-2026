@@ -11,6 +11,7 @@ public class SimpleObstacle : Obstacle
     public float hitSpeedMultiplier = 3f;
     public bool lookAtPlayer = false;
     [SerializeField] private HapticClip hapticClip;
+    [SerializeField] private ParticleSystem hitPlayerParticle;
 
     public override float scheduleAhead => spawnDistance / speed;
 
@@ -48,7 +49,18 @@ public class SimpleObstacle : Obstacle
         transform.rotation = Quaternion.LookRotation(toPlayer);
     }
 
-    protected override void OnHit(Collision collision)
+    protected override void OnHitPlayer(Collision collision)
+    {
+        if (hitPlayerParticle != null) Instantiate(
+            hitPlayerParticle,
+            collision.contacts[0].point,
+            Quaternion.LookRotation(-collision.contacts[0].normal, Vector3.up)
+        );
+
+        Destroy(gameObject);
+    }
+
+    protected override void OnHitHand(Collision collision)
     {
         if (_hit) return;
 
