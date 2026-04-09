@@ -448,7 +448,7 @@ MonoBehaviour:
     requiredPoints: 0
     useBool: 0
     boolValue: {fileID: 0}
-    bufferBeats: 4
+    bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 1028ded3bc13a42c695e71042c0b8ce2, type: 2}
     text: 'Obstacles with rings can be hit. Use your controller to hit this obstacle
       away!
@@ -459,7 +459,7 @@ MonoBehaviour:
     requiredPoints: 1
     useBool: 0
     boolValue: {fileID: 0}
-    bufferBeats: 4
+    bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 6e17445fa9dae43eab8e203bd4a7ae12, type: 2}
     text: Awesome! You're ready to play!
     gameObjects: []
