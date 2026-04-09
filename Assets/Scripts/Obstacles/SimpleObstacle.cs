@@ -84,6 +84,13 @@ public class SimpleObstacle : Obstacle
             hitDir = (transform.position - collision.transform.position).normalized;
         }
 
+        // Safeguard: if this direction would move us toward the player, force it away
+        Vector3 toPlayer = (Player.Instance.transform.position - transform.position).normalized;
+        if (Vector3.Dot(hitDir, toPlayer) > 0f)
+        {
+            hitDir = -toPlayer;
+        }
+
         _moveDirection = hitDir;
         _currentSpeed = speed * hitSpeedMultiplier;
 

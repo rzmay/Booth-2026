@@ -1438,7 +1438,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   initialMenu: 0
-  _acceptRestartDelay: 3
+  _acceptRestartDelay: 1.5
   _restartAction: {fileID: 0}
   restartSceneName: Tutorial
 --- !u!114 &2933423426188904067

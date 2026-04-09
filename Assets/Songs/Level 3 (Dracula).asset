@@ -28,10 +28,25 @@ MonoBehaviour:
     late: 0
     onTime: 1
     perfect: 2
+  - miss: -0.5
+    early: 0
+    late: 0
+    onTime: 1
+    perfect: 2
+  - miss: 0
+    early: 0.5
+    late: 0.5
+    onTime: 2
+    perfect: 4
+  - miss: 0
+    early: 1
+    late: 1
+    onTime: 4
+    perfect: 6
   trackThresholds:
-  - 10
-  - 20
-  - 30
-  - 50
+  - 16
+  - 28
+  - 40
+  - 60
   schedule: {fileID: 11400000, guid: b4c3d2e1f0a97867564534231a0b9c8d, type: 2}
-  screenEffectMaterial: {fileID: 2100000, guid: 25f1dda7adc1e40b38b6d1aaa77ddc26, type: 2}
+  screenEffectMaterial: {fileID: 2100000, guid: 6f187adb31a8e46d79d0a98c5e84e861, type: 2}

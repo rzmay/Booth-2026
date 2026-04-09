@@ -106,7 +106,7 @@ MonoBehaviour:
   - beat: 4.5
     time: 0
     useTime: 0
-    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    item: {fileID: 7559516121658227523, guid: 44813847a85fa47f98930d635a50ff10, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.25, y: 0.35, z: 0.4}
     scale: {x: 0, y: 0, z: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   - beat: 4.5
     time: 0
     useTime: 0
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 2474768178300293423, guid: c10ef067b02f2441da27cce31c568b48, type: 3}
     subschedule: {fileID: 0}
     position: {x: -0.25, y: 0.35, z: 0.4}
     scale: {x: 0, y: 0, z: 0}

@@ -88,7 +88,7 @@ MonoBehaviour:
   - beat: 5
     time: 0
     useTime: 0
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 2474768178300293423, guid: c8dbc26000d864a78b98eb6b950eb201, type: 3}
     subschedule: {fileID: 0}
     position: {x: -0.1, y: 0, z: 0.4}
     scale: {x: 0, y: 0, z: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   - beat: 5
     time: 0
     useTime: 0
-    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    item: {fileID: 5949582436785816111, guid: 258b0d9bd7f7d49f09e33ee4a1182b8a, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.1, y: 0, z: 0.4}
     scale: {x: 0, y: 0, z: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   - beat: 6
     time: 0
     useTime: 0
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 1809690065059926116, guid: 30f7b24183bd647ca94f7c9b70f188d2, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.2, y: 0.15, z: 0.4}
     scale: {x: 0, y: 0, z: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   - beat: 6
     time: 0
     useTime: 0
-    item: {fileID: 6318351171757636787, guid: 4f086682735e745d5951251c4c9ef761, type: 3}
+    item: {fileID: 7050717569898637890, guid: 45ed0fc8a302a40a496848538cae1042, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0.4, y: 0.15, z: 0.4}
     scale: {x: 0, y: 0, z: 0}

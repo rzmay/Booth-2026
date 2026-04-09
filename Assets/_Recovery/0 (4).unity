@@ -415,12 +415,11 @@ MonoBehaviour:
     boolValue: {fileID: 1029750899}
     bufferBeats: 2
   - schedule: {fileID: 11400000, guid: 43b84850979744b8693d9c51cc2f85c4, type: 2}
-    text: 'In this game, your goal is to place your hands in the targets in time
-      with the music.
+    text: 'In this game, your goal is to place your hands in the targets on time.
 
 
-      Try to hit this target with your LEFT hand when the
-      circle closes around it.'
+      Try
+      to hit this target with your LEFT hand when the circle closes around it.'
     gameObjects:
     - {fileID: 364558096}
     requiredPoints: 1
@@ -447,7 +446,7 @@ MonoBehaviour:
     boolValue: {fileID: 0}
     bufferBeats: 4
   - schedule: {fileID: 11400000, guid: b93a2b52e338e47729d93fb95ec3196a, type: 2}
-    text: 'Try to DODGE this obstacle!
+    text: 'Try to dodge this obstacle!
 
 
       If it hits you, you will lose points.'
@@ -457,8 +456,8 @@ MonoBehaviour:
     boolValue: {fileID: 0}
     bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 1028ded3bc13a42c695e71042c0b8ce2, type: 2}
-    text: 'Obstacles with rings can be HIT with your HAND. Use your HAND to HIT this
-      obstacle away!
+    text: 'Obstacles with rings can be hit. Use your controller to hit this obstacle
+      away!
 
 
       Hitting obstacles away will give you points!'
@@ -1561,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8739531384368307707, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8827106603732491350, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
