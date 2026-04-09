@@ -49,16 +49,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 1
+    - _Amount: 0
     - _BackgroundDetail: 300
     - _BackgroundDetailSpeed: 0.0125
     - _BackgroundDetailThreshold: 0.2
     - _BackgroundScale: 10
     - _BackgroundSpeed: 0.05
     - _BackgroundThreshold: 0.4
-    - _Beat: 0.99
+    - _Beat: 0.97333336
     - _ColorMask: 15
-    - _DilationPower: 0.75
+    - _DilationPower: 0
     - _DistortionSpeed: 0.25
     - _DistortionStrength: 1.25
     - _FangsMaxFactor: 5
