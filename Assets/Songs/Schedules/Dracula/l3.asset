@@ -283,7 +283,7 @@ MonoBehaviour:
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 187
+  - beat: 186
     time: 0
     useTime: 0
     item: {fileID: 0}
@@ -292,11 +292,11 @@ MonoBehaviour:
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     useScale: 0
-  - beat: 197
+  - beat: 195
     time: 0
     useTime: 0
     item: {fileID: 0}
-    subschedule: {fileID: 11400000, guid: b5a4938271605f4e3d2c1b0a9f8e7d6c, type: 2}
+    subschedule: {fileID: 11400000, guid: e8f7e6d5c4b3a2918071625344352617, type: 2}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
