@@ -410,18 +410,19 @@ MonoBehaviour:
     boolValue: {fileID: 1029750899}
     bufferBeats: 2
   - schedule: {fileID: 11400000, guid: 43b84850979744b8693d9c51cc2f85c4, type: 2}
-    text: 'In this game, your goal is to hit the targets on time.
+    text: 'In this game, your goal is to place your hands in the targets on time.
 
 
-      Try to
-      hit this target with your left hand when the circle closes around it.'
+      Try
+      to hit this target with your LEFT hand when the circle closes around it.'
     gameObjects: []
     requiredPoints: 1
     useBool: 0
     boolValue: {fileID: 0}
     bufferBeats: 4
   - schedule: {fileID: 11400000, guid: 7af2f5476d0114c9dbca24dda277f8e2, type: 2}
-    text: "Nice! \n\nNow try with both your left and right hands."
+    text: "Nice! \n\nNow hit the PINK target with your LEFT hand and the BLUE target
+      with your RIGHT hand. "
     gameObjects: []
     requiredPoints: 2
     useBool: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
     requiredPoints: 0
     useBool: 0
     boolValue: {fileID: 0}
-    bufferBeats: 8
+    bufferBeats: 4
   - schedule: {fileID: 11400000, guid: 1028ded3bc13a42c695e71042c0b8ce2, type: 2}
     text: 'Obstacles with rings can be hit. Use your controller to hit this obstacle
       away!
@@ -458,7 +459,7 @@ MonoBehaviour:
     requiredPoints: 1
     useBool: 0
     boolValue: {fileID: 0}
-    bufferBeats: 8
+    bufferBeats: 4
   - schedule: {fileID: 11400000, guid: 6e17445fa9dae43eab8e203bd4a7ae12, type: 2}
     text: Awesome! You're ready to play!
     gameObjects: []
