@@ -5,6 +5,7 @@ public class CalibrationManager : BoolValueSource
     [Header("Offsets")]
     [SerializeField] private Vector3 positionOffset = Vector3.zero;
     [SerializeField] private Vector3 rotationOffsetEuler = Vector3.zero;
+    [SerializeField] private float armLengthScale = 1.0f;
 
     [Header("Rotation Constraints")]
     [SerializeField] private bool freezeRotationX = true;
@@ -114,7 +115,7 @@ public class CalibrationManager : BoolValueSource
         }
 
         Vector3 newPos = position;
-        if (useScale) newPos *= currentCalibration.scale;
+        if (useScale) newPos *= currentCalibration.scale * armLengthScale;
 
         return currentCalibration.originPosition + currentCalibration.originRotation * newPos;
     }

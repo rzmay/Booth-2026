@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CalibrationManager
   positionOffset: {x: 0, y: 0, z: 0}
   rotationOffsetEuler: {x: 0, y: 0, z: 0}
+  armLengthScale: 0.9
   freezeRotationX: 1
   freezeRotationY: 0
   freezeRotationZ: 1
@@ -406,7 +407,7 @@ MonoBehaviour:
 
 
       You can
-      press B at any time to restart.'
+      press B at any time to restart the game.'
     gameObjects:
     - {fileID: 2000081747}
     requiredPoints: 0
@@ -423,7 +424,7 @@ MonoBehaviour:
     requiredPoints: 1
     useBool: 0
     boolValue: {fileID: 0}
-    bufferBeats: 4
+    bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 7af2f5476d0114c9dbca24dda277f8e2, type: 2}
     text: "Nice! \n\nTouch PINK targets with your LEFT HAND.\n\nTouch BLUE targets
       with your RIGHT HAND. "
@@ -431,7 +432,7 @@ MonoBehaviour:
     requiredPoints: 2
     useBool: 0
     boolValue: {fileID: 0}
-    bufferBeats: 4
+    bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 1832b9f60753747a3b38228ad33ea5d6, type: 2}
     text: "Great! \nTry touching these three targets ON BEAT when the RINGS close
       around them!\n\nTargets with more RINGS give you more POINTS. "
@@ -439,7 +440,7 @@ MonoBehaviour:
     requiredPoints: 3
     useBool: 0
     boolValue: {fileID: 0}
-    bufferBeats: 4
+    bufferBeats: 6
   - schedule: {fileID: 11400000, guid: b93a2b52e338e47729d93fb95ec3196a, type: 2}
     text: 'Try to DODGE this obstacle!
 
@@ -466,7 +467,7 @@ MonoBehaviour:
 
 
       You can press B at any time to
-      restart.'
+      restart the game.'
     gameObjects: []
     requiredPoints: 0
     useBool: 0
@@ -1424,6 +1425,10 @@ PrefabInstance:
     - target: {fileID: 7370077423343659750, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: _enableDynamicResolution
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370077423343659750, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: requestScenePermissionOnStartup
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7383804446387626495, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer

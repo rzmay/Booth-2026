@@ -16,7 +16,7 @@ MonoBehaviour:
   - beat: 4
     time: -1
     useTime: 0
-    item: {fileID: 499130296517886700, guid: 8ff8af085342347a78111a425a885a23, type: 3}
+    item: {fileID: 499130296517886700, guid: 8bc02c2b08db248a593eaf129acc3db5, type: 3}
     subschedule: {fileID: 0}
     position: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}

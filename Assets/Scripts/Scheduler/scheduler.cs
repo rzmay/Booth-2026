@@ -178,7 +178,7 @@ public class Scheduler : MonoBehaviour
         if (!useAuthoredTransform)
         {
             worldPos = calibrationManager.ConvertNormalizedToWorldPosition(worldPos, obstacleItem == null);
-            // worldRot *= calibrationManager.CurrentCalibration.originRotation;
+            worldRot *= calibrationManager.CurrentCalibration.originRotation;
         }
 
         Schedulable obj = Instantiate(evt.item, worldPos, worldRot);
