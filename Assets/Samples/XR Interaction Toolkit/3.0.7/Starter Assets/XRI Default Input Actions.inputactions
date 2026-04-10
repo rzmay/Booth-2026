@@ -2083,6 +2083,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OverrideRestart",
+                    "type": "Button",
+                    "id": "7d144def-4bcd-4c62-b2d3-ca72951ae0bf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2413,6 +2422,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a646bbb6-aee0-4150-ac82-a6da13a8ea7c",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OverrideRestart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -3033,6 +3053,17 @@
                     "name": "",
                     "id": "ab36ad68-0920-4688-a0ef-d6e4ae89781e",
                     "path": "<XRController>{LeftHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f188d1c9-8570-4295-beff-16e6c32c2765",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

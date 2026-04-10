@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BufferedRayButton
   selectAction: {fileID: 0}
-  hoverGraceSeconds: 0.1
+  hoverGraceSeconds: 0.15
   refreshGraceWhileStillHovered: 1
 --- !u!114 &5094783294922556411
 MonoBehaviour:
@@ -1440,6 +1440,7 @@ MonoBehaviour:
   initialMenu: 0
   _acceptRestartDelay: 1.5
   _restartAction: {fileID: 0}
+  _overrideRestartAction: {fileID: 0}
   restartSceneName: Tutorial
 --- !u!114 &2933423426188904067
 MonoBehaviour:

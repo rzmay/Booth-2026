@@ -163,7 +163,6 @@ public class MovementCue : Schedulable
     {
         Hand handObject = hand == Hand.Side.Left ? Player.Instance.leftHand : Player.Instance.rightHand;
         Vector3 pos = transform.position;
-        Vector3 adjusted_pos = new Vector3(pos.x, pos.y, pos.z + 0.2f);
         float distance = Vector3.Distance(pos, handObject.transform.position);
 
         // Don't do anything if the hand isn't touching

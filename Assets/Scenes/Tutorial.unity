@@ -144,11 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &364558096 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8199176880873863592, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
-  m_PrefabInstance: {fileID: 1714828297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &509820150 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7807502524894447998, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
@@ -356,6 +351,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1098484218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/OverrideRestart
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: 7d144def-4bcd-4c62-b2d3-ca72951ae0bf
 --- !u!114 &1296029435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,20 +379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ActionId: a8afd8c3-25de-44cd-990c-7aa82d5282e4
---- !u!114 &1585972182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: XRI UI/RaySelect
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_ActionId: 42dc8c12-7412-4a80-8020-e8514e74220e
 --- !u!1 &1602856250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8581888343044318486, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
@@ -407,7 +402,11 @@ MonoBehaviour:
 
 
       Please calibrate yourself by putting
-      your arms at your sides and pressing the trigger button on your controller.'
+      your arms at your sides and pressing A on your controller.
+
+
+      You can
+      press B at any time to restart.'
     gameObjects:
     - {fileID: 2000081747}
     requiredPoints: 0
@@ -415,34 +414,29 @@ MonoBehaviour:
     boolValue: {fileID: 1029750899}
     bufferBeats: 2
   - schedule: {fileID: 11400000, guid: 43b84850979744b8693d9c51cc2f85c4, type: 2}
-    text: 'In this game, your goal is to place your hands in the targets in time
-      with the music.
+    text: 'In this game, your goal is to TOUCH the targets with your hands on the
+      BEAT.
 
 
-      Try to hit this target with your LEFT hand when the
-      circle closes around it.'
-    gameObjects:
-    - {fileID: 364558096}
+      Try to TOUCH this target with your LEFT HAND.'
+    gameObjects: []
     requiredPoints: 1
     useBool: 0
     boolValue: {fileID: 0}
     bufferBeats: 4
   - schedule: {fileID: 11400000, guid: 7af2f5476d0114c9dbca24dda277f8e2, type: 2}
-    text: "Nice! \n\nHit PINK targets with your LEFT hand.\nHit BLUE targets with
-      your RIGHT hand. "
+    text: "Nice! \n\nTouch PINK targets with your LEFT HAND.\n\nTouch BLUE targets
+      with your RIGHT HAND. "
     gameObjects: []
     requiredPoints: 2
     useBool: 0
     boolValue: {fileID: 0}
     bufferBeats: 4
   - schedule: {fileID: 11400000, guid: 1832b9f60753747a3b38228ad33ea5d6, type: 2}
-    text: 'Great! Try hitting these four targets on time!
-
-
-      Targets with more
-      rings give you more points. '
+    text: "Great! \nTry touching these three targets ON BEAT when the RINGS close
+      around them!\n\nTargets with more RINGS give you more POINTS. "
     gameObjects: []
-    requiredPoints: 4
+    requiredPoints: 3
     useBool: 0
     boolValue: {fileID: 0}
     bufferBeats: 4
@@ -457,18 +451,22 @@ MonoBehaviour:
     boolValue: {fileID: 0}
     bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 1028ded3bc13a42c695e71042c0b8ce2, type: 2}
-    text: 'Obstacles with rings can be HIT with your HAND. Use your HAND to HIT this
-      obstacle away!
+    text: 'Obstacles with rings can be PUNCHED with your HAND. Use your HAND to PUNCH
+      this obstacle away!
 
 
-      Hitting obstacles away will give you points!'
+      Punching obstacles away will give you points!'
     gameObjects: []
     requiredPoints: 1
     useBool: 0
     boolValue: {fileID: 0}
     bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 6e17445fa9dae43eab8e203bd4a7ae12, type: 2}
-    text: Awesome! You're ready to play!
+    text: 'Awesome! You''re ready to play!
+
+
+      You can press B at any time to
+      restart.'
     gameObjects: []
     requiredPoints: 0
     useBool: 0
@@ -1069,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4797172624007429347, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -41.095016
       objectReference: {fileID: 0}
     - target: {fileID: 4801479304910775798, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
@@ -1147,6 +1145,10 @@ PrefabInstance:
       propertyPath: _restartAction
       value: 
       objectReference: {fileID: 1296029435}
+    - target: {fileID: 5154873448923218892, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: _overrideRestartAction
+      value: 
+      objectReference: {fileID: 1098484218}
     - target: {fileID: 5170291401718192329, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1569,7 +1571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8827284349707106678, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -41.09503
       objectReference: {fileID: 0}
     - target: {fileID: 8845462137339927703, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
@@ -1624,6 +1626,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1928617963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/Restart
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: a8afd8c3-25de-44cd-990c-7aa82d5282e4
 --- !u!1 &2000081747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8744018155906802820, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
@@ -1654,7 +1670,7 @@ PrefabInstance:
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: tutorialCalibrationAction
       value: 
-      objectReference: {fileID: 1585972182}
+      objectReference: {fileID: 1928617963}
     - target: {fileID: 1379324844747476905, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: states.Array.data[0].songData
       value: 

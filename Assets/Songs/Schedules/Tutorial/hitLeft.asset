@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: hitLeft
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   _events:
-  - beat: 1
+  - beat: 4
     time: -1
     useTime: 0
-    item: {fileID: 3102656808963515007, guid: 311646658abec457c8028349f779d338, type: 3}
+    item: {fileID: 5374024570434902070, guid: 218cfc6509edd470483102bb2f1e5da3, type: 3}
     subschedule: {fileID: 0}
     position: {x: -0.25, y: -0.25, z: 0.75}
     scale: {x: 1, y: 1, z: 1}

@@ -17,6 +17,7 @@ public class MenuController : DelayableMonoBehaviour
     public int initialMenu = -1; // Default to no menu active
     [SerializeField] private float _acceptRestartDelay;
     [SerializeField] private InputActionReference _restartAction;
+    [SerializeField] private InputActionReference _overrideRestartAction;
     public string restartSceneName;
 
     private List<bool> _menuActive;
@@ -32,6 +33,8 @@ public class MenuController : DelayableMonoBehaviour
     void Start()
     {
         if (_restartAction != null) _restartAction.action.performed += OnRestartAction;
+        if (_overrideRestartAction != null) _overrideRestartAction.action.performed += OnOverrideRestartAction;
+
         _menuActive = new(new bool[_menuUI.Count]);
 
         // Set initial menu -- no menu
@@ -41,6 +44,7 @@ public class MenuController : DelayableMonoBehaviour
     void OnDestroy()
     {
         if (_restartAction != null) _restartAction.action.performed -= OnRestartAction;
+        if (_overrideRestartAction != null) _overrideRestartAction.action.performed -= OnOverrideRestartAction;
     }
 
     // Update is called once per frame
@@ -96,6 +100,14 @@ public class MenuController : DelayableMonoBehaviour
 
             SceneManager.LoadScene(restartSceneName);
         }
+    }
+
+    void OnOverrideRestartAction(InputAction.CallbackContext obj)
+    {
+        // Destroy the calibration manager
+        Destroy(CalibrationManager.Instance);
+
+        SceneManager.LoadScene(restartSceneName);
     }
 
     public void LoadLevel(int index)
