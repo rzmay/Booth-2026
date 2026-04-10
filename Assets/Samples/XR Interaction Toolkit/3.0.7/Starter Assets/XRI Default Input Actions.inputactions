@@ -2092,6 +2092,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RaySelect",
+                    "type": "Button",
+                    "id": "8ff300f1-c6a8-4b0c-959b-7ce430d1917a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2433,6 +2442,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "OverrideRestart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46b9b42f-ce01-4179-918a-b601c6d75fa5",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92b90211-241f-4b9b-9a2f-b4cb027fe87e",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee13f6af-0c00-4028-8687-a643eddbaa55",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaySelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -3064,6 +3106,39 @@
                     "name": "",
                     "id": "f188d1c9-8570-4295-beff-16e6c32c2765",
                     "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a0501d25-3862-4f55-a18b-bfd07b50cca2",
+                    "path": "<QuestTouchPlusController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3e5a043-efb4-4e7a-9112-9a18b70f69dc",
+                    "path": "<QuestTouchPlusController>/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9281fbb-ea45-4e0a-85c5-ae2221420bcc",
+                    "path": "<QuestTouchPlusController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

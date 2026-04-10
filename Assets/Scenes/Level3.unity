@@ -296,6 +296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 139034092173270848, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 25.85
+      objectReference: {fileID: 0}
     - target: {fileID: 146681309907409220, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Name
       value: '[BuildingBlock] Camera Rig'
@@ -308,6 +312,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 879af3fa80abb42a28affeafc524d32f, type: 2}
+    - target: {fileID: 2458980258548358272, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 64.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4297624826764911673, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -324,6 +332,10 @@ PrefabInstance:
       propertyPath: _overrideRestartAction
       value: 
       objectReference: {fileID: 42301571}
+    - target: {fileID: 5463313573475248104, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_fontSize
+      value: 25.85
+      objectReference: {fileID: 0}
     - target: {fileID: 6089150315922613876, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -474,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4715900545788813502, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: delay
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5735078543829925908, guid: 3df157af62bcf4f3b84b4f117b927bdf, type: 3}
       propertyPath: sources.Array.size

@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &172674029
+--- !u!114 &182024978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,10 +129,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: XRI UI/RaySelect
+  m_Name: XRI Right Interaction/RaySelect
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_ActionId: 42dc8c12-7412-4a80-8020-e8514e74220e
+  m_ActionId: 8ff300f1-c6a8-4b0c-959b-7ce430d1917a
 --- !u!114 &221667071 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4937619020537895284, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!114 &811039295
+--- !u!114 &1007755606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,10 +292,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: XRI UI/RaySelect
+  m_Name: XRI Right Interaction/RaySelect
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_ActionId: 42dc8c12-7412-4a80-8020-e8514e74220e
+  m_ActionId: 8ff300f1-c6a8-4b0c-959b-7ce430d1917a
 --- !u!1 &1029750898
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,13 +452,10 @@ MonoBehaviour:
     boolValue: {fileID: 0}
     bufferBeats: 6
   - schedule: {fileID: 11400000, guid: 1028ded3bc13a42c695e71042c0b8ce2, type: 2}
-    text: 'Obstacles with rings can be PUNCHED with your HAND. Use your HAND to PUNCH
-      this obstacle away!
-
-
-      Punching obstacles away will give you points!'
+    text: Obstacles with RED RINGS can be PUNCHED with your HAND. Try to PUNCH this
+      obstacle away!
     gameObjects: []
-    requiredPoints: 1
+    requiredPoints: 0
     useBool: 0
     boolValue: {fileID: 0}
     bufferBeats: 6
@@ -474,6 +471,20 @@ MonoBehaviour:
     boolValue: {fileID: 0}
     bufferBeats: 8
   _text: {fileID: 509820150}
+--- !u!114 &1649849484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: XRI Right Interaction/RaySelect
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_ActionId: 8ff300f1-c6a8-4b0c-959b-7ce430d1917a
 --- !u!1001 &1714828297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -517,7 +528,7 @@ PrefabInstance:
     - target: {fileID: 219767073352728702, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: selectAction
       value: 
-      objectReference: {fileID: 172674029}
+      objectReference: {fileID: 182024978}
     - target: {fileID: 323064213584524761, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -877,7 +888,7 @@ PrefabInstance:
     - target: {fileID: 3172772149851600636, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: selectAction
       value: 
-      objectReference: {fileID: 2076668206}
+      objectReference: {fileID: 1649849484}
     - target: {fileID: 3176841173573237789, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Alpha
       value: 0
@@ -1170,6 +1181,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5311212081059723068, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5315113297370114313, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1221,7 +1236,7 @@ PrefabInstance:
     - target: {fileID: 5593791906764403071, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: selectAction
       value: 
-      objectReference: {fileID: 811039295}
+      objectReference: {fileID: 1007755606}
     - target: {fileID: 5637733797364536526, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1342,6 +1357,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 21.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6396818018986400947, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6469938441380805118, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1417,6 +1436,10 @@ PrefabInstance:
     - target: {fileID: 7286048415799046274, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_fontSize
       value: 21.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286048415799046274, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7327432616817427304, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
       propertyPath: m_Layer
@@ -1650,20 +1673,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8744018155906802820, guid: 0c1315cdf06834f958594cac6fcf172f, type: 3}
   m_PrefabInstance: {fileID: 1714828297}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2076668206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: XRI UI/RaySelect
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_ActionId: 42dc8c12-7412-4a80-8020-e8514e74220e
 --- !u!1001 &7998359587919511478
 PrefabInstance:
   m_ObjectHideFlags: 0
